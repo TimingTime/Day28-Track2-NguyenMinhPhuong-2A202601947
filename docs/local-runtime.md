@@ -24,6 +24,11 @@ UVA/pinned memory của V2 trên Windows/WSL. Tắt thinking ở chat template
 để dành giới hạn 320 output token của lab cho câu trả lời. Đây là cấu hình laptop;
 không suy ra năng lực phục vụ production từ cấu hình này.
 
+vLLM xuất OTLP bằng `--otlp-traces-endpoint` và tên service `lab28-vllm`, dùng
+OpenTelemetry SDK có sẵn trong image. Nhờ vậy trace có emitter từ chính process
+inference, ngoài API/gateway/Airflow; span client mang tên `lab28.vllm.chat_completion`
+không tự chứng minh server đã xuất trace.
+
 `compose.laptop.yaml` dùng một worker MLflow, Airflow parallelism 1 và Spark
 local[2] với heap 768 MiB, hai shuffle partition để giảm tải cho Docker VM 7.4 GiB.
 Kafka quảng bá listener ngoài qua IPv4 và ghi log vào named volume `kafka-data`.

@@ -7,6 +7,7 @@ services:
     environment:
       # V1 avoids the V2 runner's UVA/pinned-memory requirement on Windows/WSL.
       VLLM_USE_V2_MODEL_RUNNER: "0"
+      OTEL_SERVICE_NAME: lab28-vllm
     command:
       - --model
       - ${LAB28_VLLM_MODEL_ID:-Qwen/Qwen3-1.7B}
@@ -25,5 +26,7 @@ services:
       - --gpu-memory-utilization
       - "0.65"
       - --enforce-eager
+      - --otlp-traces-endpoint
+      - http://otel-collector:4317
       - --default-chat-template-kwargs
       - '{"enable_thinking": false}'
