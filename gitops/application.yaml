@@ -4,11 +4,11 @@ metadata:
   name: lab28-platform
   namespace: argocd
 spec:
-  project: default
+  project: lab28
   source:
-    repoURL: https://github.com/VinUni-AI20k/Day28-Modern-Platform-Lab-Student.git
-    targetRevision: refs/tags/v3.0.0
-    path: deploy/kubernetes/base
+    repoURL: https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git
+    targetRevision: 461dc2244aa4739c24fba12e20e58e6c2b7c1caa
+    path: deploy/kubernetes/overlays/local
   destination:
     server: https://kubernetes.default.svc
     namespace: lab28

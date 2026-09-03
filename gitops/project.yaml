@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: lab28
+  namespace: argocd
+spec:
+  description: Day 28 submission in the dedicated local lab namespace
+  sourceRepos:
+    - https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: lab28
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+    - group: gateway.networking.k8s.io
+      kind: GatewayClass

@@ -4,11 +4,24 @@ resources:
   - ../../base
   - compose-services.yaml
   - gateway-class.yaml
+  - envoy-proxy.yaml
+  - network-policy-local.yaml
 images:
   - name: ghcr.io/vinuni-ai20k/day28-platform-api
     newName: lab28-platform-api
     newTag: submission-20260903-v1
 patches:
+  - target:
+      kind: Gateway
+      name: lab28
+    patch: |-
+      - op: add
+        path: /spec/infrastructure
+        value:
+          parametersRef:
+            group: gateway.envoyproxy.io
+            kind: EnvoyProxy
+            name: local-nodeport
   - path: api-local.yaml
   - target:
       kind: HorizontalPodAutoscaler
