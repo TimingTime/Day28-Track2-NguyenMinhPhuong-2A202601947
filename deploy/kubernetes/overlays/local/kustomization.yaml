@@ -29,7 +29,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/minReplicas
-        value: 1
+        value: 2
       - op: replace
         path: /spec/maxReplicas
         value: 2
@@ -48,4 +48,4 @@ patches:
         value: lab28-api-kubernetes
       - op: add
         path: /data/LAB28_DEMO_REVISION
-        value: baseline
+        value: candidate
