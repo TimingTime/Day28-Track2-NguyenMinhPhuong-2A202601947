@@ -1,0 +1,20 @@
+{
+  "started_at_utc": "2026-09-03T14:11:40.815261+00:00",
+  "finished_at_utc": "2026-09-03T14:17:17.038747+00:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "integration-tests/test_j3_promotion_rollback.py",
+    "integration-tests/test_j4_degraded_recovery.py",
+    "integration-tests/test_trace_span_coverage.py::test_the_langsmith_export_leg_is_configured_and_healthy",
+    "-m",
+    "gpu or langsmith",
+    "-q",
+    "-x",
+    "--tb=short"
+  ],
+  "exit_code": 1,
+  "scope": "Original J3/J4 GPU tests and LangSmith test; Airflow API running, Spark paused. No fixtures, assertions or gates changed.",
+  "output": "reports/runtime/gpu-langsmith-before-gateway-fix.txt"
+}

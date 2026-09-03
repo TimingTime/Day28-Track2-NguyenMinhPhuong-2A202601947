@@ -1,0 +1,21 @@
+{
+  "started_at_utc": "2026-09-03T11:42:30.761737+07:00",
+  "finished_at_utc": "2026-09-03T11:43:29.406863+07:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "integration-tests/test_j1_golden_path.py",
+    "-m",
+    "not gpu and not langsmith",
+    "-q",
+    "-x",
+    "--tb=short"
+  ],
+  "exit_code": 1,
+  "api_url": "http://localhost:18000",
+  "gateway_url": "http://localhost:18080",
+  "mlflow_url": "http://localhost:15000",
+  "output": "reports/runtime/j1-before-fix.txt",
+  "scope": "Original live tests; fixtures and environment gates retained"
+}

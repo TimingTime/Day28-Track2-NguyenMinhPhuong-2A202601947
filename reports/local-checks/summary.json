@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "captured_at_utc": "2026-09-03T04:08:50.243689+00:00",
+  "captured_at_utc": "2026-09-03T10:22:09.978341+00:00",
   "scope": "Local code, static configuration and environment checks only",
   "python": "3.11.16",
   "platform": "Windows",
@@ -17,11 +17,11 @@
         "tests",
         "-q",
         "--tb=short",
-        "--basetemp=<repository>\\.lab28\\test-runs\\355439f717c44eb88fe7e4c7950e1e06"
+        "--basetemp=<repository>\\.lab28\\test-runs\\0b996607dfef408fbed9940b3fe2626a"
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 29.016,
+      "duration_seconds": 20.266,
       "output": "reports/local-checks/fast-suite.txt"
     },
     {
@@ -35,7 +35,7 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 2.609,
+      "duration_seconds": 2.343,
       "output": "reports/local-checks/ruff.txt"
     },
     {
@@ -46,7 +46,7 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 2.531,
+      "duration_seconds": 1.422,
       "output": "reports/local-checks/integration-matrix.txt"
     },
     {
@@ -57,7 +57,7 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 2.594,
+      "duration_seconds": 2.36,
       "output": "reports/local-checks/portability.txt"
     },
     {
@@ -68,7 +68,7 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 2.813,
+      "duration_seconds": 1.343,
       "output": "reports/local-checks/manifests.txt"
     },
     {
@@ -82,11 +82,11 @@
         "offline",
         "-q",
         "--tb=short",
-        "--basetemp=<repository>\\.lab28\\test-runs\\542ecd1845c64642a7e4d964ad3e8308"
+        "--basetemp=<repository>\\.lab28\\test-runs\\7c737bec2d67466fa9577a2ecd4d23d7"
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 10.109,
+      "duration_seconds": 8.75,
       "output": "reports/local-checks/offline-integration.txt"
     },
     {
@@ -101,7 +101,7 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 0.547,
+      "duration_seconds": 3.579,
       "output": "reports/local-checks/compose-basic.txt"
     },
     {
@@ -118,8 +118,37 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 0.594,
+      "duration_seconds": 3.468,
       "output": "reports/local-checks/compose-full.txt"
+    },
+    {
+      "name": "compose-laptop-gpu-langsmith",
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        "ports.template",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.gpu.yaml",
+        "-f",
+        "compose.gpu.8gb.yaml",
+        "-f",
+        "compose.langsmith.yaml",
+        "-f",
+        "compose.laptop.yaml",
+        "--profile",
+        "full",
+        "--profile",
+        "gpu",
+        "config",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 4.078,
+      "output": "reports/local-checks/compose-laptop-gpu-langsmith.txt"
     },
     {
       "name": "preflight",
@@ -131,8 +160,9 @@
       ],
       "exit_code": 0,
       "status": "PASS",
-      "duration_seconds": 7.297,
+      "duration_seconds": 9.484,
       "output": "reports/local-checks/preflight.txt"
     }
-  ]
+  ],
+  "preflight_refreshed_at_utc": "2026-09-03T14:30:20.481609+00:00"
 }

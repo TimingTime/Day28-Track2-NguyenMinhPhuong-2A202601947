@@ -1,0 +1,21 @@
+{
+  "started_at_utc": "2026-09-03T10:03:38.157402+00:00",
+  "finished_at_utc": "2026-09-03T10:04:12.436816+00:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "integration-tests",
+    "-q",
+    "-x",
+    "--tb=short"
+  ],
+  "exit_code": 1,
+  "require_gpu": true,
+  "include_langsmith": true,
+  "api_url": "http://localhost:18000",
+  "gateway_url": "http://localhost:18080",
+  "mlflow_url": "http://localhost:15000",
+  "scope": "Original live tests; fixtures and environment gates retained",
+  "output": "reports/runtime/full-suite-startup-timeout.txt"
+}

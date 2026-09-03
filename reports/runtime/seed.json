@@ -1,0 +1,238 @@
+{
+  "target": "http://localhost:18000",
+  "accepted": {
+    "documents": [
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "76a72685aa254b038d692751843f9b88",
+        "idempotency_key": "doc:doc-ip01-kafka:d7089177544aeae3578788aa1612914e",
+        "entity_id": "doc-ip01-kafka",
+        "topic": "data.raw",
+        "trace_id": "9d4c1e9b6f7d307ba922f4426554e678"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "d92624ce6fc047598e65e229e694ffb3",
+        "idempotency_key": "doc:doc-ip02-airflow:9b7e8bc4f2409294439202f5d734c323",
+        "entity_id": "doc-ip02-airflow",
+        "topic": "data.raw",
+        "trace_id": "10f314faa8936f15ea20dc1a4e7dac6e"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "dd17e544bd95414ea3f8fabe527a5595",
+        "idempotency_key": "doc:doc-ip03-delta:016a8ab972a0b39b02f80b29e043f020",
+        "entity_id": "doc-ip03-delta",
+        "topic": "data.raw",
+        "trace_id": "e66c2c9619397a06d8d867c2c6d65dfe"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "fa1d54acc955440c8e9db2c2e370e550",
+        "idempotency_key": "doc:doc-ip04-feast:e910ca4ed86df2ccefd6f5c57a7b7c24",
+        "entity_id": "doc-ip04-feast",
+        "topic": "data.raw",
+        "trace_id": "f6bfcc37647cbe8422015ce547e62087"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "34e10b32c0574ce8b52c8fa93207d05c",
+        "idempotency_key": "doc:doc-ip05-qdrant:04b9607993855f1c41e3f2eae24f18ca",
+        "entity_id": "doc-ip05-qdrant",
+        "topic": "data.raw",
+        "trace_id": "4a204bce8d59256065d0c80bd33ad9c1"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "febfd0c4110d4a40bf634dcd40d1035f",
+        "idempotency_key": "doc:doc-ip06-mlflow:d29d6d89db0db9c04ccb5152078c2c83",
+        "entity_id": "doc-ip06-mlflow",
+        "topic": "data.raw",
+        "trace_id": "a964b2bce947a9160ac3e6b9cbdbe633"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "c72e54b7f593451993711b248bc7aa63",
+        "idempotency_key": "doc:doc-ip07-vllm:31f59173d9613f4e261856ede44c8e05",
+        "entity_id": "doc-ip07-vllm",
+        "topic": "data.raw",
+        "trace_id": "f14e88fe06d21a4cc7204a02c77ca9ff"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "550740ef1f864e749df1c47ebaedabfc",
+        "idempotency_key": "doc:doc-ip08-gateway:e4dfa038a8a56b7b26089da6529bfa8a",
+        "entity_id": "doc-ip08-gateway",
+        "topic": "data.raw",
+        "trace_id": "d4146b41be7c2afbd00d4d6dca061c63"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "6012dc200c944a22b0cc6ffa8cc2dc66",
+        "idempotency_key": "doc:doc-ip09-metrics:c77911d86b4efa0d36f5a3012d814580",
+        "entity_id": "doc-ip09-metrics",
+        "topic": "data.raw",
+        "trace_id": "a60206ce7aae220af15d7ac21890a39f"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "55d8cdcd5e2f4904843111a6a4892ffe",
+        "idempotency_key": "doc:doc-ip10-tracing:95f761abc8382635d40c5a1402c15e38",
+        "entity_id": "doc-ip10-tracing",
+        "topic": "data.raw",
+        "trace_id": "fb5ebfad2af21c2b5b9766f43cc546b1"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "72056ba3f9144e2691d38046b269497d",
+        "idempotency_key": "doc:doc-health-semantics:39bf239d7881f0b165d4141abadc305f",
+        "entity_id": "doc-health-semantics",
+        "topic": "data.raw",
+        "trace_id": "0fb94a7f179262db1a696d5f306883af"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "d39525c87d1a4eb486fa8d791c42570a",
+        "idempotency_key": "doc:doc-latency-budget:97027cdd73da5c04346a93a37deb79b7",
+        "entity_id": "doc-latency-budget",
+        "topic": "data.raw",
+        "trace_id": "f79ff867cf24420ab4591d9c0cb516e0"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "7449b1ace88744c8ac3d249d55400a3a",
+        "idempotency_key": "doc:doc-degraded-policy:68db776fa8b109d09fe8554e0f85cc7e",
+        "entity_id": "doc-degraded-policy",
+        "topic": "data.raw",
+        "trace_id": "fae3aa0ceefc72d29d4780ff890b518d"
+      }
+    ],
+    "feedback": [
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "64772ac4fa3c4838bf53e59d65db8c22",
+        "idempotency_key": "fb:asker-001:f3facde79d83f95f289b379395909a13",
+        "entity_id": "asker-001",
+        "topic": "data.raw",
+        "trace_id": "7320769f5253f6601dd8a8b3de388c10"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "4954b930481d465d8e695af336ce7f0c",
+        "idempotency_key": "fb:asker-001:591e45fef80bdf65e304ea89f7ebbfdb",
+        "entity_id": "asker-001",
+        "topic": "data.raw",
+        "trace_id": "cfcdf8a2b55718b680cb5795a99adb35"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "e46070b9370b4da080c43d70de34a2f9",
+        "idempotency_key": "fb:asker-002:b41008bcdf50bd6b364faf7fd10d14a4",
+        "entity_id": "asker-002",
+        "topic": "data.raw",
+        "trace_id": "f3529140485fdf606cf0017f13c3570f"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "973838b6b33b40ab9e4199742a827f9c",
+        "idempotency_key": "fb:asker-002:375f76713df85ca78213b292aa7b0aea",
+        "entity_id": "asker-002",
+        "topic": "data.raw",
+        "trace_id": "3555b28245bae545e9af768f9ec1b56b"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "9e00c407e7f74612afaa8857a9a2bb5d",
+        "idempotency_key": "fb:asker-003:b865bc7aed7a8e02b9bf46bbe2db2ddb",
+        "entity_id": "asker-003",
+        "topic": "data.raw",
+        "trace_id": "bb8d12b42ece510ea61f11dd898a1b2a"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "e4f2d03e478745b981d8dbe887247104",
+        "idempotency_key": "fb:asker-003:5561621d910d0b17826d04064e2299be",
+        "entity_id": "asker-003",
+        "topic": "data.raw",
+        "trace_id": "2eecceee21f4db3ca4903ef39f2783a0"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "384fe3dcb4244fc68f20d36a04b49c9d",
+        "idempotency_key": "fb:asker-004:e9ffe6b8117c980b1402e4d741ff60b5",
+        "entity_id": "asker-004",
+        "topic": "data.raw",
+        "trace_id": "77f61295452f4f0cec56775f5ea4e8f5"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "322faeba815948ddba18977ca5207482",
+        "idempotency_key": "fb:asker-004:5eda48b9b1e2545ee36c4e6b7777c64f",
+        "entity_id": "asker-004",
+        "topic": "data.raw",
+        "trace_id": "5938888fc2e639b329a3729d23e2940a"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "7f8bc86c33e540af8ab72e9393b0e13a",
+        "idempotency_key": "fb:asker-005:ba540e79cfee37fd1e33b083306cdcdf",
+        "entity_id": "asker-005",
+        "topic": "data.raw",
+        "trace_id": "88cf1c672dac1a9efb8e7e518dab8ebe"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "481147f1e94e48d083891dc05a92f8e3",
+        "idempotency_key": "fb:asker-005:45cdd1db2ed5b187f236771ec14512a1",
+        "entity_id": "asker-005",
+        "topic": "data.raw",
+        "trace_id": "8451c10e588c3a7509342ebfb37395e4"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "6d4b668c330f441a9a9a82b168497d53",
+        "idempotency_key": "fb:asker-006:abf3c6ff99f52cba1b4e923fa4a9dfe3",
+        "entity_id": "asker-006",
+        "topic": "data.raw",
+        "trace_id": "3c7dc9817e95db97755a13456fa1ad52"
+      },
+      {
+        "schema_version": "1",
+        "status": "accepted",
+        "event_id": "fe35c81e9b5c44119b220fa9d81aa230",
+        "idempotency_key": "fb:asker-006:f18e1f005a29ad871c22fc13df93eaf9",
+        "entity_id": "asker-006",
+        "topic": "data.raw",
+        "trace_id": "460d16ddbe04525452db3c461a0cbe17"
+      }
+    ]
+  },
+  "rejected": {
+    "documents": [],
+    "feedback": []
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "captured_at_utc": "2026-09-03T14:33:17.530378+00:00",
+  "scope": "Real gateway ingestion, batch processing, and GPU serving in sequential phases to fit laptop RAM. This does not replace a full-suite PASS.",
+  "trace_id": "6757a43c8c04458c920e8a8c15483b8c",
+  "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-0245ea02ab3b41d5-01",
+  "asker_id": "final-02e60d6c",
+  "doc_id": "final-doc-02e60d6c",
+  "question": "Mã tham chiếu 02e60d6c được dùng để làm gì?",
+  "complete": true,
+  "feedback_delta_before": 9,
+  "documents": {
+    "response": {
+      "schema_version": "1",
+      "status": "accepted",
+      "event_id": "f217e36fa33c4a87a844e2d267c8ba82",
+      "idempotency_key": "doc:final-doc-02e60d6c:1786678e77906a9116edf3af4a18993d",
+      "entity_id": "final-doc-02e60d6c",
+      "topic": "data.raw",
+      "trace_id": "6757a43c8c04458c920e8a8c15483b8c"
+    },
+    "status": 202,
+    "request_id": "0edcee43-012d-95c2-8cb4-960298adda90"
+  },
+  "feedback": {
+    "response": {
+      "schema_version": "1",
+      "status": "accepted",
+      "event_id": "bda5aa83294c40428c41094bf77b8cb5",
+      "idempotency_key": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d",
+      "entity_id": "final-02e60d6c",
+      "topic": "data.raw",
+      "trace_id": "6757a43c8c04458c920e8a8c15483b8c"
+    },
+    "status": 202,
+    "request_id": "2d4e56b5-985e-9b67-ac94-adb78581b84f"
+  },
+  "dag_run_id": "it-622b303d",
+  "dag_run": {
+    "dag_run_id": "it-622b303d",
+    "dag_id": "lab28_ingestion_pipeline",
+    "logical_date": null,
+    "queued_at": "2026-09-03T14:33:33.263625Z",
+    "start_date": "2026-09-03T14:33:34.137463Z",
+    "end_date": "2026-09-03T14:38:19.430816Z",
+    "duration": 285.293353,
+    "data_interval_start": null,
+    "data_interval_end": null,
+    "run_after": "2026-09-03T14:33:32.981309Z",
+    "last_scheduling_decision": "2026-09-03T14:38:19.427829Z",
+    "run_type": "manual",
+    "state": "success",
+    "triggered_by": "rest_api",
+    "triggering_user_name": "airflow",
+    "conf": {
+      "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-0245ea02ab3b41d5-01"
+    },
+    "note": "Final phased demo final-02e60d6c",
+    "dag_versions": [
+      {
+        "id": "01a0658e-c703-7cb5-b66c-5a4963c5ddc4",
+        "version_number": 1,
+        "dag_id": "lab28_ingestion_pipeline",
+        "bundle_name": "dags-folder",
+        "bundle_version": null,
+        "created_at": "2026-09-03T04:37:31.011680Z",
+        "dag_display_name": "lab28_ingestion_pipeline",
+        "bundle_url": null
+      }
+    ],
+    "bundle_version": null,
+    "dag_display_name": "lab28_ingestion_pipeline",
+    "partition_key": null,
+    "partition_date": null
+  },
+  "task_instances": [
+    {
+      "task_id": "drain_kafka_into_delta",
+      "state": "success",
+      "try_number": 1
+    },
+    {
+      "task_id": "refresh_online_features",
+      "state": "success",
+      "try_number": 1
+    },
+    {
+      "task_id": "index_new_documents",
+      "state": "success",
+      "try_number": 1
+    },
+    {
+      "task_id": "announce_processed_batch",
+      "state": "success",
+      "try_number": 1
+    }
+  ],
+  "asset_events": [
+    {
+      "uri": "lab28://delta/feedback",
+      "timestamp": "2026-09-03T14:37:22.794765Z"
+    },
+    {
+      "uri": "lab28://delta/documents",
+      "timestamp": "2026-09-03T14:37:22.820921Z"
+    },
+    {
+      "uri": "lab28://feast/asker_activity",
+      "timestamp": "2026-09-03T14:37:51.524922Z"
+    },
+    {
+      "uri": "lab28://qdrant/lab28_documents",
+      "timestamp": "2026-09-03T14:38:11.732530Z"
+    }
+  ],
+  "feedback_delta_version": 10,
+  "documents_delta_version": 6,
+  "feedback_delta_row": {
+    "idempotency_key": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d",
+    "event_id": "bda5aa83294c40428c41094bf77b8cb5",
+    "asker_id": "final-02e60d6c",
+    "text": "Phản hồi kiểm chứng pipeline cuối 02e60d6c.",
+    "rating": 5,
+    "locale": "vi",
+    "label": "positive",
+    "occurred_at": "2026-09-03 14:33:18.012583+00:00",
+    "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-a58ba0f749ba15dc-01"
+  },
+  "kafka": {
+    "topic": "data.raw",
+    "key": "final-02e60d6c",
+    "partition": 2,
+    "offset": 15,
+    "headers": {
+      "idempotency-key": "final-02e60d6c",
+      "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-6d973db999fab955-01",
+      "schema_version": "1"
+    },
+    "trace_id": "6757a43c8c04458c920e8a8c15483b8c",
+    "value": {
+      "schema_version": "1",
+      "event_id": "bda5aa83294c40428c41094bf77b8cb5",
+      "idempotency_key": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d",
+      "entity_id": "final-02e60d6c",
+      "occurred_at": "2026-09-03T14:33:18.012583Z",
+      "producer": "lab28-api",
+      "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-a58ba0f749ba15dc-01",
+      "payload": {
+        "kind": "feedback",
+        "asker_id": "final-02e60d6c",
+        "text": "Phản hồi kiểm chứng pipeline cuối 02e60d6c.",
+        "rating": 5,
+        "locale": "vi",
+        "label": "positive"
+      }
+    }
+  },
+  "serving": {
+    "schema_version": "1",
+    "answer": "Mã tham chiếu 02e60d6c được dùng để kiểm chứng pipeline Day 28. [1]",
+    "sources": [
+      {
+        "doc_id": "final-doc-02e60d6c",
+        "title": "Tài liệu Day 28 02e60d6c",
+        "snippet": "Mã tham chiếu 02e60d6c dùng để kiểm chứng pipeline Day 28. Kafka tiếp nhận phản hồi, Spark ghi Delta Lake, Feast phục vụ đặc trưng và Qdrant truy hồi tài liệu.",
+        "score": 0.8333334,
+        "retrieval_mode": "hybrid"
+      },
+      {
+        "doc_id": "it-j1-doc-57759ff2",
+        "title": "Tài liệu kiểm thử tích hợp 57759ff2",
+        "snippet": "Mã tham chiếu 57759ff2 được dùng cho bài kiểm thử tích hợp Day 28: nền tảng ghi phản hồi khách hàng vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant.",
+        "score": 0.7,
+        "retrieval_mode": "hybrid"
+      },
+      {
+        "doc_id": "it-j1-doc-9a07bd33",
+        "title": "Tài liệu kiểm thử tích hợp 9a07bd33",
+        "snippet": "Mã tham chiếu 9a07bd33 được dùng cho bài kiểm thử tích hợp Day 28: nền tảng ghi phản hồi khách hàng vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant.",
+        "score": 0.53333336,
+        "retrieval_mode": "hybrid"
+      }
+    ],
+    "evidence": {
+      "trace_id": "6757a43c8c04458c920e8a8c15483b8c",
+      "mlflow_model_name": "lab28-rag-release",
+      "mlflow_release_version": "5",
+      "mlflow_run_id": "f5d18a25d5bf4be6aa55c1986c1eb811",
+      "vllm_model_id": "Qwen/Qwen3-1.7B",
+      "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+      "delta_version": 10,
+      "feature_freshness_seconds": 673.074881,
+      "degraded": false,
+      "degraded_reasons": []
+    },
+    "audit": {
+      "input_hash": "2f495f386ad67ac5d176ab5fa4022e4dfe8539ea7a8c35f1fa93efe86886bdb9",
+      "output_hash": "7e5121bf2ed8b59431de248e236e8cbebf9d22b38ec56f3ee1c6244c9ece9bd9",
+      "output_length": 67,
+      "prompt_tokens": 380,
+      "completion_tokens": 29,
+      "latency": {
+        "feature_ms": 226.412,
+        "retrieval_ms": 2980.454,
+        "llm_ms": 6642.469,
+        "guardrail_ms": 0.591,
+        "total_ms": 10257.629
+      }
+    }
+  },
+  "serving_request_id": "a7f0812b-46eb-96ce-9156-d89ab6c22e60",
+  "completed_at_utc": "2026-09-03T14:44:37.804889+00:00"
+}

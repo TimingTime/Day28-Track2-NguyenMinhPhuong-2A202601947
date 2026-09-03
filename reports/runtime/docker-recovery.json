@@ -1,0 +1,12 @@
+{
+  "captured_at_utc": "2026-09-03T10:29:30.328871+00:00",
+  "symptoms": [
+    "Docker API HTTP 500",
+    "API/vLLM/Airflow/Qdrant HTTP timeout",
+    "WSL journal: Under memory pressure, flushing caches"
+  ],
+  "restart_issue": "Docker Inference IPC socket could not be accessed after restart",
+  "recovery": "Stopped Docker processes, retained two stale IPC sockets by renaming Docker/run, started Docker Desktop again",
+  "data": "Container volumes retained; Kafka migration backup retained",
+  "full_suite_completed": false
+}

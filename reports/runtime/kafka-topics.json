@@ -1,0 +1,14 @@
+{
+  "topics": {
+    "data.raw": "created",
+    "data.processed": "created",
+    "model.events": "created",
+    "data.raw.dlq": "created"
+  },
+  "broker_topics": [
+    "data.processed",
+    "data.raw",
+    "data.raw.dlq",
+    "model.events"
+  ]
+}

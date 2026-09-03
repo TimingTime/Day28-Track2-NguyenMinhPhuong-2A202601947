@@ -1,0 +1,5506 @@
+{
+  "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+  "spans": [
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "af9020f00cc0f672",
+      "operationName": "lab28.kafka.produce",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "b548bc098a3b476c"
+        }
+      ],
+      "startTime": 1788431540522961,
+      "duration": 11024,
+      "tags": [
+        {
+          "key": "lab28.schema_version",
+          "type": "string",
+          "value": "1"
+        },
+        {
+          "key": "messaging.destination.name",
+          "type": "string",
+          "value": "data.raw"
+        },
+        {
+          "key": "messaging.kafka.message.key",
+          "type": "string",
+          "value": "final-02e60d6c"
+        },
+        {
+          "key": "messaging.system",
+          "type": "string",
+          "value": "kafka"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "producer"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "de36de69a56ded38",
+      "operationName": "lab28.kafka.consume",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "de37ec781ce7e866"
+        }
+      ],
+      "startTime": 1788431734374576,
+      "duration": 43,
+      "tags": [
+        {
+          "key": "lab28.event.kind",
+          "type": "string",
+          "value": "document"
+        },
+        {
+          "key": "lab28.idempotency_key",
+          "type": "string",
+          "value": "doc:final-doc-02e60d6c:1786678e77906a9116edf3af4a18993d"
+        },
+        {
+          "key": "messaging.kafka.message.offset",
+          "type": "int64",
+          "value": 17
+        },
+        {
+          "key": "messaging.source.name",
+          "type": "string",
+          "value": "data.raw"
+        },
+        {
+          "key": "messaging.system",
+          "type": "string",
+          "value": "kafka"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "consumer"
+        }
+      ],
+      "logs": [],
+      "processID": "p2",
+      "warnings": [
+        "clock skew adjustment disabled; not applying calculated delta of -3m14.097613787s"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "593e6636beb92ef2",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "5232ae7c9ef70bbd"
+        }
+      ],
+      "startTime": 1788444324680649,
+      "duration": 83931,
+      "tags": [
+        {
+          "key": "error",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://vllm:8000/v1/chat/completions"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "ERROR"
+        },
+        {
+          "key": "otel.status_description",
+          "type": "string",
+          "value": "ConnectError: [Errno 111] Connection refused"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [
+        {
+          "timestamp": 1788444324764337,
+          "fields": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "exception"
+            },
+            {
+              "key": "exception.escaped",
+              "type": "string",
+              "value": "False"
+            },
+            {
+              "key": "exception.message",
+              "type": "string",
+              "value": "[Errno 111] Connection refused"
+            },
+            {
+              "key": "exception.stacktrace",
+              "type": "string",
+              "value": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 101, in handle_request\n    raise exc\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 78, in handle_request\n    stream = self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 124, in _connect\n    stream = self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 207, in connect_tcp\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 608, in use_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1183, in start_as_current_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1430, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1381, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [Errno 111] Connection refused\n"
+            },
+            {
+              "key": "exception.type",
+              "type": "string",
+              "value": "httpx.ConnectError"
+            }
+          ]
+        }
+      ],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "1f8716a3f8ff41bd",
+      "operationName": "POST /api/v1/documents http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "6cd4f0bad991a1ed"
+        }
+      ],
+      "startTime": 1788431540479359,
+      "duration": 304,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 202
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "f8d0cbd84b58ebf2",
+      "operationName": "POST /api/v1/ask http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9ddd0c622a039555"
+        }
+      ],
+      "startTime": 1788432184348193,
+      "duration": 703,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9f2ecd2ad07957f8",
+      "operationName": "lab28.feast.get_online_features",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "20cbf67c1d06be1d"
+        }
+      ],
+      "startTime": 1788444432648158,
+      "duration": 213661,
+      "tags": [
+        {
+          "key": "lab28.feature.count",
+          "type": "int64",
+          "value": 4
+        },
+        {
+          "key": "lab28.feature.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.feature.view",
+          "type": "string",
+          "value": "asker_activity_v1"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "6b531f0d807daae4",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "3806d87d8f76f737"
+        }
+      ],
+      "startTime": 1788444434323322,
+      "duration": 4446356,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://vllm:8000/v1/chat/completions"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "09de7f63e51d0029",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "4bd9d9d4a75d26a4"
+        }
+      ],
+      "startTime": 1788445644199055,
+      "duration": 377360,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://qdrant:6333/collections/lab28_documents/points/query"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b256737829ea1b0c",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0d3c71a0007edb56"
+        }
+      ],
+      "startTime": 1788445648978335,
+      "duration": 32,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "3dbfee9e9bbcf210",
+      "operationName": "POST /api/v1/documents http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "6cd4f0bad991a1ed"
+        }
+      ],
+      "startTime": 1788431540481352,
+      "duration": 42,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "6cd4f0bad991a1ed",
+      "operationName": "POST /api/v1/documents",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "cb4140df47cd977d"
+        }
+      ],
+      "startTime": 1788431539835985,
+      "duration": 645873,
+      "tags": [
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/documents"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 202
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/documents"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/documents"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 55190
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "bbb496be17e470ef",
+      "operationName": "POST /api/v1/feedback http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "2de3d268c8777ed2"
+        }
+      ],
+      "startTime": 1788431540536219,
+      "duration": 86,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 202
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "88cc5e2982a2ac48",
+      "operationName": "lab28.vllm.chat_completion",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "f24be49b8026ac33"
+        }
+      ],
+      "startTime": 1788432187978525,
+      "duration": 2511707,
+      "tags": [
+        {
+          "key": "gen_ai.request.max_tokens",
+          "type": "int64",
+          "value": 320
+        },
+        {
+          "key": "gen_ai.request.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.response.finish_reason",
+          "type": "string",
+          "value": "stop"
+        },
+        {
+          "key": "gen_ai.response.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.system",
+          "type": "string",
+          "value": "vllm"
+        },
+        {
+          "key": "gen_ai.usage.input_tokens",
+          "type": "int64",
+          "value": 378
+        },
+        {
+          "key": "gen_ai.usage.output_tokens",
+          "type": "int64",
+          "value": 26
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "91309deceb0ff8f8",
+      "operationName": "lab28.airflow.dag",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788432397934659,
+      "duration": 42462605,
+      "tags": [
+        {
+          "key": "lab28.airflow.dag_id",
+          "type": "string",
+          "value": "lab28_ingestion_pipeline"
+        },
+        {
+          "key": "lab28.airflow.run_id",
+          "type": "string",
+          "value": "it-91c04f6b"
+        },
+        {
+          "key": "lab28.batch.dead_lettered",
+          "type": "int64",
+          "value": 0
+        },
+        {
+          "key": "lab28.batch.polled",
+          "type": "int64",
+          "value": 1
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p3",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9f0b045d552f7cbc",
+      "operationName": "lab28.feast.get_online_features",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "eee504d89b634ed7"
+        }
+      ],
+      "startTime": 1788444318649034,
+      "duration": 1917119,
+      "tags": [
+        {
+          "key": "lab28.feature.count",
+          "type": "int64",
+          "value": 4
+        },
+        {
+          "key": "lab28.feature.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.feature.view",
+          "type": "string",
+          "value": "asker_activity_v1"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b46148bd1e1319d2",
+      "operationName": "lab28.qdrant.query",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "eee504d89b634ed7"
+        }
+      ],
+      "startTime": 1788444320568826,
+      "duration": 4108504,
+      "tags": [
+        {
+          "key": "db.collection.name",
+          "type": "string",
+          "value": "lab28_documents"
+        },
+        {
+          "key": "db.system",
+          "type": "string",
+          "value": "qdrant"
+        },
+        {
+          "key": "lab28.retrieval.hits",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.retrieval.mode",
+          "type": "string",
+          "value": "hybrid"
+        },
+        {
+          "key": "lab28.retrieval.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "db3076e87054ed4c",
+      "operationName": "lab28.mlflow.resolve_release",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "20cbf67c1d06be1d"
+        }
+      ],
+      "startTime": 1788444431623178,
+      "duration": 1024573,
+      "tags": [
+        {
+          "key": "lab28.registry.alias",
+          "type": "string",
+          "value": "champion"
+        },
+        {
+          "key": "lab28.registry.model",
+          "type": "string",
+          "value": "lab28-rag-release"
+        },
+        {
+          "key": "lab28.registry.version",
+          "type": "string",
+          "value": "5"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "de37ec781ce7e866",
+      "operationName": "lab28.kafka.produce",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "b32c8dc2ebe22664"
+        }
+      ],
+      "startTime": 1788431540083546,
+      "duration": 386876,
+      "tags": [
+        {
+          "key": "lab28.schema_version",
+          "type": "string",
+          "value": "1"
+        },
+        {
+          "key": "messaging.destination.name",
+          "type": "string",
+          "value": "data.raw"
+        },
+        {
+          "key": "messaging.kafka.message.key",
+          "type": "string",
+          "value": "final-doc-02e60d6c"
+        },
+        {
+          "key": "messaging.system",
+          "type": "string",
+          "value": "kafka"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "producer"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "2b816cbef55ec049",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "d83223ef53675dc0"
+        }
+      ],
+      "startTime": 1788432187688087,
+      "duration": 278491,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://qdrant:6333/collections/lab28_documents/points/query"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "d61ddcbc7e199356",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9ddd0c622a039555"
+        }
+      ],
+      "startTime": 1788432190502391,
+      "duration": 35,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "8f26df38468319af",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9f2ecd2ad07957f8"
+        }
+      ],
+      "startTime": 1788444432649571,
+      "duration": 209323,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://feast:6566/get-online-features"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "20cbf67c1d06be1d",
+      "operationName": "lab28.api.ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "3a43c6ca4a002197"
+        }
+      ],
+      "startTime": 1788444431622157,
+      "duration": 7151421,
+      "tags": [
+        {
+          "key": "lab28.ask.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.ask.locale",
+          "type": "string",
+          "value": "vi"
+        },
+        {
+          "key": "lab28.ask.question",
+          "type": "string",
+          "value": "Mã tham chiếu 02e60d6c được dùng để làm gì?"
+        },
+        {
+          "key": "lab28.ask.sources",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.ask.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "80d116950f8ea80a",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "545a234ef47c1216"
+        }
+      ],
+      "startTime": 1788445640382761,
+      "duration": 2732569,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://feast:6566/get-online-features"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "17ec09106159f280",
+      "operationName": "POST /api/v1/feedback http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "2de3d268c8777ed2"
+        }
+      ],
+      "startTime": 1788431540502790,
+      "duration": 45,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "51b5e59575a01991",
+      "operationName": "POST /api/v1/feedback http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "5e1e695fe31c725a"
+        }
+      ],
+      "startTime": 1788432335437498,
+      "duration": 51,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 202
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b468d7c02104ee83",
+      "operationName": "lab28.api.ingest",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "5e1e695fe31c725a"
+        }
+      ],
+      "startTime": 1788432335343059,
+      "duration": 91473,
+      "tags": [
+        {
+          "key": "lab28.ingest.event_id",
+          "type": "string",
+          "value": "8efb89671e844cda984fea9566114857"
+        },
+        {
+          "key": "lab28.ingest.idempotency_key",
+          "type": "string",
+          "value": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d"
+        },
+        {
+          "key": "lab28.ingest.kind",
+          "type": "string",
+          "value": "feedback"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9cdf2f62c1e22557",
+      "operationName": "lab28.api.ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0d3c71a0007edb56"
+        }
+      ],
+      "startTime": 1788445640249530,
+      "duration": 8724086,
+      "tags": [
+        {
+          "key": "lab28.ask.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.ask.locale",
+          "type": "string",
+          "value": "vi"
+        },
+        {
+          "key": "lab28.ask.question",
+          "type": "string",
+          "value": "Mã tham chiếu 02e60d6c được dùng để làm gì?"
+        },
+        {
+          "key": "lab28.ask.sources",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.ask.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "a71fb695378c1220",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0d3c71a0007edb56"
+        }
+      ],
+      "startTime": 1788445648978564,
+      "duration": 21,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "8bdffc195b3d154b",
+      "operationName": "POST /api/v1/documents http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "6cd4f0bad991a1ed"
+        }
+      ],
+      "startTime": 1788431539890823,
+      "duration": 1667,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "0199f65cb5fe2122",
+      "operationName": "lab28.spark.delta_merge",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788432401143689,
+      "duration": 39154474,
+      "tags": [
+        {
+          "key": "lab28.batch.document_rows",
+          "type": "int64",
+          "value": 0
+        },
+        {
+          "key": "lab28.batch.events",
+          "type": "int64",
+          "value": 1
+        },
+        {
+          "key": "lab28.batch.feedback_rows",
+          "type": "int64",
+          "value": 1
+        },
+        {
+          "key": "lab28.delta.feedback_version",
+          "type": "int64",
+          "value": 9
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p3",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "364f07093eeddca2",
+      "operationName": "POST /api/v1/ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "e32f92a318e5e417"
+        }
+      ],
+      "startTime": 1788444316834971,
+      "duration": 8039934,
+      "tags": [
+        {
+          "key": "error",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 503
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 54728
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "ERROR"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "3a43c6ca4a002197",
+      "operationName": "POST /api/v1/ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9ea9bcfcc397660a"
+        }
+      ],
+      "startTime": 1788444431599960,
+      "duration": 7178084,
+      "tags": [
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 49478
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": [
+        "clock skew adjustment disabled; not applying calculated delta of -3.759769ms"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "2c0aebcbc29f015b",
+      "operationName": "llm_request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "6c9d61a45d407341"
+        }
+      ],
+      "startTime": 1788445644639747,
+      "duration": 4314103,
+      "tags": [
+        {
+          "key": "gen_ai.latency.e2e",
+          "type": "float64",
+          "value": 4.278194427490234
+        },
+        {
+          "key": "gen_ai.latency.time_in_model_decode",
+          "type": "float64",
+          "value": 1.781808109000849
+        },
+        {
+          "key": "gen_ai.latency.time_in_model_inference",
+          "type": "float64",
+          "value": 3.866597060999993
+        },
+        {
+          "key": "gen_ai.latency.time_in_model_prefill",
+          "type": "float64",
+          "value": 2.084788951999144
+        },
+        {
+          "key": "gen_ai.latency.time_in_queue",
+          "type": "float64",
+          "value": 0.00408823700126959
+        },
+        {
+          "key": "gen_ai.latency.time_to_first_token",
+          "type": "float64",
+          "value": 2.5133163928985596
+        },
+        {
+          "key": "gen_ai.request.id",
+          "type": "string",
+          "value": "chatcmpl-84de4323b093314c"
+        },
+        {
+          "key": "gen_ai.request.max_tokens",
+          "type": "int64",
+          "value": 320
+        },
+        {
+          "key": "gen_ai.request.n",
+          "type": "int64",
+          "value": 1
+        },
+        {
+          "key": "gen_ai.request.temperature",
+          "type": "float64",
+          "value": 0.2
+        },
+        {
+          "key": "gen_ai.request.top_p",
+          "type": "float64",
+          "value": 0.95
+        },
+        {
+          "key": "gen_ai.usage.completion_tokens",
+          "type": "int64",
+          "value": 26
+        },
+        {
+          "key": "gen_ai.usage.prompt_tokens",
+          "type": "int64",
+          "value": 378
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "vllm.tracing.otel"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p4",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "e6cec46ce7a71b3b",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "88cc5e2982a2ac48"
+        }
+      ],
+      "startTime": 1788432187980209,
+      "duration": 2507421,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://vllm:8000/v1/chat/completions"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "5cdaf7ae5a29c47b",
+      "operationName": "POST /api/v1/feedback http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "5e1e695fe31c725a"
+        }
+      ],
+      "startTime": 1788432335316346,
+      "duration": 29,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "6c9d61a45d407341",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9599468cc4042935"
+        }
+      ],
+      "startTime": 1788445644582171,
+      "duration": 4388262,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://vllm:8000/v1/chat/completions"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "2de3d268c8777ed2",
+      "operationName": "POST /api/v1/feedback",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0b6302b86e5f8546"
+        }
+      ],
+      "startTime": 1788431540501004,
+      "duration": 36812,
+      "tags": [
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/feedback"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 202
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/feedback"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/feedback"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 55190
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": [
+        "clock skew adjustment disabled; not applying calculated delta of -665.356µs"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "dcf290323f2491b2",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "4c9d622b63492b0e"
+        }
+      ],
+      "startTime": 1788432185542820,
+      "duration": 120810,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://feast:6566/get-online-features"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "f24be49b8026ac33",
+      "operationName": "lab28.api.ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9ddd0c622a039555"
+        }
+      ],
+      "startTime": 1788432184423717,
+      "duration": 6074201,
+      "tags": [
+        {
+          "key": "lab28.ask.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.ask.locale",
+          "type": "string",
+          "value": "vi"
+        },
+        {
+          "key": "lab28.ask.question",
+          "type": "string",
+          "value": "Mã tham chiếu 02e60d6c được dùng để làm gì?"
+        },
+        {
+          "key": "lab28.ask.sources",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.ask.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "e32f92a318e5e417",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788444316665560,
+      "duration": 8256029,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "error",
+          "type": "string",
+          "value": "true"
+        },
+        {
+          "key": "error",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "d34ca544-a4fc-99cf-ad46-7d7be2178e9e"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "503"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "ERROR"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "109"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "218"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "40fe2fde366b1fe3",
+      "operationName": "POST /api/v1/ask http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "3a43c6ca4a002197"
+        }
+      ],
+      "startTime": 1788444431601684,
+      "duration": 144,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "25eede9138c433c1",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "3a43c6ca4a002197"
+        }
+      ],
+      "startTime": 1788444438777244,
+      "duration": 45,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "62fd63b252a55211",
+      "operationName": "lab28.airflow.dag",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788431853140011,
+      "duration": 3058909,
+      "tags": [
+        {
+          "key": "lab28.airflow.dag_id",
+          "type": "string",
+          "value": "lab28_ingestion_pipeline"
+        },
+        {
+          "key": "lab28.airflow.run_id",
+          "type": "string",
+          "value": "it-f4c5a4f2"
+        },
+        {
+          "key": "lab28.batch.dead_lettered",
+          "type": "int64",
+          "value": 0
+        },
+        {
+          "key": "lab28.batch.polled",
+          "type": "int64",
+          "value": 0
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p6",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "21275631041a2c2f",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788432184285228,
+      "duration": 6252000,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "85102906-5858-9954-ba97-d469ad84caea"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "200"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "109"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "1949"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "8528abd96b17de54",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788432335303717,
+      "duration": 135561,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "134d3bdf-1309-958b-ae57-b18f076ba5af"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "202"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/feedback"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "122"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "253"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "5e1e695fe31c725a",
+      "operationName": "POST /api/v1/feedback",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "8528abd96b17de54"
+        }
+      ],
+      "startTime": 1788432335315680,
+      "duration": 123065,
+      "tags": [
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/feedback"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 202
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/feedback"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/feedback"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 50536
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "5232ae7c9ef70bbd",
+      "operationName": "lab28.vllm.chat_completion",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "eee504d89b634ed7"
+        }
+      ],
+      "startTime": 1788444324679727,
+      "duration": 118703,
+      "tags": [
+        {
+          "key": "error",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "gen_ai.request.max_tokens",
+          "type": "int64",
+          "value": 320
+        },
+        {
+          "key": "gen_ai.request.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.system",
+          "type": "string",
+          "value": "vllm"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "ERROR"
+        },
+        {
+          "key": "otel.status_description",
+          "type": "string",
+          "value": "InferenceUnavailable: vLLM unreachable: ConnectError"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [
+        {
+          "timestamp": 1788444324791337,
+          "fields": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "exception"
+            },
+            {
+              "key": "exception.escaped",
+              "type": "string",
+              "value": "False"
+            },
+            {
+              "key": "exception.message",
+              "type": "string",
+              "value": "vLLM unreachable: ConnectError"
+            },
+            {
+              "key": "exception.stacktrace",
+              "type": "string",
+              "value": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 101, in handle_request\n    raise exc\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 78, in handle_request\n    stream = self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 124, in _connect\n    stream = self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 207, in connect_tcp\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 239, in complete\n    response = self._client.post(url, json=payload)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1144, in post\n    return self.request(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 825, in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 914, in send\n    response = self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 942, in _send_handling_auth\n    response = self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 979, in _send_handling_redirects\n    response = self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1014, in _send_single_request\n    response = transport.handle_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1430, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1381, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/telemetry.py\", line 200, in span\n    yield active\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 254, in complete\n    raise InferenceUnavailable(f\"vLLM unreachable: {type(error).__name__}\") from error\nlab28_platform.llm_client.InferenceUnavailable: vLLM unreachable: ConnectError\n"
+            },
+            {
+              "key": "exception.type",
+              "type": "string",
+              "value": "lab28_platform.llm_client.InferenceUnavailable"
+            }
+          ]
+        },
+        {
+          "timestamp": 1788444324798380,
+          "fields": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "exception"
+            },
+            {
+              "key": "exception.escaped",
+              "type": "string",
+              "value": "False"
+            },
+            {
+              "key": "exception.message",
+              "type": "string",
+              "value": "vLLM unreachable: ConnectError"
+            },
+            {
+              "key": "exception.stacktrace",
+              "type": "string",
+              "value": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 101, in handle_request\n    raise exc\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 78, in handle_request\n    stream = self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 124, in _connect\n    stream = self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 207, in connect_tcp\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 239, in complete\n    response = self._client.post(url, json=payload)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1144, in post\n    return self.request(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 825, in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 914, in send\n    response = self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 942, in _send_handling_auth\n    response = self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 979, in _send_handling_redirects\n    response = self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1014, in _send_single_request\n    response = transport.handle_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1430, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1381, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 608, in use_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1183, in start_as_current_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/telemetry.py\", line 200, in span\n    yield active\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 254, in complete\n    raise InferenceUnavailable(f\"vLLM unreachable: {type(error).__name__}\") from error\nlab28_platform.llm_client.InferenceUnavailable: vLLM unreachable: ConnectError\n"
+            },
+            {
+              "key": "exception.type",
+              "type": "string",
+              "value": "lab28_platform.llm_client.InferenceUnavailable"
+            }
+          ]
+        }
+      ],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "df1e9fb5babdf3e3",
+      "operationName": "POST /api/v1/feedback http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "2de3d268c8777ed2"
+        }
+      ],
+      "startTime": 1788431540537683,
+      "duration": 19,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "8f8656205412595a",
+      "operationName": "POST /api/v1/feedback http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "5e1e695fe31c725a"
+        }
+      ],
+      "startTime": 1788432335438591,
+      "duration": 13,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9ea9bcfcc397660a",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788444431592532,
+      "duration": 7185421,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "5fe7c47a-4ea2-9122-a731-4e14fdac9101"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "200"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "109"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "1952"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "02ed4c4e19116d51",
+      "operationName": "POST /api/v1/ask http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0d3c71a0007edb56"
+        }
+      ],
+      "startTime": 1788445640231782,
+      "duration": 119,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9599468cc4042935",
+      "operationName": "lab28.vllm.chat_completion",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9cdf2f62c1e22557"
+        }
+      ],
+      "startTime": 1788445644581393,
+      "duration": 4389947,
+      "tags": [
+        {
+          "key": "gen_ai.request.max_tokens",
+          "type": "int64",
+          "value": 320
+        },
+        {
+          "key": "gen_ai.request.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.response.finish_reason",
+          "type": "string",
+          "value": "stop"
+        },
+        {
+          "key": "gen_ai.response.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.system",
+          "type": "string",
+          "value": "vllm"
+        },
+        {
+          "key": "gen_ai.usage.input_tokens",
+          "type": "int64",
+          "value": 378
+        },
+        {
+          "key": "gen_ai.usage.output_tokens",
+          "type": "int64",
+          "value": 26
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "0d3c71a0007edb56",
+      "operationName": "POST /api/v1/ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0888dd1e68a71a6b"
+        }
+      ],
+      "startTime": 1788445640229737,
+      "duration": 8748958,
+      "tags": [
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 38462
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": [
+        "clock skew adjustment disabled; not applying calculated delta of -1.417517ms"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "0888dd1e68a71a6b",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788445640226995,
+      "duration": 8751608,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "8e85a493-8cd9-944b-9ad0-11309a223a7f"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "200"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "109"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "1952"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b32c8dc2ebe22664",
+      "operationName": "lab28.api.ingest",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "6cd4f0bad991a1ed"
+        }
+      ],
+      "startTime": 1788431540077902,
+      "duration": 398276,
+      "tags": [
+        {
+          "key": "lab28.ingest.event_id",
+          "type": "string",
+          "value": "5aa317ff0a594e56831bdf3ae97f65b6"
+        },
+        {
+          "key": "lab28.ingest.idempotency_key",
+          "type": "string",
+          "value": "doc:final-doc-02e60d6c:1786678e77906a9116edf3af4a18993d"
+        },
+        {
+          "key": "lab28.ingest.kind",
+          "type": "string",
+          "value": "document"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "59904adb007f365f",
+      "operationName": "POST /api/v1/documents http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "6cd4f0bad991a1ed"
+        }
+      ],
+      "startTime": 1788431540481719,
+      "duration": 22,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "06ac53aba62d3eaf",
+      "operationName": "POST /api/v1/feedback http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "2de3d268c8777ed2"
+        }
+      ],
+      "startTime": 1788431540537473,
+      "duration": 26,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "4233735983da722a",
+      "operationName": "lab28.kafka.consume",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "15cdaadb07863969"
+        }
+      ],
+      "startTime": 1788432401143106,
+      "duration": 155,
+      "tags": [
+        {
+          "key": "lab28.event.kind",
+          "type": "string",
+          "value": "feedback"
+        },
+        {
+          "key": "lab28.idempotency_key",
+          "type": "string",
+          "value": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d"
+        },
+        {
+          "key": "messaging.kafka.message.offset",
+          "type": "int64",
+          "value": 14
+        },
+        {
+          "key": "messaging.source.name",
+          "type": "string",
+          "value": "data.raw"
+        },
+        {
+          "key": "messaging.system",
+          "type": "string",
+          "value": "kafka"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "consumer"
+        }
+      ],
+      "logs": [],
+      "processID": "p3",
+      "warnings": [
+        "clock skew adjustment disabled; not applying calculated delta of -1m5.753899724s"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "cf6b4c8e9e39e4b5",
+      "operationName": "POST /api/v1/ask http receive",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "364f07093eeddca2"
+        }
+      ],
+      "startTime": 1788444316851842,
+      "duration": 495,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.request"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "dd5da6eefb216fe5",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9f0b045d552f7cbc"
+        }
+      ],
+      "startTime": 1788444318689777,
+      "duration": 1853730,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://feast:6566/get-online-features"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "7588058eb0a971fe",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "b46148bd1e1319d2"
+        }
+      ],
+      "startTime": 1788444324359933,
+      "duration": 303982,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://qdrant:6333/collections/lab28_documents/points/query"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b31384d7c8659898",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "364f07093eeddca2"
+        }
+      ],
+      "startTime": 1788444324874693,
+      "duration": 26,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "cb1a3f56b5be2ba0",
+      "operationName": "POST",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "59b46a63f07b47ce"
+        }
+      ],
+      "startTime": 1788444434190413,
+      "duration": 127425,
+      "tags": [
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://qdrant:6333/collections/lab28_documents/points/query"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.httpx"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "client"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "3806d87d8f76f737",
+      "operationName": "lab28.vllm.chat_completion",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "20cbf67c1d06be1d"
+        }
+      ],
+      "startTime": 1788444434322646,
+      "duration": 4447807,
+      "tags": [
+        {
+          "key": "gen_ai.request.max_tokens",
+          "type": "int64",
+          "value": 320
+        },
+        {
+          "key": "gen_ai.request.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.response.finish_reason",
+          "type": "string",
+          "value": "stop"
+        },
+        {
+          "key": "gen_ai.response.model",
+          "type": "string",
+          "value": "Qwen/Qwen3-1.7B"
+        },
+        {
+          "key": "gen_ai.system",
+          "type": "string",
+          "value": "vllm"
+        },
+        {
+          "key": "gen_ai.usage.input_tokens",
+          "type": "int64",
+          "value": 378
+        },
+        {
+          "key": "gen_ai.usage.output_tokens",
+          "type": "int64",
+          "value": 26
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "d8e009a9ea897746",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "3a43c6ca4a002197"
+        }
+      ],
+      "startTime": 1788444438777601,
+      "duration": 25,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "545a234ef47c1216",
+      "operationName": "lab28.feast.get_online_features",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9cdf2f62c1e22557"
+        }
+      ],
+      "startTime": 1788445640380244,
+      "duration": 2739088,
+      "tags": [
+        {
+          "key": "lab28.feature.count",
+          "type": "int64",
+          "value": 4
+        },
+        {
+          "key": "lab28.feature.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.feature.view",
+          "type": "string",
+          "value": "asker_activity_v1"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "4bd9d9d4a75d26a4",
+      "operationName": "lab28.qdrant.query",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9cdf2f62c1e22557"
+        }
+      ],
+      "startTime": 1788445643120145,
+      "duration": 1459807,
+      "tags": [
+        {
+          "key": "db.collection.name",
+          "type": "string",
+          "value": "lab28_documents"
+        },
+        {
+          "key": "db.system",
+          "type": "string",
+          "value": "qdrant"
+        },
+        {
+          "key": "lab28.retrieval.hits",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.retrieval.mode",
+          "type": "string",
+          "value": "hybrid"
+        },
+        {
+          "key": "lab28.retrieval.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "0b6302b86e5f8546",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788431540499706,
+      "duration": 38079,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "16d85dd3-c199-9a7c-972a-dc37fd72bb8d"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "202"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/feedback"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "122"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "253"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "d83223ef53675dc0",
+      "operationName": "lab28.qdrant.query",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "f24be49b8026ac33"
+        }
+      ],
+      "startTime": 1788432185681467,
+      "duration": 2294057,
+      "tags": [
+        {
+          "key": "db.collection.name",
+          "type": "string",
+          "value": "lab28_documents"
+        },
+        {
+          "key": "db.system",
+          "type": "string",
+          "value": "qdrant"
+        },
+        {
+          "key": "lab28.retrieval.hits",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.retrieval.mode",
+          "type": "string",
+          "value": "hybrid"
+        },
+        {
+          "key": "lab28.retrieval.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "00d07553a5f26605",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9ddd0c622a039555"
+        }
+      ],
+      "startTime": 1788432190502720,
+      "duration": 27,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "4e2c33bc72c32565",
+      "operationName": "lab28.mlflow.resolve_release",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "eee504d89b634ed7"
+        }
+      ],
+      "startTime": 1788444316937679,
+      "duration": 1708681,
+      "tags": [
+        {
+          "key": "lab28.registry.alias",
+          "type": "string",
+          "value": "champion"
+        },
+        {
+          "key": "lab28.registry.model",
+          "type": "string",
+          "value": "lab28-rag-release"
+        },
+        {
+          "key": "lab28.registry.version",
+          "type": "string",
+          "value": "5"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "a183b33e58526076",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "364f07093eeddca2"
+        }
+      ],
+      "startTime": 1788444324862147,
+      "duration": 382,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "error",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 503
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "ERROR"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "11356850b9af2306",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "364f07093eeddca2"
+        }
+      ],
+      "startTime": 1788444324874340,
+      "duration": 51,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "18aa4ddce613e539",
+      "operationName": "lab28.mlflow.resolve_release",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9cdf2f62c1e22557"
+        }
+      ],
+      "startTime": 1788445640250800,
+      "duration": 128798,
+      "tags": [
+        {
+          "key": "lab28.registry.alias",
+          "type": "string",
+          "value": "champion"
+        },
+        {
+          "key": "lab28.registry.model",
+          "type": "string",
+          "value": "lab28-rag-release"
+        },
+        {
+          "key": "lab28.registry.version",
+          "type": "string",
+          "value": "5"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "713af012142d80d2",
+      "operationName": "lab28.mlflow.resolve_release",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "f24be49b8026ac33"
+        }
+      ],
+      "startTime": 1788432184430378,
+      "duration": 1070364,
+      "tags": [
+        {
+          "key": "lab28.registry.alias",
+          "type": "string",
+          "value": "champion"
+        },
+        {
+          "key": "lab28.registry.model",
+          "type": "string",
+          "value": "lab28-rag-release"
+        },
+        {
+          "key": "lab28.registry.version",
+          "type": "string",
+          "value": "5"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "15cdaadb07863969",
+      "operationName": "lab28.kafka.produce",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "b468d7c02104ee83"
+        }
+      ],
+      "startTime": 1788432335344317,
+      "duration": 89934,
+      "tags": [
+        {
+          "key": "lab28.schema_version",
+          "type": "string",
+          "value": "1"
+        },
+        {
+          "key": "messaging.destination.name",
+          "type": "string",
+          "value": "data.raw"
+        },
+        {
+          "key": "messaging.kafka.message.key",
+          "type": "string",
+          "value": "final-02e60d6c"
+        },
+        {
+          "key": "messaging.system",
+          "type": "string",
+          "value": "kafka"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "producer"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "cb4140df47cd977d",
+      "operationName": "lab28.gateway.request",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "ef34287d96cd49dd"
+        }
+      ],
+      "startTime": 1788431539753230,
+      "duration": 742471,
+      "tags": [
+        {
+          "key": "component",
+          "type": "string",
+          "value": "proxy"
+        },
+        {
+          "key": "downstream_cluster",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "guid:x-request-id",
+          "type": "string",
+          "value": "6bb8c42f-1ef2-9206-9944-0a82029b84cf"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.protocol",
+          "type": "string",
+          "value": "HTTP/1.1"
+        },
+        {
+          "key": "http.status_code",
+          "type": "string",
+          "value": "202"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/documents"
+        },
+        {
+          "key": "node_id",
+          "type": "string",
+          "value": "lab28-gateway"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        },
+        {
+          "key": "peer.address",
+          "type": "string",
+          "value": "172.22.0.1"
+        },
+        {
+          "key": "request_size",
+          "type": "string",
+          "value": "296"
+        },
+        {
+          "key": "response_flags",
+          "type": "string",
+          "value": "-"
+        },
+        {
+          "key": "response_size",
+          "type": "string",
+          "value": "262"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "upstream_cluster",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "upstream_cluster.name",
+          "type": "string",
+          "value": "api"
+        },
+        {
+          "key": "user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "zone",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "logs": [],
+      "processID": "p5",
+      "warnings": [
+        "invalid parent span IDs=ef34287d96cd49dd; skipping clock skew adjustment"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b548bc098a3b476c",
+      "operationName": "lab28.api.ingest",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "2de3d268c8777ed2"
+        }
+      ],
+      "startTime": 1788431540522861,
+      "duration": 11276,
+      "tags": [
+        {
+          "key": "lab28.ingest.event_id",
+          "type": "string",
+          "value": "7eb3d50d535f454db63ffaf58bb8c4c8"
+        },
+        {
+          "key": "lab28.ingest.idempotency_key",
+          "type": "string",
+          "value": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d"
+        },
+        {
+          "key": "lab28.ingest.kind",
+          "type": "string",
+          "value": "feedback"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "b02d80fc8b0a101c",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "9ddd0c622a039555"
+        }
+      ],
+      "startTime": 1788432190500784,
+      "duration": 146,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9ddd0c622a039555",
+      "operationName": "POST /api/v1/ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "21275631041a2c2f"
+        }
+      ],
+      "startTime": 1788432184331685,
+      "duration": 6171589,
+      "tags": [
+        {
+          "key": "http.flavor",
+          "type": "string",
+          "value": "1.1"
+        },
+        {
+          "key": "http.host",
+          "type": "string",
+          "value": "172.22.0.9:8000"
+        },
+        {
+          "key": "http.method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "http.route",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.scheme",
+          "type": "string",
+          "value": "http"
+        },
+        {
+          "key": "http.server_name",
+          "type": "string",
+          "value": "127.0.0.1:18080"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "http.target",
+          "type": "string",
+          "value": "/api/v1/ask"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "http://127.0.0.1:18080/api/v1/ask"
+        },
+        {
+          "key": "http.user_agent",
+          "type": "string",
+          "value": "python-httpx/0.28.1"
+        },
+        {
+          "key": "net.host.port",
+          "type": "int64",
+          "value": 8000
+        },
+        {
+          "key": "net.peer.ip",
+          "type": "string",
+          "value": "172.22.0.12"
+        },
+        {
+          "key": "net.peer.port",
+          "type": "int64",
+          "value": 48606
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "9204c15b34cf860b",
+      "operationName": "POST /api/v1/feedback http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "5e1e695fe31c725a"
+        }
+      ],
+      "startTime": 1788432335438421,
+      "duration": 23,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.body"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "eee504d89b634ed7",
+      "operationName": "lab28.api.ask",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "364f07093eeddca2"
+        }
+      ],
+      "startTime": 1788444316933617,
+      "duration": 7906452,
+      "tags": [
+        {
+          "key": "error",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "lab28.ask.locale",
+          "type": "string",
+          "value": "vi"
+        },
+        {
+          "key": "lab28.ask.question",
+          "type": "string",
+          "value": "Mã tham chiếu 02e60d6c được dùng để làm gì?"
+        },
+        {
+          "key": "lab28.ask.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "ERROR"
+        },
+        {
+          "key": "otel.status_description",
+          "type": "string",
+          "value": "ServingError: inference endpoint unavailable: vLLM unreachable: ConnectError"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [
+        {
+          "timestamp": 1788444324836293,
+          "fields": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "exception"
+            },
+            {
+              "key": "exception.escaped",
+              "type": "string",
+              "value": "False"
+            },
+            {
+              "key": "exception.message",
+              "type": "string",
+              "value": "inference endpoint unavailable: vLLM unreachable: ConnectError"
+            },
+            {
+              "key": "exception.stacktrace",
+              "type": "string",
+              "value": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 101, in handle_request\n    raise exc\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 78, in handle_request\n    stream = self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 124, in _connect\n    stream = self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 207, in connect_tcp\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 239, in complete\n    response = self._client.post(url, json=payload)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1144, in post\n    return self.request(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 825, in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 914, in send\n    response = self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 942, in _send_handling_auth\n    response = self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 979, in _send_handling_redirects\n    response = self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1014, in _send_single_request\n    response = transport.handle_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1430, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1381, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/pipeline.py\", line 284, in _infer\n    completion = self._llm.complete(DEFAULT_SYSTEM_PROMPT, user_prompt)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 254, in complete\n    raise InferenceUnavailable(f\"vLLM unreachable: {type(error).__name__}\") from error\nlab28_platform.llm_client.InferenceUnavailable: vLLM unreachable: ConnectError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/telemetry.py\", line 200, in span\n    yield active\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/pipeline.py\", line 147, in answer\n    completion = self._infer(question, sources, release, stage)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/pipeline.py\", line 291, in _infer\n    raise ServingError(\nlab28_platform.pipeline.ServingError: inference endpoint unavailable: vLLM unreachable: ConnectError\n"
+            },
+            {
+              "key": "exception.type",
+              "type": "string",
+              "value": "lab28_platform.pipeline.ServingError"
+            }
+          ]
+        },
+        {
+          "timestamp": 1788444324840032,
+          "fields": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "exception"
+            },
+            {
+              "key": "exception.escaped",
+              "type": "string",
+              "value": "False"
+            },
+            {
+              "key": "exception.message",
+              "type": "string",
+              "value": "inference endpoint unavailable: vLLM unreachable: ConnectError"
+            },
+            {
+              "key": "exception.stacktrace",
+              "type": "string",
+              "value": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 101, in handle_request\n    raise exc\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 78, in handle_request\n    stream = self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 124, in _connect\n    stream = self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 207, in connect_tcp\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 239, in complete\n    response = self._client.post(url, json=payload)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1144, in post\n    return self.request(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 825, in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 914, in send\n    response = self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 942, in _send_handling_auth\n    response = self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 979, in _send_handling_redirects\n    response = self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_client.py\", line 1014, in _send_single_request\n    response = transport.handle_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1430, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1381, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [Errno 111] Connection refused\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/pipeline.py\", line 284, in _infer\n    completion = self._llm.complete(DEFAULT_SYSTEM_PROMPT, user_prompt)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/llm_client.py\", line 254, in complete\n    raise InferenceUnavailable(f\"vLLM unreachable: {type(error).__name__}\") from error\nlab28_platform.llm_client.InferenceUnavailable: vLLM unreachable: ConnectError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 608, in use_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1183, in start_as_current_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/telemetry.py\", line 200, in span\n    yield active\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/pipeline.py\", line 147, in answer\n    completion = self._infer(question, sources, release, stage)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/lab28_platform/pipeline.py\", line 291, in _infer\n    raise ServingError(\nlab28_platform.pipeline.ServingError: inference endpoint unavailable: vLLM unreachable: ConnectError\n"
+            },
+            {
+              "key": "exception.type",
+              "type": "string",
+              "value": "lab28_platform.pipeline.ServingError"
+            }
+          ]
+        }
+      ],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "ba1c5a23b309874d",
+      "operationName": "lab28.kafka.consume",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "af9020f00cc0f672"
+        }
+      ],
+      "startTime": 1788431734375154,
+      "duration": 41,
+      "tags": [
+        {
+          "key": "lab28.event.kind",
+          "type": "string",
+          "value": "feedback"
+        },
+        {
+          "key": "lab28.idempotency_key",
+          "type": "string",
+          "value": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d"
+        },
+        {
+          "key": "messaging.kafka.message.offset",
+          "type": "int64",
+          "value": 13
+        },
+        {
+          "key": "messaging.source.name",
+          "type": "string",
+          "value": "data.raw"
+        },
+        {
+          "key": "messaging.system",
+          "type": "string",
+          "value": "kafka"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "consumer"
+        }
+      ],
+      "logs": [],
+      "processID": "p2",
+      "warnings": [
+        "clock skew adjustment disabled; not applying calculated delta of -3m13.84670079s"
+      ]
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "4c9d622b63492b0e",
+      "operationName": "lab28.feast.get_online_features",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "f24be49b8026ac33"
+        }
+      ],
+      "startTime": 1788432185502241,
+      "duration": 176916,
+      "tags": [
+        {
+          "key": "lab28.feature.count",
+          "type": "int64",
+          "value": 4
+        },
+        {
+          "key": "lab28.feature.degraded",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "key": "lab28.feature.view",
+          "type": "string",
+          "value": "asker_activity_v1"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "59b46a63f07b47ce",
+      "operationName": "lab28.qdrant.query",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "20cbf67c1d06be1d"
+        }
+      ],
+      "startTime": 1788444432862418,
+      "duration": 1459628,
+      "tags": [
+        {
+          "key": "db.collection.name",
+          "type": "string",
+          "value": "lab28_documents"
+        },
+        {
+          "key": "db.system",
+          "type": "string",
+          "value": "qdrant"
+        },
+        {
+          "key": "lab28.retrieval.hits",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "lab28.retrieval.mode",
+          "type": "string",
+          "value": "hybrid"
+        },
+        {
+          "key": "lab28.retrieval.top_k",
+          "type": "int64",
+          "value": 3
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "lab28-platform"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "4cf84b9f0e267834",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "3a43c6ca4a002197"
+        }
+      ],
+      "startTime": 1788444438776240,
+      "duration": 55,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+      "spanID": "e9fdc20040a62908",
+      "operationName": "POST /api/v1/ask http send",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "c292556b1c754bb8a11a9716d90cf7ee",
+          "spanID": "0d3c71a0007edb56"
+        }
+      ],
+      "startTime": 1788445648977308,
+      "duration": 64,
+      "tags": [
+        {
+          "key": "asgi.event.type",
+          "type": "string",
+          "value": "http.response.start"
+        },
+        {
+          "key": "http.status_code",
+          "type": "int64",
+          "value": 200
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "opentelemetry.instrumentation.fastapi"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "0.65b0"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    }
+  ],
+  "processes": {
+    "p1": {
+      "serviceName": "lab28-api",
+      "tags": [
+        {
+          "key": "deployment.environment",
+          "type": "string",
+          "value": "lab"
+        },
+        {
+          "key": "service.instance.id",
+          "type": "string",
+          "value": "9d128a2a-3531-4b7e-a87c-5e2327aad5e8"
+        },
+        {
+          "key": "service.namespace",
+          "type": "string",
+          "value": "lab28"
+        },
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "python"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "opentelemetry"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "1.44.0"
+        }
+      ]
+    },
+    "p2": {
+      "serviceName": "lab28-airflow",
+      "tags": [
+        {
+          "key": "deployment.environment",
+          "type": "string",
+          "value": "lab"
+        },
+        {
+          "key": "service.instance.id",
+          "type": "string",
+          "value": "0f5544c2-b84d-480a-ac95-033c7069d06f"
+        },
+        {
+          "key": "service.namespace",
+          "type": "string",
+          "value": "lab28"
+        },
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "python"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "opentelemetry"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "1.44.0"
+        }
+      ]
+    },
+    "p3": {
+      "serviceName": "lab28-airflow",
+      "tags": [
+        {
+          "key": "deployment.environment",
+          "type": "string",
+          "value": "lab"
+        },
+        {
+          "key": "service.instance.id",
+          "type": "string",
+          "value": "6a1eabec-2840-4f69-b05c-71106848463f"
+        },
+        {
+          "key": "service.namespace",
+          "type": "string",
+          "value": "lab28"
+        },
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "python"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "opentelemetry"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "1.44.0"
+        }
+      ]
+    },
+    "p4": {
+      "serviceName": "lab28-vllm",
+      "tags": [
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "python"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "opentelemetry"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "1.40.0"
+        },
+        {
+          "key": "vllm.instrumenting_module_name",
+          "type": "string",
+          "value": "vllm.llm_engine"
+        },
+        {
+          "key": "vllm.process_id",
+          "type": "string",
+          "value": "1"
+        }
+      ]
+    },
+    "p5": {
+      "serviceName": "lab28-gateway",
+      "tags": [
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "cpp"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "envoy"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "b579d07d3ad7ee11d32b105e91a5a39ad24718d7/1.39.1/Clean/RELEASE/BoringSSL"
+        }
+      ]
+    },
+    "p6": {
+      "serviceName": "lab28-airflow",
+      "tags": [
+        {
+          "key": "deployment.environment",
+          "type": "string",
+          "value": "lab"
+        },
+        {
+          "key": "service.instance.id",
+          "type": "string",
+          "value": "01e1d894-ad8f-4c23-aea3-f85e56b6983e"
+        },
+        {
+          "key": "service.namespace",
+          "type": "string",
+          "value": "lab28"
+        },
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "python"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "opentelemetry"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "1.44.0"
+        }
+      ]
+    }
+  },
+  "warnings": null
+}

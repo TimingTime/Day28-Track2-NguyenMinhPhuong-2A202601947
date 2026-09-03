@@ -1,0 +1,12 @@
+.....F
+================================== FAILURES ===================================
+__________ test_the_gateway_stops_routing_to_a_pod_that_is_not_ready __________
+integration-tests\test_j4_degraded_recovery.py:229: in test_the_gateway_stops_routing_to_a_pod_that_is_not_ready
+    rejection = stack.wait_until(
+integration-tests\stack.py:83: in wait_until
+    raise AssertionError(
+E   AssertionError: timed out after 120s waiting for the gateway to take the unready pod out of rotation â€” last seen: probe returned None
+=========================== short test summary info ===========================
+FAILED integration-tests/test_j4_degraded_recovery.py::test_the_gateway_stops_routing_to_a_pod_that_is_not_ready
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 5 passed, 15 deselected in 328.45s (0:05:28)

@@ -1,0 +1,42 @@
+{
+  "captured_at_utc": "2026-09-03T04:43:32.003806+00:00",
+  "source": "GET http://localhost:18000/ready",
+  "http_status": 200,
+  "body": {
+    "schema_version": "1",
+    "status": "degraded",
+    "components": [
+      {
+        "name": "kafka",
+        "ready": true,
+        "detail": "1 broker(s); 4 declared topics present",
+        "owner": "team-ingestion"
+      },
+      {
+        "name": "mlflow",
+        "ready": true,
+        "detail": "lab28-rag-release v1 is champion",
+        "owner": "team-data"
+      },
+      {
+        "name": "qdrant",
+        "ready": true,
+        "detail": "13 points; ok",
+        "owner": "team-serving"
+      },
+      {
+        "name": "vllm",
+        "ready": false,
+        "detail": "unreachable: ConnectError",
+        "owner": "team-serving"
+      },
+      {
+        "name": "feast",
+        "ready": true,
+        "detail": "ok",
+        "owner": "team-data"
+      }
+    ],
+    "trace_id": "0e20ae7a61fbfd2c0ea9419092296191"
+  }
+}

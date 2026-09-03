@@ -1,0 +1,1137 @@
+{
+  "captured_at_utc": "2026-09-03T09:25:38.906931+00:00",
+  "label": "candidate",
+  "scope": "Actual dedicated kind cluster; data dependencies remain in Docker Compose",
+  "application": {
+    "source": {
+      "path": "deploy/kubernetes/overlays/local",
+      "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+      "targetRevision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb"
+    },
+    "status": {
+      "controllerNamespace": "argocd",
+      "health": {
+        "lastTransitionTime": "2026-09-03T09:25:04Z",
+        "status": "Healthy"
+      },
+      "history": [
+        {
+          "deployStartedAt": "2026-09-03T09:15:09Z",
+          "deployedAt": "2026-09-03T09:15:23Z",
+          "id": 0,
+          "initiatedBy": {
+            "automated": true
+          },
+          "revision": "461dc2244aa4739c24fba12e20e58e6c2b7c1caa",
+          "source": {
+            "path": "deploy/kubernetes/overlays/local",
+            "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+            "targetRevision": "461dc2244aa4739c24fba12e20e58e6c2b7c1caa"
+          }
+        },
+        {
+          "deployStartedAt": "2026-09-03T09:20:44Z",
+          "deployedAt": "2026-09-03T09:20:49Z",
+          "id": 1,
+          "initiatedBy": {
+            "automated": true
+          },
+          "revision": "0016c4172c05af715d4c675ce8a77b502d6ff378",
+          "source": {
+            "path": "deploy/kubernetes/overlays/local",
+            "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+            "targetRevision": "0016c4172c05af715d4c675ce8a77b502d6ff378"
+          }
+        },
+        {
+          "deployStartedAt": "2026-09-03T09:24:42Z",
+          "deployedAt": "2026-09-03T09:24:46Z",
+          "id": 2,
+          "initiatedBy": {
+            "automated": true
+          },
+          "revision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb",
+          "source": {
+            "path": "deploy/kubernetes/overlays/local",
+            "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+            "targetRevision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb"
+          }
+        }
+      ],
+      "operationState": {
+        "finishedAt": "2026-09-03T09:24:46Z",
+        "message": "successfully synced (all tasks run)",
+        "operation": {
+          "initiatedBy": {
+            "automated": true
+          },
+          "retry": {
+            "limit": 5
+          },
+          "sync": {
+            "prune": true,
+            "revision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb",
+            "source": {
+              "path": "deploy/kubernetes/overlays/local",
+              "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+              "targetRevision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb"
+            },
+            "syncOptions": [
+              "CreateNamespace=true"
+            ]
+          }
+        },
+        "phase": "Succeeded",
+        "startedAt": "2026-09-03T09:24:42Z",
+        "syncResult": {
+          "resources": [
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Namespace",
+              "message": "namespace/lab28 unchanged",
+              "name": "lab28",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "networking.k8s.io",
+              "hookPhase": "Running",
+              "kind": "NetworkPolicy",
+              "message": "networkpolicy.networking.k8s.io/lab28-api unchanged",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "networking.k8s.io",
+              "hookPhase": "Running",
+              "kind": "NetworkPolicy",
+              "message": "networkpolicy.networking.k8s.io/lab28-local-dependencies unchanged",
+              "name": "lab28-local-dependencies",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "policy",
+              "hookPhase": "Running",
+              "kind": "PodDisruptionBudget",
+              "message": "poddisruptionbudget.policy/lab28-api configured",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "ServiceAccount",
+              "message": "serviceaccount/lab28-api unchanged",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "ConfigMap",
+              "message": "configmap/lab28-api-config configured",
+              "name": "lab28-api-config",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/mlflow unchanged",
+              "name": "mlflow",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/qdrant unchanged",
+              "name": "qdrant",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/feast unchanged",
+              "name": "feast",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/vllm unchanged",
+              "name": "vllm",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/lab28-api unchanged",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/kafka unchanged",
+              "name": "kafka",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "",
+              "hookPhase": "Running",
+              "kind": "Service",
+              "message": "service/otel-collector unchanged",
+              "name": "otel-collector",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "apps",
+              "hookPhase": "Running",
+              "images": [
+                "lab28-platform-api:submission-20260903-v1"
+              ],
+              "kind": "Deployment",
+              "message": "deployment.apps/lab28-api configured",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "autoscaling",
+              "hookPhase": "Running",
+              "kind": "HorizontalPodAutoscaler",
+              "message": "horizontalpodautoscaler.autoscaling/lab28-api configured",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v2"
+            },
+            {
+              "group": "gateway.networking.k8s.io",
+              "hookPhase": "Running",
+              "kind": "GatewayClass",
+              "message": "gatewayclass.gateway.networking.k8s.io/envoy-gateway unchanged",
+              "name": "envoy-gateway",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "gateway.networking.k8s.io",
+              "hookPhase": "Running",
+              "kind": "Gateway",
+              "message": "gateway.gateway.networking.k8s.io/lab28 unchanged",
+              "name": "lab28",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "gateway.networking.k8s.io",
+              "hookPhase": "Running",
+              "kind": "HTTPRoute",
+              "message": "httproute.gateway.networking.k8s.io/lab28-api configured",
+              "name": "lab28-api",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1"
+            },
+            {
+              "group": "gateway.envoyproxy.io",
+              "hookPhase": "Running",
+              "kind": "EnvoyProxy",
+              "message": "envoyproxy.gateway.envoyproxy.io/local-nodeport unchanged",
+              "name": "local-nodeport",
+              "namespace": "lab28",
+              "status": "Synced",
+              "syncPhase": "Sync",
+              "version": "v1alpha1"
+            }
+          ],
+          "revision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb",
+          "source": {
+            "path": "deploy/kubernetes/overlays/local",
+            "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+            "targetRevision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb"
+          }
+        }
+      },
+      "reconciledAt": "2026-09-03T09:24:46Z",
+      "resourceHealthSource": "appTree",
+      "resources": [
+        {
+          "kind": "ConfigMap",
+          "name": "lab28-api-config",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Namespace",
+          "name": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "feast",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "kafka",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "mlflow",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "otel-collector",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "qdrant",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "Service",
+          "name": "vllm",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "kind": "ServiceAccount",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "apps",
+          "kind": "Deployment",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "autoscaling",
+          "kind": "HorizontalPodAutoscaler",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v2"
+        },
+        {
+          "group": "gateway.envoyproxy.io",
+          "kind": "EnvoyProxy",
+          "name": "local-nodeport",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "gateway.networking.k8s.io",
+          "kind": "Gateway",
+          "name": "lab28",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "gateway.networking.k8s.io",
+          "kind": "GatewayClass",
+          "name": "envoy-gateway",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "gateway.networking.k8s.io",
+          "kind": "HTTPRoute",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "networking.k8s.io",
+          "kind": "NetworkPolicy",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "networking.k8s.io",
+          "kind": "NetworkPolicy",
+          "name": "lab28-local-dependencies",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        },
+        {
+          "group": "policy",
+          "kind": "PodDisruptionBudget",
+          "name": "lab28-api",
+          "namespace": "lab28",
+          "status": "Synced",
+          "version": "v1"
+        }
+      ],
+      "sourceHydrator": {},
+      "sourceType": "Kustomize",
+      "summary": {
+        "externalURLs": [
+          "http://172.24.0.2"
+        ],
+        "images": [
+          "lab28-platform-api:submission-20260903-v1"
+        ]
+      },
+      "sync": {
+        "comparedTo": {
+          "destination": {
+            "namespace": "lab28",
+            "server": "https://kubernetes.default.svc"
+          },
+          "source": {
+            "path": "deploy/kubernetes/overlays/local",
+            "repoURL": "https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git",
+            "targetRevision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb"
+          }
+        },
+        "revision": "18a4d172a2adcba49d69bd0c635e61173e6c48eb",
+        "status": "Synced"
+      }
+    }
+  },
+  "deployment": {
+    "spec": {
+      "progressDeadlineSeconds": 600,
+      "replicas": 2,
+      "revisionHistoryLimit": 10,
+      "selector": {
+        "matchLabels": {
+          "app.kubernetes.io/name": "lab28-api",
+          "app.kubernetes.io/part-of": "lab28-platform"
+        }
+      },
+      "strategy": {
+        "rollingUpdate": {
+          "maxSurge": "25%",
+          "maxUnavailable": "25%"
+        },
+        "type": "RollingUpdate"
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app.kubernetes.io/name": "lab28-api",
+            "app.kubernetes.io/part-of": "lab28-platform"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "lab28",
+                "serve",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000"
+              ],
+              "envFrom": [
+                {
+                  "configMapRef": {
+                    "name": "lab28-api-config"
+                  }
+                }
+              ],
+              "image": "lab28-platform-api:submission-20260903-v1",
+              "imagePullPolicy": "Never",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 20,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "api",
+              "ports": [
+                {
+                  "containerPort": 8000,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/ready",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 10
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "2",
+                  "memory": "1Gi"
+                },
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "256Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true
+              },
+              "startupProbe": {
+                "failureThreshold": 24,
+                "httpGet": {
+                  "path": "/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 5,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "temporary"
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 10001,
+            "runAsGroup": 10001,
+            "runAsNonRoot": true,
+            "runAsUser": 10001,
+            "seccompProfile": {
+              "type": "RuntimeDefault"
+            }
+          },
+          "serviceAccount": "lab28-api",
+          "serviceAccountName": "lab28-api",
+          "terminationGracePeriodSeconds": 30,
+          "volumes": [
+            {
+              "emptyDir": {},
+              "name": "temporary"
+            }
+          ]
+        }
+      }
+    },
+    "status": {
+      "availableReplicas": 2,
+      "conditions": [
+        {
+          "lastTransitionTime": "2026-09-03T09:15:22Z",
+          "lastUpdateTime": "2026-09-03T09:20:03Z",
+          "message": "ReplicaSet \"lab28-api-84755cfc49\" has successfully progressed.",
+          "reason": "NewReplicaSetAvailable",
+          "status": "True",
+          "type": "Progressing"
+        },
+        {
+          "lastTransitionTime": "2026-09-03T09:25:04Z",
+          "lastUpdateTime": "2026-09-03T09:25:04Z",
+          "message": "Deployment has minimum availability.",
+          "reason": "MinimumReplicasAvailable",
+          "status": "True",
+          "type": "Available"
+        }
+      ],
+      "observedGeneration": 4,
+      "readyReplicas": 2,
+      "replicas": 2,
+      "terminatingReplicas": 0,
+      "updatedReplicas": 2
+    }
+  },
+  "demo_revision": "candidate",
+  "gateway_status": {
+    "addresses": [
+      {
+        "type": "IPAddress",
+        "value": "172.24.0.2"
+      }
+    ],
+    "conditions": [
+      {
+        "lastTransitionTime": "2026-09-03T09:20:50Z",
+        "message": "The Gateway has been scheduled by Envoy Gateway",
+        "observedGeneration": 2,
+        "reason": "Accepted",
+        "status": "True",
+        "type": "Accepted"
+      },
+      {
+        "lastTransitionTime": "2026-09-03T09:20:50Z",
+        "message": "Address assigned to the Gateway, 1/1 envoy replicas available",
+        "observedGeneration": 2,
+        "reason": "Programmed",
+        "status": "True",
+        "type": "Programmed"
+      }
+    ],
+    "listeners": [
+      {
+        "attachedRoutes": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-03T09:20:50Z",
+            "message": "Sending translated listener configuration to the data plane",
+            "observedGeneration": 2,
+            "reason": "Programmed",
+            "status": "True",
+            "type": "Programmed"
+          },
+          {
+            "lastTransitionTime": "2026-09-03T09:20:50Z",
+            "message": "Listener has been successfully translated",
+            "observedGeneration": 2,
+            "reason": "Accepted",
+            "status": "True",
+            "type": "Accepted"
+          },
+          {
+            "lastTransitionTime": "2026-09-03T09:20:50Z",
+            "message": "Listener references have been resolved",
+            "observedGeneration": 2,
+            "reason": "ResolvedRefs",
+            "status": "True",
+            "type": "ResolvedRefs"
+          }
+        ],
+        "name": "http",
+        "supportedKinds": [
+          {
+            "group": "gateway.networking.k8s.io",
+            "kind": "HTTPRoute"
+          },
+          {
+            "group": "gateway.networking.k8s.io",
+            "kind": "GRPCRoute"
+          }
+        ]
+      }
+    ]
+  },
+  "route_status": {
+    "parents": [
+      {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-03T09:15:26Z",
+            "message": "Route is accepted",
+            "observedGeneration": 1,
+            "reason": "Accepted",
+            "status": "True",
+            "type": "Accepted"
+          },
+          {
+            "lastTransitionTime": "2026-09-03T09:15:26Z",
+            "message": "Resolved all the Object references for the Route",
+            "observedGeneration": 1,
+            "reason": "ResolvedRefs",
+            "status": "True",
+            "type": "ResolvedRefs"
+          }
+        ],
+        "controllerName": "gateway.envoyproxy.io/gatewayclass-controller",
+        "parentRef": {
+          "group": "gateway.networking.k8s.io",
+          "kind": "Gateway",
+          "name": "lab28"
+        }
+      }
+    ]
+  },
+  "hpa": {
+    "spec": {
+      "behavior": {
+        "scaleDown": {
+          "policies": [
+            {
+              "periodSeconds": 15,
+              "type": "Percent",
+              "value": 100
+            }
+          ],
+          "selectPolicy": "Max",
+          "stabilizationWindowSeconds": 300
+        },
+        "scaleUp": {
+          "policies": [
+            {
+              "periodSeconds": 15,
+              "type": "Pods",
+              "value": 4
+            },
+            {
+              "periodSeconds": 15,
+              "type": "Percent",
+              "value": 100
+            }
+          ],
+          "selectPolicy": "Max",
+          "stabilizationWindowSeconds": 0
+        }
+      },
+      "maxReplicas": 2,
+      "metrics": [
+        {
+          "resource": {
+            "name": "cpu",
+            "target": {
+              "averageUtilization": 70,
+              "type": "Utilization"
+            }
+          },
+          "type": "Resource"
+        }
+      ],
+      "minReplicas": 2,
+      "scaleTargetRef": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "lab28-api"
+      }
+    },
+    "status": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2026-09-03T09:15:22Z",
+          "message": "recent recommendations were higher than current one, applying the highest recent recommendation",
+          "reason": "ScaleDownStabilized",
+          "status": "True",
+          "type": "AbleToScale"
+        },
+        {
+          "lastTransitionTime": "2026-09-03T09:21:09Z",
+          "message": "the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)",
+          "reason": "ValidMetricFound",
+          "status": "True",
+          "type": "ScalingActive"
+        },
+        {
+          "lastTransitionTime": "2026-09-03T09:21:09Z",
+          "message": "the desired count is within the acceptable range",
+          "reason": "DesiredWithinRange",
+          "status": "False",
+          "type": "ScalingLimited"
+        },
+        {
+          "lastTransitionTime": "2026-09-03T09:21:09Z",
+          "message": "the HPA controller did not scale the workload to zero",
+          "reason": "NotScaledToZero",
+          "status": "False",
+          "type": "ScaledToZero"
+        }
+      ],
+      "currentMetrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 23,
+              "averageValue": "23m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "currentReplicas": 2,
+      "desiredReplicas": 2,
+      "lastScaleTime": "2026-09-03T09:21:09Z",
+      "observedGeneration": 2
+    }
+  },
+  "pods": [
+    {
+      "name": "lab28-api-84755cfc49-2ww6n",
+      "uid": "e50269da-b47b-406a-ab07-b48a12b05166",
+      "status": {
+        "allocatedResources": {
+          "cpu": "100m",
+          "memory": "256Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:24:47Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:24:46Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:25:04Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:25:04Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:24:46Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "100m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://1d0d552dbe3bad1a5579a18ac04982d53beb2fbe0f0ddd878a1d61b9fa5f2bb3",
+            "image": "docker.io/library/lab28-platform-api:submission-20260903-v1",
+            "imageID": "docker.io/library/import-2026-09-03@sha256:dd3b4271db2c09bfa0dc2555cb981e41fca10a0e02bfa521693c5e02cd345bff",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "1Gi"
+              },
+              "requests": {
+                "cpu": "100m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-09-03T09:24:47Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "temporary"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.24.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.24.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.244.0.15",
+        "podIPs": [
+          {
+            "ip": "10.244.0.15"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "2",
+            "memory": "1Gi"
+          },
+          "requests": {
+            "cpu": "79m",
+            "memory": "256Mi"
+          }
+        },
+        "startTime": "2026-09-03T09:24:46Z"
+      }
+    },
+    {
+      "name": "lab28-api-84755cfc49-tsxgr",
+      "uid": "2db85385-7265-41ff-a2d8-3e2843a09e3f",
+      "status": {
+        "allocatedResources": {
+          "cpu": "100m",
+          "memory": "256Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:15:25Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:15:22Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:20:02Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:20:02Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-09-03T09:15:22Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "100m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://22442e185a5f08d66fddd10ba22949c9c673769ad37047039b05b1a0295d9c4e",
+            "image": "docker.io/library/lab28-platform-api:submission-20260903-v1",
+            "imageID": "docker.io/library/import-2026-09-03@sha256:dd3b4271db2c09bfa0dc2555cb981e41fca10a0e02bfa521693c5e02cd345bff",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "1Gi"
+              },
+              "requests": {
+                "cpu": "100m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-09-03T09:15:27Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "temporary"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.24.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.24.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.244.0.11",
+        "podIPs": [
+          {
+            "ip": "10.244.0.11"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "2",
+            "memory": "1Gi"
+          },
+          "requests": {
+            "cpu": "79m",
+            "memory": "256Mi"
+          }
+        },
+        "startTime": "2026-09-03T09:15:22Z"
+      }
+    }
+  ],
+  "gateway_url": "http://localhost:19580",
+  "responses": {
+    "/health": {
+      "status": 200,
+      "request_id": null,
+      "body": {
+        "status": "alive",
+        "service": "lab28-api"
+      }
+    },
+    "/ready": {
+      "status": 200,
+      "request_id": null,
+      "body": {
+        "schema_version": "1",
+        "status": "degraded",
+        "components": [
+          {
+            "name": "kafka",
+            "ready": true,
+            "detail": "1 broker(s); 4 declared topics present",
+            "owner": "team-ingestion"
+          },
+          {
+            "name": "mlflow",
+            "ready": true,
+            "detail": "lab28-rag-release v1 is champion",
+            "owner": "team-data"
+          },
+          {
+            "name": "qdrant",
+            "ready": true,
+            "detail": "17 points; ok",
+            "owner": "team-serving"
+          },
+          {
+            "name": "vllm",
+            "ready": false,
+            "detail": "unreachable: ConnectError",
+            "owner": "team-serving"
+          },
+          {
+            "name": "feast",
+            "ready": true,
+            "detail": "ok",
+            "owner": "team-data"
+          }
+        ],
+        "trace_id": "15946cce66154151e1a5dc421f3d78cb"
+      }
+    }
+  }
+}

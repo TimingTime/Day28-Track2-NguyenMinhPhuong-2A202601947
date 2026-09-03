@@ -1,0 +1,19 @@
+{
+  "key": "return_value",
+  "timestamp": "2026-09-03T04:43:08.509631Z",
+  "logical_date": null,
+  "map_index": -1,
+  "task_id": "drain_kafka_into_delta",
+  "dag_id": "lab28_ingestion_pipeline",
+  "run_id": "it-857d9e6b",
+  "dag_display_name": "lab28_ingestion_pipeline",
+  "task_display_name": "drain_kafka_into_delta",
+  "run_after": "2026-09-03T04:42:37.770910Z",
+  "value": {
+    "run_id": "it-857d9e6b",
+    "traceparent": "00-305c190a86f94097bf983fe3da2f5f4a-79a3a242bb9d451e-01",
+    "polled": 0,
+    "processed": 0,
+    "dead_lettered": 0
+  }
+}

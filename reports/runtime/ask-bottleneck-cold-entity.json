@@ -1,0 +1,481 @@
+{
+  "scope": "30 measured requests, two workers, five warm-up requests excluded; Spark/Airflow paused during serving measurement",
+  "asker_id": "load-profile",
+  "degraded_answers": 30,
+  "degraded_reasons": [
+    "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+  ],
+  "mean_audit_ms": {
+    "feature_ms": 11.435,
+    "retrieval_ms": 247.535,
+    "llm_ms": 3074.523,
+    "guardrail_ms": 0.022,
+    "total_ms": 3479.995
+  },
+  "mean_wall_ms": 3490.74,
+  "trace_profiles": [
+    {
+      "trace_id": "3dab089fd7a4ac4a230b6982a9ebe70c",
+      "span_ms": {
+        "POST": 2708.579,
+        "POST /api/v1/ask http send": 0.075,
+        "POST /api/v1/ask": 3078.963,
+        "lab28.gateway.request": 3080.616,
+        "lab28.mlflow.resolve_release": 223.935,
+        "lab28.vllm.chat_completion": 2609.857,
+        "lab28.api.ask": 3073.251,
+        "POST /api/v1/ask http receive": 0.775,
+        "lab28.feast.get_online_features": 14.068,
+        "lab28.qdrant.query": 223.914
+      }
+    },
+    {
+      "trace_id": "34c20eb57a4c28eca64f1cf76c0936d2",
+      "span_ms": {
+        "POST /api/v1/ask http send": 0.063,
+        "POST /api/v1/ask": 1400.289,
+        "POST /api/v1/ask http receive": 0.028,
+        "lab28.gateway.request": 1402.369,
+        "lab28.mlflow.resolve_release": 222.412,
+        "lab28.vllm.chat_completion": 868.229,
+        "POST": 935.129,
+        "lab28.feast.get_online_features": 63.31,
+        "lab28.qdrant.query": 240.672,
+        "lab28.api.ask": 1396.275
+      }
+    },
+    {
+      "trace_id": "e5fd69ac0ca634ac45c287bf1876f2f4",
+      "span_ms": {
+        "POST /api/v1/ask http send": 0.095,
+        "lab28.vllm.chat_completion": 3323.8,
+        "lab28.api.ask": 3623.307,
+        "POST": 3335.509,
+        "POST /api/v1/ask": 3627.196,
+        "lab28.gateway.request": 3628.649,
+        "lab28.mlflow.resolve_release": 115.407,
+        "lab28.feast.get_online_features": 8.089,
+        "lab28.qdrant.query": 172.536,
+        "POST /api/v1/ask http receive": 0.034
+      }
+    },
+    {
+      "trace_id": "1f689c9f75b16f97152546de41acd0ce",
+      "span_ms": {
+        "POST": 3705.819,
+        "POST /api/v1/ask http receive": 0.02,
+        "POST /api/v1/ask http send": 0.071,
+        "lab28.gateway.request": 3954.803,
+        "lab28.vllm.chat_completion": 3682.935,
+        "lab28.api.ask": 3950.168,
+        "POST /api/v1/ask": 3953.596,
+        "lab28.mlflow.resolve_release": 125.029,
+        "lab28.feast.get_online_features": 7.911,
+        "lab28.qdrant.query": 133.201
+      }
+    },
+    {
+      "trace_id": "5bb44e17e164785181f4f9e883bc7261",
+      "span_ms": {
+        "POST /api/v1/ask http receive": 0.04,
+        "lab28.mlflow.resolve_release": 142.692,
+        "lab28.feast.get_online_features": 8.901,
+        "POST": 6572.217000000001,
+        "lab28.api.ask": 6947.026,
+        "POST /api/v1/ask http send": 0.131,
+        "lab28.qdrant.query": 238.504,
+        "lab28.gateway.request": 6953.874,
+        "lab28.vllm.chat_completion": 6555.23,
+        "POST /api/v1/ask": 6952.229
+      }
+    },
+    {
+      "trace_id": "ae9e267deb9d8e234561edb01532e68a",
+      "span_ms": {
+        "POST /api/v1/ask http send": 0.20500000000000002,
+        "lab28.qdrant.query": 162.291,
+        "POST": 3315.3250000000003,
+        "lab28.gateway.request": 3646.828,
+        "lab28.vllm.chat_completion": 3311.615,
+        "POST /api/v1/ask": 3645.198,
+        "lab28.mlflow.resolve_release": 155.076,
+        "lab28.feast.get_online_features": 8.792,
+        "POST /api/v1/ask http receive": 0.046,
+        "lab28.api.ask": 3639.24
+      }
+    },
+    {
+      "trace_id": "7dd7779d8d301aa3d9a1a793cacf13d6",
+      "span_ms": {
+        "POST": 1030.1570000000002,
+        "lab28.mlflow.resolve_release": 122.003,
+        "lab28.feast.get_online_features": 7.652,
+        "lab28.vllm.chat_completion": 1001.625,
+        "lab28.api.ask": 1389.248,
+        "lab28.qdrant.query": 256.072,
+        "POST /api/v1/ask http receive": 0.023,
+        "POST /api/v1/ask http send": 0.06599999999999999,
+        "POST /api/v1/ask": 1393.188,
+        "lab28.gateway.request": 1394.433
+      }
+    },
+    {
+      "trace_id": "cc6971d14a34021787e4121ffd4c8b38",
+      "span_ms": {
+        "POST": 3255.361,
+        "POST /api/v1/ask http receive": 0.081,
+        "lab28.vllm.chat_completion": 3240.082,
+        "lab28.api.ask": 3675.284,
+        "POST /api/v1/ask": 3684.905,
+        "lab28.mlflow.resolve_release": 186.381,
+        "lab28.feast.get_online_features": 8.277,
+        "lab28.qdrant.query": 238.522,
+        "lab28.gateway.request": 3686.125,
+        "POST /api/v1/ask http send": 0.159
+      }
+    },
+    {
+      "trace_id": "a4ce572d472f040493a36175aebe2814",
+      "span_ms": {
+        "POST /api/v1/ask": 3224.156,
+        "lab28.mlflow.resolve_release": 274.27,
+        "lab28.feast.get_online_features": 20.564,
+        "lab28.gateway.request": 3225.86,
+        "POST": 2799.018,
+        "lab28.vllm.chat_completion": 2778.737,
+        "lab28.api.ask": 3216.871,
+        "POST /api/v1/ask http send": 0.10500000000000001,
+        "lab28.qdrant.query": 141.181,
+        "POST /api/v1/ask http receive": 0.026
+      }
+    },
+    {
+      "trace_id": "9f5618bd2315737690b94af496be4a34",
+      "span_ms": {
+        "POST /api/v1/ask http receive": 0.028,
+        "POST /api/v1/ask http send": 0.075,
+        "POST": 2876.763,
+        "lab28.mlflow.resolve_release": 138.501,
+        "lab28.vllm.chat_completion": 2866.639,
+        "POST /api/v1/ask": 3177.216,
+        "lab28.gateway.request": 3178.897,
+        "lab28.feast.get_online_features": 7.983,
+        "lab28.qdrant.query": 158.2,
+        "lab28.api.ask": 3172.858
+      }
+    },
+    {
+      "trace_id": "14317da5bbe4083084cd589d26286e04",
+      "span_ms": {
+        "POST": 3022.41,
+        "lab28.mlflow.resolve_release": 217.03,
+        "lab28.feast.get_online_features": 13.475,
+        "lab28.qdrant.query": 364.397,
+        "lab28.vllm.chat_completion": 2985.091,
+        "lab28.api.ask": 3581.732,
+        "POST /api/v1/ask http receive": 0.092,
+        "POST /api/v1/ask http send": 0.154,
+        "POST /api/v1/ask": 3594.868,
+        "lab28.gateway.request": 3597.049
+      }
+    },
+    {
+      "trace_id": "b62e6a1698186fc01d7f498192e0025b",
+      "span_ms": {
+        "POST": 1003.018,
+        "lab28.mlflow.resolve_release": 119.992,
+        "lab28.qdrant.query": 276.874,
+        "POST /api/v1/ask http receive": 0.031,
+        "POST /api/v1/ask http send": 0.06999999999999999,
+        "lab28.feast.get_online_features": 8.617,
+        "lab28.vllm.chat_completion": 989.703,
+        "lab28.api.ask": 1396.79,
+        "POST /api/v1/ask": 1400.795,
+        "lab28.gateway.request": 1402.878
+      }
+    },
+    {
+      "trace_id": "c1ac5b96e54962372d9048e49ba11542",
+      "span_ms": {
+        "lab28.feast.get_online_features": 7.148,
+        "lab28.qdrant.query": 261.855,
+        "POST": 3201.834,
+        "POST /api/v1/ask http send": 0.086,
+        "POST /api/v1/ask": 3571.829,
+        "lab28.mlflow.resolve_release": 113.293,
+        "POST /api/v1/ask http receive": 0.039,
+        "lab28.vllm.chat_completion": 3183.415,
+        "lab28.api.ask": 3567.171,
+        "lab28.gateway.request": 3573.04
+      }
+    },
+    {
+      "trace_id": "30f03d0e2866f22b454e8fe08c30c941",
+      "span_ms": {
+        "POST /api/v1/ask http send": 0.124,
+        "POST": 2867.665,
+        "lab28.qdrant.query": 319.946,
+        "POST /api/v1/ask": 3297.339,
+        "lab28.gateway.request": 3299.64,
+        "lab28.mlflow.resolve_release": 112.98,
+        "lab28.feast.get_online_features": 8.908,
+        "POST /api/v1/ask http receive": 0.025,
+        "lab28.vllm.chat_completion": 2847.106,
+        "lab28.api.ask": 3290.609
+      }
+    },
+    {
+      "trace_id": "bf79b40ab93ca9467df41a4e50fb9152",
+      "span_ms": {
+        "POST /api/v1/ask http receive": 0.022,
+        "POST": 5696.141,
+        "lab28.api.ask": 6057.615,
+        "lab28.mlflow.resolve_release": 115.671,
+        "lab28.qdrant.query": 247.862,
+        "lab28.vllm.chat_completion": 5682.418,
+        "POST /api/v1/ask http send": 0.06,
+        "POST /api/v1/ask": 6060.938,
+        "lab28.gateway.request": 6062.389,
+        "lab28.feast.get_online_features": 9.874
+      }
+    },
+    {
+      "trace_id": "b00e594ddd7a60a0ce49105720bad23a",
+      "span_ms": {
+        "POST": 3255.0989999999997,
+        "lab28.qdrant.query": 266.014,
+        "POST /api/v1/ask http receive": 0.093,
+        "lab28.gateway.request": 3680.435,
+        "lab28.vllm.chat_completion": 3241.758,
+        "POST /api/v1/ask http send": 0.074,
+        "POST /api/v1/ask": 3678.697,
+        "lab28.mlflow.resolve_release": 154.614,
+        "lab28.feast.get_online_features": 6.953,
+        "lab28.api.ask": 3670.645
+      }
+    },
+    {
+      "trace_id": "4f4eb712f560eae0c18b5426bc80f3cc",
+      "span_ms": {
+        "lab28.vllm.chat_completion": 889.05,
+        "POST /api/v1/ask http send": 0.121,
+        "lab28.gateway.request": 1331.798,
+        "POST": 932.905,
+        "lab28.mlflow.resolve_release": 131.691,
+        "lab28.feast.get_online_features": 8.37,
+        "lab28.api.ask": 1325.711,
+        "POST /api/v1/ask http receive": 0.072,
+        "POST /api/v1/ask": 1330.503,
+        "lab28.qdrant.query": 295.044
+      }
+    },
+    {
+      "trace_id": "a3d052afb5ea1e41d52557933125caff",
+      "span_ms": {
+        "POST /api/v1/ask http send": 0.062,
+        "POST": 3373.2690000000002,
+        "lab28.feast.get_online_features": 9.832,
+        "lab28.vllm.chat_completion": 3354.5,
+        "lab28.api.ask": 3802.289,
+        "POST /api/v1/ask": 3805.531,
+        "lab28.mlflow.resolve_release": 131.748,
+        "lab28.qdrant.query": 304.757,
+        "POST /api/v1/ask http receive": 0.021,
+        "lab28.gateway.request": 3806.821
+      }
+    },
+    {
+      "trace_id": "b0f9d6213bdca285e40051dd9927bd2f",
+      "span_ms": {
+        "lab28.api.ask": 3412.088,
+        "POST /api/v1/ask http send": 0.14300000000000002,
+        "POST": 3052.6059999999998,
+        "lab28.qdrant.query": 250.31,
+        "POST /api/v1/ask http receive": 0.024,
+        "lab28.gateway.request": 3423.533,
+        "lab28.vllm.chat_completion": 3039.583,
+        "POST /api/v1/ask": 3422.702,
+        "lab28.mlflow.resolve_release": 113.159,
+        "lab28.feast.get_online_features": 7.696
+      }
+    },
+    {
+      "trace_id": "7e250f9bf4f2991d15ffb59a5c2bc06a",
+      "span_ms": {
+        "POST": 6744.6410000000005,
+        "lab28.mlflow.resolve_release": 131.179,
+        "lab28.qdrant.query": 265.615,
+        "POST /api/v1/ask http receive": 0.034,
+        "lab28.vllm.chat_completion": 6726.07,
+        "lab28.api.ask": 7153.702,
+        "POST /api/v1/ask http send": 0.081,
+        "lab28.feast.get_online_features": 14.556,
+        "POST /api/v1/ask": 7157.454,
+        "lab28.gateway.request": 7158.957
+      }
+    },
+    {
+      "trace_id": "79ce3860e113374f22beaa9648eb57fb",
+      "span_ms": {
+        "POST /api/v1/ask http receive": 0.041,
+        "lab28.gateway.request": 4567.37,
+        "lab28.vllm.chat_completion": 4097.146,
+        "lab28.api.ask": 4555.371,
+        "POST /api/v1/ask http send": 0.118,
+        "POST": 4115.131,
+        "lab28.mlflow.resolve_release": 207.075,
+        "POST /api/v1/ask": 4565.932,
+        "lab28.feast.get_online_features": 9.28,
+        "lab28.qdrant.query": 240.58
+      }
+    },
+    {
+      "trace_id": "9075ba68fd355bdbdc55a3458ce4fd96",
+      "span_ms": {
+        "POST": 918.308,
+        "lab28.qdrant.query": 237.98,
+        "lab28.vllm.chat_completion": 905.807,
+        "lab28.api.ask": 1285.367,
+        "POST /api/v1/ask http receive": 0.038,
+        "POST /api/v1/ask http send": 0.083,
+        "lab28.mlflow.resolve_release": 130.476,
+        "lab28.feast.get_online_features": 9.764,
+        "POST /api/v1/ask": 1290.084,
+        "lab28.gateway.request": 1291.19
+      }
+    },
+    {
+      "trace_id": "190472507df7e1fb558ba8b9b9205efa",
+      "span_ms": {
+        "POST": 3245.359,
+        "lab28.vllm.chat_completion": 3236.713,
+        "POST /api/v1/ask http send": 0.124,
+        "POST /api/v1/ask http receive": 0.022,
+        "lab28.gateway.request": 3600.978,
+        "lab28.api.ask": 3595.007,
+        "POST /api/v1/ask": 3599.465,
+        "lab28.mlflow.resolve_release": 110.161,
+        "lab28.feast.get_online_features": 8.478,
+        "lab28.qdrant.query": 238.042
+      }
+    },
+    {
+      "trace_id": "a8e60441406b85482d7dc600879bf603",
+      "span_ms": {
+        "lab28.api.ask": 3294.678,
+        "POST /api/v1/ask http send": 0.065,
+        "POST /api/v1/ask": 3298.297,
+        "POST": 2857.24,
+        "lab28.mlflow.resolve_release": 109.468,
+        "lab28.feast.get_online_features": 6.765,
+        "lab28.gateway.request": 3300.912,
+        "lab28.qdrant.query": 335.285,
+        "POST /api/v1/ask http receive": 0.032,
+        "lab28.vllm.chat_completion": 2841.827
+      }
+    },
+    {
+      "trace_id": "1fcc611e17a35cad606ade1dbc973a0c",
+      "span_ms": {
+        "lab28.qdrant.query": 278.514,
+        "lab28.vllm.chat_completion": 2905.851,
+        "lab28.api.ask": 3325.833,
+        "POST /api/v1/ask http send": 0.06999999999999999,
+        "POST": 2921.8309999999997,
+        "lab28.feast.get_online_features": 10.111,
+        "POST /api/v1/ask http receive": 0.029,
+        "POST /api/v1/ask": 3329.718,
+        "lab28.gateway.request": 3331.416,
+        "lab28.mlflow.resolve_release": 129.969
+      }
+    },
+    {
+      "trace_id": "f490e050833fab34e0d0d211862244d4",
+      "span_ms": {
+        "POST": 3287.477,
+        "POST /api/v1/ask http send": 0.10500000000000001,
+        "POST /api/v1/ask": 3635.986,
+        "lab28.mlflow.resolve_release": 119.267,
+        "lab28.feast.get_online_features": 8.22,
+        "lab28.qdrant.query": 228.219,
+        "POST /api/v1/ask http receive": 0.036,
+        "lab28.vllm.chat_completion": 3273.947,
+        "lab28.api.ask": 3631.071,
+        "lab28.gateway.request": 3637.197
+      }
+    },
+    {
+      "trace_id": "9701bf24f45d379b2c263d5253e4f047",
+      "span_ms": {
+        "lab28.gateway.request": 1716.476,
+        "lab28.mlflow.resolve_release": 123.793,
+        "lab28.vllm.chat_completion": 1243.464,
+        "lab28.api.ask": 1709.663,
+        "POST": 1259.3,
+        "POST /api/v1/ask http send": 0.176,
+        "POST /api/v1/ask http receive": 0.031,
+        "lab28.feast.get_online_features": 9.594,
+        "lab28.qdrant.query": 331.621,
+        "POST /api/v1/ask": 1714.944
+      }
+    },
+    {
+      "trace_id": "e780c2ae73bdf74c0980b62d0ddf1cd1",
+      "span_ms": {
+        "POST /api/v1/ask http send": 0.067,
+        "lab28.gateway.request": 3330.607,
+        "lab28.mlflow.resolve_release": 109.983,
+        "lab28.feast.get_online_features": 8.909,
+        "lab28.qdrant.query": 243.841,
+        "lab28.vllm.chat_completion": 2961.503,
+        "lab28.api.ask": 3325.466,
+        "POST": 2973.227,
+        "POST /api/v1/ask": 3329.038,
+        "POST /api/v1/ask http receive": 0.036
+      }
+    },
+    {
+      "trace_id": "a46196a37d5c42396afae1ffcebb4e1a",
+      "span_ms": {
+        "POST": 2738.3340000000003,
+        "POST /api/v1/ask http receive": 0.045,
+        "lab28.gateway.request": 3091.008,
+        "lab28.feast.get_online_features": 8.828,
+        "lab28.qdrant.query": 229.531,
+        "lab28.vllm.chat_completion": 2725.867,
+        "POST /api/v1/ask http send": 0.073,
+        "POST /api/v1/ask": 3089.865,
+        "lab28.mlflow.resolve_release": 120.299,
+        "lab28.api.ask": 3085.674
+      }
+    },
+    {
+      "trace_id": "001fc3d9dcc33bcb335b1a1c12f25117",
+      "span_ms": {
+        "lab28.feast.get_online_features": 7.75,
+        "lab28.qdrant.query": 236.23,
+        "POST": 4883.024,
+        "lab28.vllm.chat_completion": 4860.355,
+        "lab28.api.ask": 5236.659,
+        "POST /api/v1/ask http send": 0.188,
+        "POST /api/v1/ask": 5242.305,
+        "lab28.mlflow.resolve_release": 121.03,
+        "POST /api/v1/ask http receive": 0.029,
+        "lab28.gateway.request": 5243.291
+      }
+    }
+  ],
+  "matched_traces": 30,
+  "mean_span_ms": {
+    "POST": 3096.09,
+    "POST /api/v1/ask": 3485.108,
+    "POST /api/v1/ask http receive": 0.063,
+    "POST /api/v1/ask http send": 0.103,
+    "lab28.api.ask": 3479.556,
+    "lab28.feast.get_online_features": 11.289,
+    "lab28.gateway.request": 3486.648,
+    "lab28.mlflow.resolve_release": 144.286,
+    "lab28.qdrant.query": 247.254,
+    "lab28.vllm.chat_completion": 3074.331
+  }
+}

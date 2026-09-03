@@ -1,52 +1,44 @@
-# Danh mục bằng chứng thực tế
+# Bằng chứng Day 28
 
-Thư mục này chỉ chứa dữ liệu thực sự thu được từ các dịch vụ. Bản hiện tại chưa
-có đủ bằng chứng live; trạng thái tổng hợp nằm trong [REPORT.md](../REPORT.md).
+Các file dưới đây chứa payload thu từ dịch vụ thật. Kết quả, timestamp, phạm vi
+kiểm thử và giới hạn tài nguyên được giải thích trong [REPORT.md](../REPORT.md).
+Có **11 file IP cho 10 điểm kết nối**, vì IP09 có hai file.
 
-| Điểm | File theo integration matrix | Nguồn cần thu |
+| Điểm | File | Nguồn và nội dung |
 |---|---|---|
-| IP01 | `ip01-kafka-consume.json` | J1: consume sự kiện và Kafka headers |
-| IP02 | `ip02-airflow-run.json` | J1: DAG run, task states và asset event |
-| IP03 | `ip03-delta-history.json` | CLI evidence: lịch sử commit và time travel |
-| IP04 | `ip04-feast-online.json` | J1: online entity có dữ liệu sau materialization |
-| IP05 | `ip05-qdrant-search.json` | CLI evidence: truy vấn vector có ID và score |
-| IP06 | `ip06-mlflow-release.json` | J3: phiên bản, provenance và alias |
-| IP07 | `ip07-vllm-identity.json` | `/version`, `/v1/models`, metrics của vLLM thật |
-| IP08 | `ip08-gateway.json` | Gateway rate-limit test: response và request ID |
-| IP09 | `ip09-prometheus-targets.json` | Targets, rules và alerts từ Prometheus |
-| IP09 | `ip09-grafana-dashboards.json` | Dashboard đã được provision trong Grafana |
-| IP10 | `ip10-trace.json` | Backend trace: trace ID và các span cần có |
+| IP01 | [ip01-kafka-consume.json](ip01-kafka-consume.json) | Kafka record của demo cuối: partition, offset, key, headers, payload |
+| IP02 | [ip02-airflow-run.json](ip02-airflow-run.json) | Airflow REST: DAG success, task states, asset events |
+| IP03 | [ip03-delta-history.json](ip03-delta-history.json) | Delta transaction log, MERGE metrics và time travel |
+| IP04 | [ip04-feast-online.json](ip04-feast-online.json) | Online row và PRESENT statuses của entity demo |
+| IP05 | [ip05-qdrant-search.json](ip05-qdrant-search.json) | Query thật: collection, document IDs và scores |
+| IP06 | [ip06-mlflow-release.json](ip06-mlflow-release.json) | Snapshot J3 promotion/rollback; release đang phục vụ được ghi riêng trong runtime report |
+| IP07 | [ip07-vllm-identity.json](ip07-vllm-identity.json) | `/version`, model ID và metric family `vllm:` của server GPU thật |
+| IP08 | [ip08-gateway.json](ip08-gateway.json) | HTTP 200/429, request IDs và counter rate limit |
+| IP09 | [ip09-prometheus-targets.json](ip09-prometheus-targets.json) | Prometheus targets và rules |
+| IP09 | [ip09-grafana-dashboards.json](ip09-grafana-dashboards.json) | Grafana dashboard và datasource đã provision |
+| IP10 | [ip10-trace.json](ip10-trace.json) | Trace cuối đọc từ Jaeger, đủ 11 span bắt buộc trên cùng caller trace |
 
-Có 10 điểm kết nối nhưng **11 tên file IP** vì IP09 yêu cầu hai file.
-`.gitignore` cho phép các file này được đưa vào Git sau khi rà nội dung.
-Không thêm file giả hoặc chỉ có trạng thái `PASS` thay cho payload thực tế.
+Bằng chứng bổ sung trong [reports/runtime](../reports/runtime/):
 
-## Trình tự tiếp tục khi stack sẵn sàng
+- `happy-path.json`, `final-trace.json`: sự kiện, DAG, Delta, release, câu trả lời
+  và raw trace. Batch và GPU chạy theo pha để vừa RAM; không tính là full-suite PASS.
+- `recovery.json`, `kafka-migration.json`: bản tin lỗi/DLQ, replay có hai bản trên
+  Kafka nhưng một hàng Delta, và offsets trước/sau chuyển volume bằng nhau.
+- `langsmith.json`: project, run IDs đọc từ LangSmith và số span exporter đã gửi.
+- `ask-load*.json`, `ask-bottleneck*.json`: phép đo hỏi đáp và audit/trace tương ứng.
+  File có `cold-entity` dùng entity chưa có feature, nên response degraded.
+- `gitops/`: baseline, drift/self-heal, rollout hai replica và Git revert về một replica.
+- `live-suite.*`: 56 test không cần GPU/LangSmith đã đạt; `full-suite*` giữ cả
+  lần timeout và lần gián đoạn. Không cộng các lần chạy dở thành kết quả toàn bộ suite.
+- `gpu-langsmith-suite.*`: tám test J3/J4 GPU và LangSmith đạt sau bản sửa Envoy;
+  `gpu-langsmith-before-gateway-fix.*` giữ lỗi health routing phát hiện trước đó.
 
-Trên máy nộp bài, trước tiên đặt các biến cổng/URL trong
-[REPORT.md](../REPORT.md) để tránh các stack khác đang dùng cổng mặc định.
+`integration-report.json` là probe của CLI, không thay thế bằng chứng bên ngoài
+process. Điểm probe không phải điểm rubric. Các snapshot có thể thuộc những lần
+chạy khác nhau; dùng trace ID, DAG run ID và timestamp để đối chiếu.
 
-```text
-docker compose --parallel 1 --env-file ports.template --profile full up -d --build --wait
-docker compose --env-file ports.template --profile full ps
-uv run lab28 topics
-uv run lab28 index --source file
-uv run lab28 release
-uv run lab28 seed --via-gateway
-uv run lab28 inspect
-uv run lab28 ready
-uv run pytest integration-tests/test_j1_golden_path.py -m "not gpu and not langsmith" -q
-uv run pytest integration-tests/test_j2_idempotent_replay.py -q
-uv run pytest integration-tests -m "not gpu and not langsmith" -q
-uv run lab28 evidence
-uv run lab28 integration
-uv run python load-tests/run_profile.py --url http://localhost:18080 --requests 200 --workers 8
-```
-
-`lab28 evidence` không tự thu được mọi điểm; các integration test tạo những file
-cần quan sát từ ngoài ứng dụng. CLI có thể ghi kết quả probe thất bại; nội dung
-file phải được kiểm tra trước khi ghi nhận điểm kết nối là đã đạt.
-
-Chỉ chạy các test GPU khi vLLM thật đã sẵn sàng. Theo runbook, cần thêm tải
-`/api/v1/ask` có warm-up/corpus/concurrency và hồ sơ sự cố/phục hồi để hoàn thành
-demo. Lệnh load profile có sẵn chỉ đo `/ready`.
+Để chạy lại, đọc [cấu hình máy nộp bài](../docs/local-runtime.md), đặt URL bằng
+`scripts/local-environment.ps1`, khởi động dịch vụ rồi chạy các kiểm thử gốc.
+Thu `lab28 evidence --out .lab28/recollected-evidence` trước khi chọn các snapshot
+cần cập nhật; CLI không tự thu được tất cả IP và có thể ghi đè bằng chứng J3/J5
+bằng probe ngắn hơn. `.env`, database, model cache và `.lab28/` không được đưa vào Git.

@@ -1,0 +1,54 @@
+{
+  "captured_at_utc": "2026-09-03T14:43:06.323771+00:00",
+  "scope": "Read-only snapshot of retained J4 and final-demo records after Docker recovery, Kafka migration and final replay; replay copies in Kafka still map to one Delta row per key.",
+  "feedback_delta_version": 10,
+  "feedback_total_rows": 21,
+  "records": [
+    {
+      "asker_id": "it-j4-replay-32177478",
+      "idempotency_key": "fb:it-j4-replay-32177478:4df87186f42c3bf0d097f7341a1962d5",
+      "delta_row_count": 1,
+      "kafka_copies": 2
+    },
+    {
+      "asker_id": "it-j4-fea7c069",
+      "idempotency_key": "fb:it-j4-fea7c069:8fafe405b931ad609316786e61a368b7",
+      "delta_row_count": 1,
+      "kafka_copies": 1
+    },
+    {
+      "asker_id": "final-02e60d6c",
+      "idempotency_key": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d",
+      "delta_row_count": 1,
+      "kafka_copies": 3
+    }
+  ],
+  "dead_letter_envelopes": [
+    {
+      "schema_version": "1",
+      "original_topic": "data.raw",
+      "original_partition": 2,
+      "original_offset": 10,
+      "original_key": "it-j4-poison-fea7c069",
+      "error_category": "validation",
+      "error_detail": "1 validation error for IngestionEvent\n  Invalid JSON: key must be a string at line 1 column 49 [type=json_invalid, input_value=b'{\"schema_version\": \"1\",...: \"fea7c069\", truncated', input_type=bytes]\n    For further information visit https://errors.pydantic.dev/2.12/v/json_invalid",
+      "attempts": 1,
+      "failed_at": "2026-09-03T05:00:43.429360Z",
+      "traceparent": null,
+      "raw_payload_b64": "eyJzY2hlbWFfdmVyc2lvbiI6ICIxIiwgImV2ZW50X2lkIjogImZlYTdjMDY5IiwgdHJ1bmNhdGVk"
+    },
+    {
+      "schema_version": "1",
+      "original_topic": "data.raw",
+      "original_partition": 2,
+      "original_offset": 11,
+      "original_key": "it-j4-replay-32177478",
+      "error_category": "internal",
+      "error_detail": "parked by the live suite to exercise the operator replay path",
+      "attempts": 3,
+      "failed_at": "2026-09-03T05:01:34.488632Z",
+      "traceparent": "00-0f8180825d4ccbb41c21cd0530a45943-916a14c7efa8eaa3-01",
+      "raw_payload_b64": "eyJzY2hlbWFfdmVyc2lvbiI6IjEiLCJldmVudF9pZCI6IjRkNDBkYWZjMzE1NDQ2OWI5MGZiYzc3MjI0NzEzM2ZhIiwiaWRlbXBvdGVuY3lfa2V5IjoiZmI6aXQtajQtcmVwbGF5LTMyMTc3NDc4OjRkZjg3MTg2ZjQyYzNiZjBkMDk3ZjczNDFhMTk2MmQ1IiwiZW50aXR5X2lkIjoiaXQtajQtcmVwbGF5LTMyMTc3NDc4Iiwib2NjdXJyZWRfYXQiOiIyMDI2LTA5LTAzVDA1OjAxOjMxLjI1NjYwOVoiLCJwcm9kdWNlciI6ImxhYjI4LWFwaSIsInRyYWNlcGFyZW50IjoiMDAtMGY4MTgwODI1ZDRjY2JiNDFjMjFjZDA1MzBhNDU5NDMtNDNhOGNhNGMzZjkxZGQ3MS0wMSIsInBheWxvYWQiOnsia2luZCI6ImZlZWRiYWNrIiwiYXNrZXJfaWQiOiJpdC1qNC1yZXBsYXktMzIxNzc0NzgiLCJ0ZXh0IjoiUGjhuqNuIGjhu5NpIMSRxrDhu6NjIHBow6F0IGzhuqFpIHThu6sgaMOgbmcgxJHhu6NpIGzhu5dpIDMyMTc3NDc4LiIsInJhdGluZyI6MywibG9jYWxlIjoidmkiLCJsYWJlbCI6Im5ldXRyYWwifX0="
+    }
+  ]
+}

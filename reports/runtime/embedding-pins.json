@@ -1,0 +1,20 @@
+{
+  "dense": {
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "source_repo": "qdrant/paraphrase-multilingual-MiniLM-L12-v2-onnx-Q",
+    "expected_revision": "faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+    "cached_revisions": [
+      "faf4aa4225822f3bc6376869cb1164e8e3feedd0"
+    ],
+    "matches_pin": true
+  },
+  "sparse": {
+    "model": "Qdrant/bm25",
+    "source_repo": "Qdrant/bm25",
+    "expected_revision": "22b8d2af71a76161e18dd432d2cee0eefa66e412",
+    "cached_revisions": [
+      "22b8d2af71a76161e18dd432d2cee0eefa66e412"
+    ],
+    "matches_pin": true
+  }
+}

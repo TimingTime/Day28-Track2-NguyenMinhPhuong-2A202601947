@@ -1,0 +1,55 @@
+{
+  "schema_version": "1",
+  "answer": "Kh\u00f4ng c\u00f3 th\u00f4ng tin c\u1ee5 th\u1ec3 v\u1ec1 c\u00e1ch Delta Lake l\u01b0u d\u1eef li\u1ec7u ph\u1ea3n h\u1ed3i trong ng\u1eef c\u1ea3nh cung c\u1ea5p.",
+  "sources": [
+    {
+      "doc_id": "it-j1-doc-9a07bd33",
+      "title": "T\u00e0i li\u1ec7u ki\u1ec3m th\u1eed t\u00edch h\u1ee3p 9a07bd33",
+      "snippet": "M\u00e3 tham chi\u1ebfu 9a07bd33 \u0111\u01b0\u1ee3c d\u00f9ng cho b\u00e0i ki\u1ec3m th\u1eed t\u00edch h\u1ee3p Day 28: n\u1ec1n t\u1ea3ng ghi ph\u1ea3n h\u1ed3i kh\u00e1ch h\u00e0ng v\u00e0o Delta Lake, ph\u1ee5c v\u1ee5 \u0111\u1eb7c tr\u01b0ng qua Feast v\u00e0 truy h\u1ed3i t\u00e0i li\u1ec7u b\u1eb1ng Qdrant.",
+      "score": 0.7,
+      "retrieval_mode": "hybrid"
+    },
+    {
+      "doc_id": "it-j1-doc-57759ff2",
+      "title": "T\u00e0i li\u1ec7u ki\u1ec3m th\u1eed t\u00edch h\u1ee3p 57759ff2",
+      "snippet": "M\u00e3 tham chi\u1ebfu 57759ff2 \u0111\u01b0\u1ee3c d\u00f9ng cho b\u00e0i ki\u1ec3m th\u1eed t\u00edch h\u1ee3p Day 28: n\u1ec1n t\u1ea3ng ghi ph\u1ea3n h\u1ed3i kh\u00e1ch h\u00e0ng v\u00e0o Delta Lake, ph\u1ee5c v\u1ee5 \u0111\u1eb7c tr\u01b0ng qua Feast v\u00e0 truy h\u1ed3i t\u00e0i li\u1ec7u b\u1eb1ng Qdrant.",
+      "score": 0.5833334,
+      "retrieval_mode": "hybrid"
+    },
+    {
+      "doc_id": "it-j1-doc-0fbcc223",
+      "title": "T\u00e0i li\u1ec7u ki\u1ec3m th\u1eed t\u00edch h\u1ee3p 0fbcc223",
+      "snippet": "M\u00e3 tham chi\u1ebfu 0fbcc223 \u0111\u01b0\u1ee3c d\u00f9ng cho b\u00e0i ki\u1ec3m th\u1eed t\u00edch h\u1ee3p Day 28: n\u1ec1n t\u1ea3ng ghi ph\u1ea3n h\u1ed3i kh\u00e1ch h\u00e0ng v\u00e0o Delta Lake, ph\u1ee5c v\u1ee5 \u0111\u1eb7c tr\u01b0ng qua Feast v\u00e0 truy h\u1ed3i t\u00e0i li\u1ec7u b\u1eb1ng Qdrant.",
+      "score": 0.5833334,
+      "retrieval_mode": "hybrid"
+    }
+  ],
+  "evidence": {
+    "trace_id": "066e2be3a159f1f6f4f3f69b7084b313",
+    "mlflow_model_name": "lab28-rag-release",
+    "mlflow_release_version": "4",
+    "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+    "vllm_model_id": "Qwen/Qwen3-1.7B",
+    "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+    "delta_version": 7,
+    "feature_freshness_seconds": null,
+    "degraded": true,
+    "degraded_reasons": [
+      "feature store unavailable: Feast feature server unreachable: ReadTimeout"
+    ]
+  },
+  "audit": {
+    "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+    "output_hash": "5d55549409918458c2510fc4db48ede9a9b02df85ce33052a53b3f5dc2aa49cf",
+    "output_length": 90,
+    "prompt_tokens": 374,
+    "completion_tokens": 23,
+    "latency": {
+      "feature_ms": 3264.187,
+      "retrieval_ms": 21989.046,
+      "llm_ms": 11797.69,
+      "guardrail_ms": 0.18,
+      "total_ms": 37766.31
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "captured_at_utc": "2026-09-03T10:47:18.755903+00:00",
+  "endpoint": "https://api.smith.langchain.com",
+  "project_name": "Lab28",
+  "project_id": "8910e110-ee44-4a78-9aeb-f32c0a1f5172",
+  "authenticated": true,
+  "trace_export_verified": true,
+  "sample_runs": [
+    {
+      "id": "00000000-0000-0000-85f7-10f6d3f95454",
+      "name": "lab28.feast.get_online_features",
+      "trace_id": "00000000-0000-0000-85f7-10f6d3f95454",
+      "start_time": "2026-09-03T10:41:27.170057",
+      "end_time": "2026-09-03T10:41:27.388481",
+      "run_type": "chain",
+      "error": null
+    },
+    {
+      "id": "00000000-0000-0000-d353-73871219361b",
+      "name": "POST /api/v1/ask http send",
+      "trace_id": "00000000-0000-0000-278a-a1fc830a839e",
+      "start_time": "2026-09-03T10:33:58.180378",
+      "end_time": "2026-09-03T10:33:58.180490",
+      "run_type": "chain",
+      "error": null
+    },
+    {
+      "id": "00000000-0000-0000-9181-51f9e75b2e85",
+      "name": "POST /api/v1/ask http send",
+      "trace_id": "00000000-0000-0000-278a-a1fc830a839e",
+      "start_time": "2026-09-03T10:33:58.179923",
+      "end_time": "2026-09-03T10:33:58.179963",
+      "run_type": "chain",
+      "error": null
+    },
+    {
+      "id": "00000000-0000-0000-a0b1-78f29e253001",
+      "name": "POST /api/v1/ask http send",
+      "trace_id": "00000000-0000-0000-278a-a1fc830a839e",
+      "start_time": "2026-09-03T10:33:58.178646",
+      "end_time": "2026-09-03T10:33:58.178684",
+      "run_type": "chain",
+      "error": null
+    },
+    {
+      "id": "00000000-0000-0000-4881-84528f6649f3",
+      "name": "POST /api/v1/ask http send",
+      "trace_id": "00000000-0000-0000-44f2-ae4e04046d46",
+      "start_time": "2026-09-03T10:33:53.447738",
+      "end_time": "2026-09-03T10:33:53.447755",
+      "run_type": "chain",
+      "error": null
+    }
+  ],
+  "exporter_sent_spans": [
+    {
+      "exporter": "debug",
+      "count": 538.0
+    },
+    {
+      "exporter": "otlp/jaeger",
+      "count": 538.0
+    },
+    {
+      "exporter": "otlphttp/langsmith",
+      "count": 538.0
+    }
+  ],
+  "project_run_count": 112
+}

@@ -1,0 +1,6 @@
+(EngineCore pid=111)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=111)     return func(*args, **kwargs)
+(EngineCore pid=111)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=111) ERROR 09-03 09:31:00 [core.py:1346]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/buffer_utils.py", line 47, in __init__
+(EngineCore pid=111) ERROR 09-03 09:31:00 [core.py:1346]     raise RuntimeError("UVA is not available")
+(EngineCore pid=111) ERROR 09-03 09:31:00 [core.py:1346] RuntimeError: UVA is not available

@@ -1,0 +1,22 @@
+{
+  "started_at_utc": "2026-09-03T10:15:33.886586+00:00",
+  "finished_at_utc": "2026-09-03T10:20:25.840982+00:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "integration-tests",
+    "-q",
+    "-x",
+    "--tb=short"
+  ],
+  "exit_code": 4294967295,
+  "require_gpu": true,
+  "include_langsmith": true,
+  "api_url": "http://127.0.0.1:18000",
+  "gateway_url": "http://127.0.0.1:18080",
+  "mlflow_url": "http://127.0.0.1:15000",
+  "scope": "Original live tests; fixtures and environment gates retained",
+  "output": "reports/runtime/full-suite-docker-stall.txt",
+  "interrupted_reason": "Docker API returned 500 and direct HTTP calls to API/vLLM/Airflow/Qdrant timed out during J1. The owned pytest process was stopped before Docker Desktop recovery. Five completed tests are not a full-suite pass."
+}

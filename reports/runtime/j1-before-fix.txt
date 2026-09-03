@@ -1,0 +1,25 @@
+......F
+================================== FAILURES ===================================
+________________ test_the_lakehouse_advanced_and_holds_the_row ________________
+src\lab28_platform\delta_store.py:255: in open_table
+    table = DeltaTable(uri)
+            ^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\deltalake\table.py:193: in __init__
+    self._table = RawDeltaTable(
+E   _internal.TableNotFoundError: Local path ".lab28/delta/feedback" does not exist or you don't have access!
+E   Error: Os { code: 2, kind: NotFound, message: "The system cannot find the file specified." }
+
+The above exception was the direct cause of the following exception:
+integration-tests\test_j1_golden_path.py:250: in test_the_lakehouse_advanced_and_holds_the_row
+    version = delta_store.current_version(settings.feedback_table)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\lab28_platform\delta_store.py:293: in current_version
+    return open_table(uri).version()
+           ^^^^^^^^^^^^^^^
+src\lab28_platform\delta_store.py:257: in open_table
+    raise LakehouseUnavailable(f"no Delta table at {uri}") from error
+E   lab28_platform.delta_store.LakehouseUnavailable: no Delta table at .lab28/delta/feedback
+=========================== short test summary info ===========================
+FAILED integration-tests/test_j1_golden_path.py::test_the_lakehouse_advanced_and_holds_the_row
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 6 passed, 3 deselected in 52.25s

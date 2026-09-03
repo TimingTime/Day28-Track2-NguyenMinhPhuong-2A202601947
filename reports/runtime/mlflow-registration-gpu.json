@@ -1,0 +1,11 @@
+{
+  "name": "lab28-rag-release",
+  "version": "4",
+  "run_id": "1c6227b7209c453faf55f87e5f00797b",
+  "alias": "champion",
+  "prompt_version": "day28-gpu",
+  "vllm_model_id": "Qwen/Qwen3-1.7B",
+  "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+  "delta_version": 7,
+  "top_k": 3
+}

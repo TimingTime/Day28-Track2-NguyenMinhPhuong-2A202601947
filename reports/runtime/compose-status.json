@@ -1,0 +1,121 @@
+{
+  "captured_at_utc": "2026-09-03T04:58:35.912021+00:00",
+  "profile": "full without GPU",
+  "host_ports": {
+    "api": 18000,
+    "gateway": 18080,
+    "mlflow": 15000,
+    "airflow": 8082
+  },
+  "local_image_overrides": {
+    "mlflow": "mlflow-airflow-lab/mlflow:3.15.2",
+    "airflow_base": "mlflow-airflow-lab/airflow:3.3.1"
+  },
+  "services": [
+    {
+      "service": "airflow",
+      "image": "lab28-platform-airflow",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 9 minutes (healthy)"
+    },
+    {
+      "service": "api",
+      "image": "lab28-platform-api",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 17 minutes (healthy)"
+    },
+    {
+      "service": "feast",
+      "image": "lab28-platform-feast",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 26 minutes (healthy)"
+    },
+    {
+      "service": "gateway",
+      "image": "envoyproxy/envoy:v1.39.1",
+      "state": "running",
+      "health": "",
+      "status": "Up 17 minutes"
+    },
+    {
+      "service": "grafana",
+      "image": "grafana/grafana:13.2.1",
+      "state": "running",
+      "health": "",
+      "status": "Up 31 minutes"
+    },
+    {
+      "service": "jaeger",
+      "image": "jaegertracing/all-in-one:1.76.0",
+      "state": "running",
+      "health": "",
+      "status": "Up 37 minutes"
+    },
+    {
+      "service": "kafka",
+      "image": "apache/kafka:4.3.1",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 29 minutes (healthy)"
+    },
+    {
+      "service": "kafka-exporter",
+      "image": "danielqsj/kafka-exporter:v1.9.0",
+      "state": "running",
+      "health": "",
+      "status": "Up 27 minutes"
+    },
+    {
+      "service": "mlflow",
+      "image": "mlflow-airflow-lab/mlflow:3.15.2",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 36 minutes (healthy)"
+    },
+    {
+      "service": "otel-collector",
+      "image": "otel/opentelemetry-collector-contrib:0.159.0",
+      "state": "running",
+      "health": "",
+      "status": "Up 34 minutes"
+    },
+    {
+      "service": "prometheus",
+      "image": "prom/prometheus:v3.14.0",
+      "state": "running",
+      "health": "",
+      "status": "Up 37 minutes"
+    },
+    {
+      "service": "pushgateway",
+      "image": "prom/pushgateway:v1.11.3",
+      "state": "running",
+      "health": "",
+      "status": "Up 37 minutes"
+    },
+    {
+      "service": "qdrant",
+      "image": "qdrant/qdrant:v1.19.0",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 49 minutes (healthy)"
+    },
+    {
+      "service": "runtime-init",
+      "image": "alpine:3.22.1",
+      "state": "exited",
+      "health": "",
+      "status": "Exited (0) 9 minutes ago"
+    },
+    {
+      "service": "spark-connect",
+      "image": "apache/spark:4.2.0-scala2.13-java17-python3-ubuntu",
+      "state": "running",
+      "health": "healthy",
+      "status": "Up 26 minutes (healthy)"
+    }
+  ]
+}

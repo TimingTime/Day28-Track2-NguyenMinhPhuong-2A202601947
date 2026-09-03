@@ -1,0 +1,29 @@
+{
+  "topic": "data.raw",
+  "key": "final-02e60d6c",
+  "partition": 2,
+  "offset": 15,
+  "headers": {
+    "idempotency-key": "final-02e60d6c",
+    "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-6d973db999fab955-01",
+    "schema_version": "1"
+  },
+  "trace_id": "6757a43c8c04458c920e8a8c15483b8c",
+  "value": {
+    "schema_version": "1",
+    "event_id": "bda5aa83294c40428c41094bf77b8cb5",
+    "idempotency_key": "fb:final-02e60d6c:326fd3c5c80a3553f7984d485a2fc59d",
+    "entity_id": "final-02e60d6c",
+    "occurred_at": "2026-09-03T14:33:18.012583Z",
+    "producer": "lab28-api",
+    "traceparent": "00-6757a43c8c04458c920e8a8c15483b8c-a58ba0f749ba15dc-01",
+    "payload": {
+      "kind": "feedback",
+      "asker_id": "final-02e60d6c",
+      "text": "Phản hồi kiểm chứng pipeline cuối 02e60d6c.",
+      "rating": 5,
+      "locale": "vi",
+      "label": "positive"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "started_at_utc": "2026-09-03T04:55:53.509737+00:00",
+  "finished_at_utc": "2026-09-03T05:03:03.197795+00:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "integration-tests",
+    "-m",
+    "not gpu and not langsmith",
+    "-q",
+    "-x",
+    "--tb=short"
+  ],
+  "exit_code": 0,
+  "api_url": "http://localhost:18000",
+  "gateway_url": "http://localhost:18080",
+  "mlflow_url": "http://localhost:15000",
+  "output": "reports/runtime/live-suite.txt",
+  "scope": "Original live tests; fixtures and environment gates retained"
+}

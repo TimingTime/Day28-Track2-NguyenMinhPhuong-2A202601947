@@ -1,0 +1,8 @@
+{
+  "source": "file",
+  "collection": "lab28_documents",
+  "documents_submitted": 13,
+  "points_upserted": 13,
+  "points_total": 13,
+  "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0"
+}

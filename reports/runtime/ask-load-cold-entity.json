@@ -1,0 +1,1478 @@
+{
+  "started_at_utc": "2026-09-03T10:32:23.930467+00:00",
+  "finished_at_utc": "2026-09-03T10:33:58.185166+00:00",
+  "url": "http://127.0.0.1:18080/api/v1/ask",
+  "model_scope": "Real configured serving endpoint; no response substitution",
+  "questions": [
+    "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+    "Feast có vai trò gì trong nền tảng này?",
+    "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+    "MLflow được dùng để quản lý phiên bản nào?",
+    "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?"
+  ],
+  "requests": 30,
+  "workers": 2,
+  "warmup_excluded_from_measurement": [
+    {
+      "index": 0,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "417fac7d-e20b-9da0-b373-8e4193088f2a",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "4a1d65dca405a774796935bfdce75b19",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": 7,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "feature store unavailable: Feast feature server unreachable: ReadTimeout"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 3204.452,
+          "retrieval_ms": 10141.914,
+          "llm_ms": 4319.155,
+          "guardrail_ms": 0.136,
+          "total_ms": 23036.821
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 23083.929
+    },
+    {
+      "index": 1,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "3078fc1b-fcb5-9822-8870-f673dee40984",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "c64bc2e8445543771f23fc918a5fbeae",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 24.082,
+          "retrieval_ms": 277.218,
+          "llm_ms": 999.871,
+          "guardrail_ms": 0.02,
+          "total_ms": 1456.761
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1467.458
+    },
+    {
+      "index": 2,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "12595ba2-b5a3-9305-98a1-64f5ae032440",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "f60efad0c499f9873bac718253e5e55c",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 10.058,
+          "retrieval_ms": 292.261,
+          "llm_ms": 4140.913,
+          "guardrail_ms": 0.017,
+          "total_ms": 4564.049
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 4572.534
+    },
+    {
+      "index": 3,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "b943a026-a2cd-9cb1-8a87-9a0f1a9fe51d",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "7d63cb2e160dd8e2e03a289c4320120c",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 7.822,
+          "retrieval_ms": 195.796,
+          "llm_ms": 2754.391,
+          "guardrail_ms": 0.024,
+          "total_ms": 3091.683
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3099.73
+    },
+    {
+      "index": 4,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "a67851e9-770f-93ee-9130-4fcb8caf82c8",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu bằng cách là ranh giới nhận dữ liệu, nơi mọi sự kiện vào nền tảng đều đi qua topic data.raw của Kafka. API là nhà sản xuất duy nhất được phép ghi vào topic này, đảm bảo dữ liệu đã qua kiểm tra hợp lệ, có idempotency_key và header traceparent.",
+      "evidence": {
+        "trace_id": "62cfb620e4741b4029ba6e8d427635ed",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "2f8b5f45fbb733d73b250da0e0e6808c2183ae4b2e17d1be5613af8f4f1836aa",
+        "output_length": 284,
+        "prompt_tokens": 522,
+        "completion_tokens": 76,
+        "latency": {
+          "feature_ms": 9.577,
+          "retrieval_ms": 249.326,
+          "llm_ms": 6582.532,
+          "guardrail_ms": 0.021,
+          "total_ms": 6971.555
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 6979.518
+    }
+  ],
+  "elapsed_seconds": 54.732,
+  "throughput_requests_per_second": 0.548,
+  "status_counts": {
+    "200": 30
+  },
+  "successful_answers": 30,
+  "latency_ms_all_requests": {
+    "p50": 3427.512,
+    "p95": 6956.037,
+    "p99": 7161.482
+  },
+  "latency_ms_successful_answers": {
+    "p50": 3427.512,
+    "p95": 6956.037,
+    "p99": 7161.482
+  },
+  "requests_detail": [
+    {
+      "index": 0,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "e35fb00c-05d1-9847-aa2d-18758774733c",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "3dab089fd7a4ac4a230b6982a9ebe70c",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 14.161,
+          "retrieval_ms": 224.157,
+          "llm_ms": 2609.652,
+          "guardrail_ms": 0.032,
+          "total_ms": 3073.477
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 3084.834
+    },
+    {
+      "index": 1,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "876ed92b-e356-9194-ac2c-5eaa7f5718b5",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "34c20eb57a4c28eca64f1cf76c0936d2",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 63.355,
+          "retrieval_ms": 241.1,
+          "llm_ms": 868.135,
+          "guardrail_ms": 0.023,
+          "total_ms": 1396.451
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1424.591
+    },
+    {
+      "index": 2,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "04ee106b-66ba-9fe1-814a-dd18908ac2e6",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "e5fd69ac0ca634ac45c287bf1876f2f4",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 8.237,
+          "retrieval_ms": 172.751,
+          "llm_ms": 3323.717,
+          "guardrail_ms": 0.017,
+          "total_ms": 3623.389
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 3631.834
+    },
+    {
+      "index": 3,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "9cc05fdb-833a-977b-b33b-735a25e2547d",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "1f689c9f75b16f97152546de41acd0ce",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 8.003,
+          "retrieval_ms": 133.45,
+          "llm_ms": 3682.837,
+          "guardrail_ms": 0.015,
+          "total_ms": 3950.203
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3957.504
+    },
+    {
+      "index": 4,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "37424967-aa2e-9231-b6f6-97e3b1a114d2",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu bằng cách là ranh giới nhận dữ liệu, nơi mọi sự kiện vào nền tảng đều đi qua topic data.raw của Kafka. API là nhà sản xuất duy nhất được phép ghi vào topic này, đảm bảo dữ liệu đã qua kiểm tra hợp lệ, có idempotency_key và header traceparent.",
+      "evidence": {
+        "trace_id": "5bb44e17e164785181f4f9e883bc7261",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "2f8b5f45fbb733d73b250da0e0e6808c2183ae4b2e17d1be5613af8f4f1836aa",
+        "output_length": 284,
+        "prompt_tokens": 522,
+        "completion_tokens": 76,
+        "latency": {
+          "feature_ms": 9.139,
+          "retrieval_ms": 238.728,
+          "llm_ms": 6555.095,
+          "guardrail_ms": 0.017,
+          "total_ms": 6947.096
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 6956.037
+    },
+    {
+      "index": 5,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "1e023691-e45f-9690-ade4-727109e0dc36",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "ae9e267deb9d8e234561edb01532e68a",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 8.94,
+          "retrieval_ms": 162.578,
+          "llm_ms": 3311.505,
+          "guardrail_ms": 0.024,
+          "total_ms": 3639.456
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 3649.568
+    },
+    {
+      "index": 6,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "978c02ee-8c63-94f9-aabb-ae8721b2298d",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "7dd7779d8d301aa3d9a1a793cacf13d6",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 7.862,
+          "retrieval_ms": 256.474,
+          "llm_ms": 1001.51,
+          "guardrail_ms": 0.023,
+          "total_ms": 1389.426
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1397.592
+    },
+    {
+      "index": 7,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "98bb7222-ad26-94e9-96e7-21507d6322f5",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "cc6971d14a34021787e4121ffd4c8b38",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 8.406,
+          "retrieval_ms": 238.74,
+          "llm_ms": 3239.965,
+          "guardrail_ms": 0.037,
+          "total_ms": 3675.759
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 3689.758
+    },
+    {
+      "index": 8,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "7ad8b74c-a7ef-978e-ae82-10b168352bc6",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "a4ce572d472f040493a36175aebe2814",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 20.766,
+          "retrieval_ms": 141.602,
+          "llm_ms": 2778.612,
+          "guardrail_ms": 0.02,
+          "total_ms": 3216.986
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3228.644
+    },
+    {
+      "index": 9,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "26128117-5ef8-9288-b1e5-0b12a5b47d47",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu thông qua topic data.raw, nơi mọi sự kiện được gửi và kiểm tra hợp lệ trước khi được ghi.",
+      "evidence": {
+        "trace_id": "9f5618bd2315737690b94af496be4a34",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "919ce4280570f7a9491d70e0ceb2924d87a861efb023fff384b2098b0c002008",
+        "output_length": 131,
+        "prompt_tokens": 522,
+        "completion_tokens": 35,
+        "latency": {
+          "feature_ms": 8.082,
+          "retrieval_ms": 158.407,
+          "llm_ms": 2866.512,
+          "guardrail_ms": 0.028,
+          "total_ms": 3172.8
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3181.59
+    },
+    {
+      "index": 10,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "e48e9897-b0c3-9eac-828b-7c3a5cd1f7b3",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "14317da5bbe4083084cd589d26286e04",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 13.979,
+          "retrieval_ms": 364.667,
+          "llm_ms": 2984.978,
+          "guardrail_ms": 0.024,
+          "total_ms": 3582.092
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 3600.34
+    },
+    {
+      "index": 11,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "e47197ec-2013-9463-809f-c1c228ff5fa4",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "b62e6a1698186fc01d7f498192e0025b",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 8.939,
+          "retrieval_ms": 277.179,
+          "llm_ms": 989.593,
+          "guardrail_ms": 0.017,
+          "total_ms": 1396.876
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1405.622
+    },
+    {
+      "index": 12,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "39050f35-5dbc-9c6b-ae37-2cd2583200ce",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "c1ac5b96e54962372d9048e49ba11542",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 7.34,
+          "retrieval_ms": 262.085,
+          "llm_ms": 3186.438,
+          "guardrail_ms": 0.023,
+          "total_ms": 3570.381
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 3579.025
+    },
+    {
+      "index": 13,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "17b3028b-3e64-946d-958d-e36cee427ca6",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "30f03d0e2866f22b454e8fe08c30c941",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 9.058,
+          "retrieval_ms": 320.197,
+          "llm_ms": 2850.068,
+          "guardrail_ms": 0.015,
+          "total_ms": 3293.744
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3306.0
+    },
+    {
+      "index": 14,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "d27933d2-9a99-94f3-8e49-0f4ddccbec9c",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu bằng cách là ranh giới nhận dữ liệu, nơi mọi sự kiện vào nền tảng đều đi qua topic data.raw của Kafka. API là nhà sản xuất duy nhất được phép ghi vào topic này, đảm bảo dữ liệu đã qua kiểm tra hợp lệ, có idempotency_key và header traceparent.",
+      "evidence": {
+        "trace_id": "bf79b40ab93ca9467df41a4e50fb9152",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "2f8b5f45fbb733d73b250da0e0e6808c2183ae4b2e17d1be5613af8f4f1836aa",
+        "output_length": 284,
+        "prompt_tokens": 522,
+        "completion_tokens": 76,
+        "latency": {
+          "feature_ms": 9.957,
+          "retrieval_ms": 248.406,
+          "llm_ms": 5682.33,
+          "guardrail_ms": 0.02,
+          "total_ms": 6057.762
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 6064.664
+    },
+    {
+      "index": 15,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "57a0eb8e-da67-9e70-9ce2-5e105b7906bb",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "b00e594ddd7a60a0ce49105720bad23a",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 7.079,
+          "retrieval_ms": 266.207,
+          "llm_ms": 3241.658,
+          "guardrail_ms": 0.024,
+          "total_ms": 3670.722
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 3683.529
+    },
+    {
+      "index": 16,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "3c733988-f9ca-93e2-ad6c-0afc096b35bb",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "4f4eb712f560eae0c18b5426bc80f3cc",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 8.066,
+          "retrieval_ms": 295.465,
+          "llm_ms": 888.956,
+          "guardrail_ms": 0.026,
+          "total_ms": 1325.871
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1334.473
+    },
+    {
+      "index": 17,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "e1a4fd89-c4ac-9425-87a1-b13ba7f9d52c",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "a3d052afb5ea1e41d52557933125caff",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 9.943,
+          "retrieval_ms": 305.029,
+          "llm_ms": 3354.415,
+          "guardrail_ms": 0.022,
+          "total_ms": 3802.379
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 3809.673
+    },
+    {
+      "index": 18,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "5f523d3d-2e0d-9328-97e9-21df43c8b39d",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "b0f9d6213bdca285e40051dd9927bd2f",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 7.776,
+          "retrieval_ms": 250.554,
+          "llm_ms": 3039.452,
+          "guardrail_ms": 0.026,
+          "total_ms": 3412.182
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3427.512
+    },
+    {
+      "index": 19,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "6a3366a3-e779-9525-8bba-e9fa8e3b7804",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu bằng cách là ranh giới nhận dữ liệu, nơi mọi sự kiện vào nền tảng đều đi qua topic data.raw của Kafka. API là nhà sản xuất duy nhất được phép ghi vào topic này, đảm bảo dữ liệu đã qua kiểm tra hợp lệ, có idempotency_key và header traceparent.",
+      "evidence": {
+        "trace_id": "7e250f9bf4f2991d15ffb59a5c2bc06a",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "2f8b5f45fbb733d73b250da0e0e6808c2183ae4b2e17d1be5613af8f4f1836aa",
+        "output_length": 284,
+        "prompt_tokens": 522,
+        "completion_tokens": 76,
+        "latency": {
+          "feature_ms": 14.803,
+          "retrieval_ms": 265.871,
+          "llm_ms": 6725.985,
+          "guardrail_ms": 0.025,
+          "total_ms": 7153.676
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 7161.482
+    },
+    {
+      "index": 20,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "76114e57-8621-9e77-8ab7-82d7bfadaab1",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "79ce3860e113374f22beaa9648eb57fb",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 9.475,
+          "retrieval_ms": 240.801,
+          "llm_ms": 4097.053,
+          "guardrail_ms": 0.026,
+          "total_ms": 4555.924
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 4574.609
+    },
+    {
+      "index": 21,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "9b84738d-2b14-91fd-a1f2-95d557afcb85",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "9075ba68fd355bdbdc55a3458ce4fd96",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 9.943,
+          "retrieval_ms": 238.222,
+          "llm_ms": 905.722,
+          "guardrail_ms": 0.017,
+          "total_ms": 1285.54
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1293.746
+    },
+    {
+      "index": 22,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "5f0fa660-4e45-9725-848b-724bb073bd0c",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "190472507df7e1fb558ba8b9b9205efa",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 8.726,
+          "retrieval_ms": 238.418,
+          "llm_ms": 3236.59,
+          "guardrail_ms": 0.016,
+          "total_ms": 3595.033
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 3603.717
+    },
+    {
+      "index": 23,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "c327ff24-ccb3-94d8-84b0-818e846cd0c9",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "a8e60441406b85482d7dc600879bf603",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 6.84,
+          "retrieval_ms": 335.58,
+          "llm_ms": 2841.742,
+          "guardrail_ms": 0.015,
+          "total_ms": 3294.747
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3304.277
+    },
+    {
+      "index": 24,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "6866655b-4f70-94e9-880b-a083a2afb515",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu thông qua topic data.raw, nơi mọi sự kiện vào nền tảng được gửi và kiểm tra hợp lệ trước khi được ghi.",
+      "evidence": {
+        "trace_id": "1fcc611e17a35cad606ade1dbc973a0c",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "55ee7ab391e51b9653222aeab185ec46573f3db5ae1737ef2ad179471320eb92",
+        "output_length": 144,
+        "prompt_tokens": 522,
+        "completion_tokens": 39,
+        "latency": {
+          "feature_ms": 10.278,
+          "retrieval_ms": 278.787,
+          "llm_ms": 2905.757,
+          "guardrail_ms": 0.028,
+          "total_ms": 3326.076
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3334.118
+    },
+    {
+      "index": 25,
+      "question": "Delta Lake lưu dữ liệu phản hồi như thế nào?",
+      "status": 200,
+      "request_id": "3b80415c-bfd8-90ce-b5b6-d2d5691a364a",
+      "answer": "Delta Lake lưu dữ liệu phản hồi bằng cách ghi vào Delta Lake, phục vụ đặc trưng qua Feast và truy hồi tài liệu bằng Qdrant. Trích dẫn: [1].",
+      "evidence": {
+        "trace_id": "f490e050833fab34e0d0d211862244d4",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "2a2fefb4d707435ed81baab62a6202362c7c3456019cd933486ddc07ff4209c5",
+        "output_hash": "c09c35b64b050bc26d6724c6240af39ca4eafadc966d721b0c2388cce3491dda",
+        "output_length": 139,
+        "prompt_tokens": 423,
+        "completion_tokens": 40,
+        "latency": {
+          "feature_ms": 8.274,
+          "retrieval_ms": 228.526,
+          "llm_ms": 3273.836,
+          "guardrail_ms": 0.023,
+          "total_ms": 3631.104
+        }
+      },
+      "source_ids": [
+        "it-j1-doc-9a07bd33",
+        "doc-ip05-qdrant",
+        "it-j1-doc-57759ff2"
+      ],
+      "latency_ms": 3639.535
+    },
+    {
+      "index": 26,
+      "question": "Feast có vai trò gì trong nền tảng này?",
+      "status": 200,
+      "request_id": "a963dc23-7a10-9f3d-9615-7592930cc091",
+      "answer": "Feast cung cấp đặc trưng trực tuyến [2].",
+      "evidence": {
+        "trace_id": "9701bf24f45d379b2c263d5253e4f047",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "6e854837cc9901406d662335b59d16ad7919d2c53d9c348c5c4e91e69a8354bc",
+        "output_hash": "1c3a88ce42ac951c7118e9c52fc104e9b8c80e341593f8c52296f670bf9445fd",
+        "output_length": 40,
+        "prompt_tokens": 514,
+        "completion_tokens": 13,
+        "latency": {
+          "feature_ms": 9.736,
+          "retrieval_ms": 331.813,
+          "llm_ms": 1243.377,
+          "guardrail_ms": 0.014,
+          "total_ms": 1709.738
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip04-feast",
+        "doc-degraded-policy"
+      ],
+      "latency_ms": 1718.961
+    },
+    {
+      "index": 27,
+      "question": "Qdrant hỗ trợ tìm kiếm tài liệu như thế nào?",
+      "status": 200,
+      "request_id": "63b366b0-4e97-9dd0-87c2-5108d953b70f",
+      "answer": "Qdrant hỗ trợ tìm kiếm tài liệu bằng cách lưu trữ collection lai ghép gồm vector dày và vector thưa, hợp nhất kết quả bằng thuật toán RRF. Trả lời này được trích dẫn từ [1].",
+      "evidence": {
+        "trace_id": "e780c2ae73bdf74c0980b62d0ddf1cd1",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "5ff9e8f98a639ca09747215eff05419d3035aaf4531cd4e7ab42b6f552e3643d",
+        "output_hash": "1627b33c6aa33cafd54fdd7fc516f2c1b714f8608355018d8b9064efd32f9d6a",
+        "output_length": 173,
+        "prompt_tokens": 451,
+        "completion_tokens": 49,
+        "latency": {
+          "feature_ms": 8.983,
+          "retrieval_ms": 244.112,
+          "llm_ms": 2961.395,
+          "guardrail_ms": 0.016,
+          "total_ms": 3325.531
+        }
+      },
+      "source_ids": [
+        "doc-ip05-qdrant",
+        "doc-degraded-policy",
+        "it-j1-doc-9a07bd33"
+      ],
+      "latency_ms": 3333.188
+    },
+    {
+      "index": 28,
+      "question": "MLflow được dùng để quản lý phiên bản nào?",
+      "status": 200,
+      "request_id": "3274fbb2-a51f-9a59-8a98-d7cdea8c5a7c",
+      "answer": "[1] MLflow được dùng để quản lý phiên bản **prompt**, **cấu hình truy hồi**, **model id được phục vụ** và **phiên bản dữ liệu dùng để đánh giá**.",
+      "evidence": {
+        "trace_id": "a46196a37d5c42396afae1ffcebb4e1a",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "a3e9e9cc80684d97f2e72f545b2d6249345894a1c125f913c8f515e521808002",
+        "output_hash": "554861fea08ebec39d28ee182e039d68791d4cd7778a0b2bfef78594343c87c3",
+        "output_length": 145,
+        "prompt_tokens": 511,
+        "completion_tokens": 44,
+        "latency": {
+          "feature_ms": 8.975,
+          "retrieval_ms": 229.708,
+          "llm_ms": 2725.756,
+          "guardrail_ms": 0.016,
+          "total_ms": 3085.775
+        }
+      },
+      "source_ids": [
+        "doc-ip06-mlflow",
+        "doc-ip07-vllm",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 3093.288
+    },
+    {
+      "index": 29,
+      "question": "Kafka giúp hệ thống tiếp nhận dữ liệu như thế nào?",
+      "status": 200,
+      "request_id": "1fcd50d1-798b-9f40-8297-8f905d4eda81",
+      "answer": "[1] Kafka giúp hệ thống tiếp nhận dữ liệu bằng cách là ranh giới nhận dữ liệu, nơi mọi sự kiện vào nền tảng đều đi qua topic data.raw của Kafka. API là nhà sản xuất duy nhất được phép ghi vào topic này, đảm bảo dữ liệu đã qua kiểm tra hợp lệ, có idempotency_key và header traceparent.",
+      "evidence": {
+        "trace_id": "001fc3d9dcc33bcb335b1a1c12f25117",
+        "mlflow_model_name": "lab28-rag-release",
+        "mlflow_release_version": "4",
+        "mlflow_run_id": "1c6227b7209c453faf55f87e5f00797b",
+        "vllm_model_id": "Qwen/Qwen3-1.7B",
+        "embedding_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+        "delta_version": null,
+        "feature_freshness_seconds": null,
+        "degraded": true,
+        "degraded_reasons": [
+          "features incomplete: no online row for asker load-profile; defaulted feedback_count, avg_rating, negative_ratio, delta_version"
+        ]
+      },
+      "audit": {
+        "input_hash": "7b4882e119abd5b73d75519b2c8b222d59a8bc698b21a2c3ff53dff40385d294",
+        "output_hash": "2f8b5f45fbb733d73b250da0e0e6808c2183ae4b2e17d1be5613af8f4f1836aa",
+        "output_length": 284,
+        "prompt_tokens": 522,
+        "completion_tokens": 76,
+        "latency": {
+          "feature_ms": 7.923,
+          "retrieval_ms": 236.436,
+          "llm_ms": 4863.044,
+          "guardrail_ms": 0.033,
+          "total_ms": 5239.664
+        }
+      },
+      "source_ids": [
+        "doc-ip01-kafka",
+        "doc-ip02-airflow",
+        "doc-ip05-qdrant"
+      ],
+      "latency_ms": 5252.495
+    }
+  ],
+  "runtime_scope": {
+    "batch_services_paused": [
+      "airflow",
+      "spark-connect"
+    ],
+    "api_otlp_enabled": true,
+    "vllm_native_otlp_enabled_at_measurement": false
+  }
+}
