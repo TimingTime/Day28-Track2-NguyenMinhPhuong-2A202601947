@@ -28,7 +28,7 @@ flowchart LR
     prometheus --> grafana[Grafana và cảnh báo]
     components -->|Spans OTLP| collector[OpenTelemetry Collector]
     collector --> jaeger[Jaeger]
-    collector -.->|Cần credential và cấu hình| langsmith[LangSmith]
+    collector -->|OTLP đã xác thực| langsmith[LangSmith]
     git[Git: manifests và revision] --> argo[Argo CD]
     argo --> k8s[Kubernetes / Gateway API]
 ```

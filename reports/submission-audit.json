@@ -1,8 +1,8 @@
 {
-  "captured_at_utc": "2026-09-03T14:37:48.271472+00:00",
+  "captured_at_utc": "2026-09-03T15:30:26.858891+00:00",
   "status": "PASS",
   "scope": "JSON parsing, report-relative file links, and exact local credential values checked against Git candidates; no credential values retained",
-  "candidate_files_checked": 205,
-  "valid_json_files": 58,
+  "candidate_files_checked": 207,
+  "valid_json_files": 60,
   "problems": []
 }

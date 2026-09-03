@@ -6,7 +6,7 @@
   "docker_daemon": false,
   "cpu_count": 16,
   "memory_gib": null,
-  "disk_free_gib": 28.4,
+  "disk_free_gib": 29.9,
   "next": "use the prepared browser workspace"
 }
 profile: browser-fallback — use the prepared browser workspace

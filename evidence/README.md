@@ -16,12 +16,14 @@ Có **11 file IP cho 10 điểm kết nối**, vì IP09 có hai file.
 | IP08 | [ip08-gateway.json](ip08-gateway.json) | HTTP 200/429, request IDs và counter rate limit |
 | IP09 | [ip09-prometheus-targets.json](ip09-prometheus-targets.json) | Prometheus targets và rules |
 | IP09 | [ip09-grafana-dashboards.json](ip09-grafana-dashboards.json) | Grafana dashboard và datasource đã provision |
-| IP10 | [ip10-trace.json](ip10-trace.json) | Trace cuối đọc từ Jaeger, đủ 11 span bắt buộc trên cùng caller trace |
+| IP10 | [ip10-trace.json](ip10-trace.json) | Trace cuối: 35 spans, đủ 11 tên bắt buộc, 4 service thật và không có error span |
 
 Bằng chứng bổ sung trong [reports/runtime](../reports/runtime/):
 
 - `happy-path.json`, `final-trace.json`: sự kiện, DAG, Delta, release, câu trả lời
   và raw trace. Batch và GPU chạy theo pha để vừa RAM; không tính là full-suite PASS.
+- `trace-with-startup-errors.json`, `happy-path-before-clean-trace.json`: giữ
+  trace/demo trước có lỗi khởi động; không xóa error span để làm đẹp kết quả.
 - `recovery.json`, `kafka-migration.json`: bản tin lỗi/DLQ, replay có hai bản trên
   Kafka nhưng một hàng Delta, và offsets trước/sau chuyển volume bằng nhau.
 - `langsmith.json`: project, run IDs đọc từ LangSmith và số span exporter đã gửi.
@@ -32,6 +34,9 @@ Bằng chứng bổ sung trong [reports/runtime](../reports/runtime/):
   lần timeout và lần gián đoạn. Không cộng các lần chạy dở thành kết quả toàn bộ suite.
 - `gpu-langsmith-suite.*`: tám test J3/J4 GPU và LangSmith đạt sau bản sửa Envoy;
   `gpu-langsmith-before-gateway-fix.*` giữ lỗi health routing phát hiện trước đó.
+- `runtime-final.json`: lần thu snapshot sau demo gặp timeout và Docker Engine
+  HTTP 500. Không xác nhận runtime vẫn healthy lúc bàn giao; các IP giữ timestamp
+  của lần thu thành công tương ứng.
 
 `integration-report.json` là probe của CLI, không thay thế bằng chứng bên ngoài
 process. Điểm probe không phải điểm rubric. Các snapshot có thể thuộc những lần

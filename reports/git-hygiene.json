@@ -1,8 +1,8 @@
 {
-  "captured_at_utc": "2026-09-03T14:04:31.403564+00:00",
+  "captured_at_utc": "2026-09-03T15:30:26.201326+00:00",
   "status": "PASS",
   "scope": "File visibility, generated-file exclusions and common credential patterns",
-  "candidate_files_checked": 199,
+  "candidate_files_checked": 207,
   "required_files": [
     ".dockerignore",
     ".github/workflows/ci.yml",

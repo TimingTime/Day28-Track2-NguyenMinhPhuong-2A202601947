@@ -1,0 +1,21 @@
+{
+  "captured_at_utc": "2026-09-03T15:29:24.528116+00:00",
+  "status": "runtime_unresponsive_after_successful_demo",
+  "last_completed_demo_at_utc": "2026-09-03T14:44:37.804889+00:00",
+  "last_completed_demo_trace_id": "6757a43c8c04458c920e8a8c15483b8c",
+  "successful_demo_unchanged": true,
+  "observations": [
+    "The final demo returned a non-degraded GPU answer and a 35-span trace from four real services, with all 11 required span names and no error span.",
+    "A later snapshot attempt timed out when reading Feast and Qdrant; local OTLP export also timed out.",
+    "Docker ps did not return normally; a subsequent stop request for the lab vLLM container returned Docker Engine HTTP 500.",
+    "The original preflight returned local_ready=false and docker_daemon=false."
+  ],
+  "gpu_stop_attempt": {
+    "requested": true,
+    "confirmed": false,
+    "error": "Docker Engine HTTP 500 on containers/lab28-platform-vllm-1/stop"
+  },
+  "batch_and_kind_last_known_state": "Spark Connect, Airflow and kind had been stopped before final GPU serving.",
+  "current_container_states_verified": false,
+  "report_scope": "Retain successful timestamped evidence; do not claim that all services remained healthy at handoff. The simultaneous full suite still requires a better-resourced environment."
+}

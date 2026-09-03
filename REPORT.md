@@ -5,7 +5,8 @@ có hỗ trợ AI khi triển khai, kiểm tra và viết tài liệu.
 
 **Đã hoàn thành mã tích hợp, kiểm thử không cần GPU, GPU serving, LangSmith và
 GitOps runtime. Chưa xác nhận toàn bộ DoD:** full suite có GPU bị gián đoạn khi
-Docker mất phản hồi; demo theo pha đã thu đủ 11 span và kết quả hỏi đáp GPU; các giới hạn được ghi dưới đây.
+Docker mất phản hồi; demo theo pha đã thu đủ 11 span bắt buộc từ 4 dịch vụ,
+không có error span và có kết quả hỏi đáp GPU. Các giới hạn được ghi dưới đây.
 Không tính lần chạy dở hoặc test bị bỏ chọn là PASS.
 
 ## 1. Mã và các bản sửa
@@ -62,7 +63,10 @@ lần chạy trước khi bật GPU/LangSmith. Log timeout ban đầu được g
 Có **11 file IP cho 10 điểm** vì IP09 có hai file. Snapshot cũ vẫn giữ đúng thời
 điểm thu: các trạng thái vLLM chưa sẵn sàng hoặc serving spans thiếu trong snapshot
 trước không được sửa thành PASS bằng tay. IP10 cuối được đọc lại từ Jaeger sau
-replay cùng khóa; đủ 11 span yêu cầu, có API, gateway và Airflow.
+replay cùng khóa: **35 spans**, đủ **11 tên span bắt buộc**, từ API, gateway,
+Airflow và vLLM. Không span nào có `error=true` hoặc `otel.status_code=ERROR`.
+Span `llm_request` được process vLLM xuất qua OTLP; không đổi tên service để
+làm tăng số emitter.
 
 `integration-report.json` là probe của CLI. Bốn điểm cần quan sát ngoài process
 có thể vẫn là `unverified` dù đã có file evidence riêng. Điểm probe không phải
@@ -179,6 +183,14 @@ Khi Spark chạy cùng GPU, Docker có lần trả 500 và mọi HTTP dịch v�
 in-memory mất lịch sử sau restart; các JSON đã lưu và trace LangSmith vẫn còn.
 Profile laptop giảm MLflow xuống một worker, Airflow parallelism 1 và Spark
 local[2]/heap 768 MiB; máy vẫn cần thêm tài nguyên cho full-stack peak.
+
+Sau demo thành công, lần thu snapshot bổ sung lại gặp timeout Feast/Qdrant/OTLP
+và Docker Engine trả HTTP 500. Lệnh dừng riêng vLLM cũng trả 500, nên **không xác
+nhận stack còn healthy lúc bàn giao**. Preflight cuối trả `local_ready=false`;
+exit code 0 của lệnh preflight không được hiểu là môi trường đã sẵn sàng.
+Các bằng chứng thành công trước đó giữ nguyên timestamp; snapshot bổ sung lỗi
+không ghi đè chúng. Xem [trạng thái cuối](reports/runtime/runtime-final.json).
+Spark, Airflow và kind đã được dừng trước pha GPU; dữ liệu và volume giữ nguyên.
 
 ## 8. File nộp và chạy lại
 
