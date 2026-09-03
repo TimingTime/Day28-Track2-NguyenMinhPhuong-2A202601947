@@ -39,6 +39,7 @@ def main() -> int:
     parser.add_argument("--requests", type=int, default=30)
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--warmup", type=int, default=5)
+    parser.add_argument("--asker-id", default="load-profile")
     parser.add_argument("--out", type=Path, default=Path("reports/runtime/ask-load.json"))
     args = parser.parse_args()
     if args.requests < 1 or args.workers < 1 or args.warmup < 0:
@@ -54,7 +55,7 @@ def main() -> int:
             try:
                 response = client.post(
                     "/api/v1/ask",
-                    json={"asker_id": "load-profile", "question": question, "top_k": 3},
+                    json={"asker_id": args.asker_id, "question": question, "top_k": 3},
                 )
                 result["status"] = response.status_code
                 result["request_id"] = response.headers.get("x-request-id")
@@ -88,6 +89,7 @@ def main() -> int:
         "questions": QUESTIONS,
         "requests": args.requests,
         "workers": args.workers,
+        "asker_id": args.asker_id,
         "warmup_excluded_from_measurement": warmup,
         "elapsed_seconds": round(elapsed, 3),
         "throughput_requests_per_second": round(args.requests / elapsed, 3),

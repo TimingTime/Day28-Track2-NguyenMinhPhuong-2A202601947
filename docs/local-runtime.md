@@ -44,12 +44,22 @@ uv run lab28 seed
 uv run lab28 index --source file
 uv run lab28 release
 uv run pytest integration-tests -m "not langsmith" -q
-uv run python load-tests/run_ask_profile.py --url http://127.0.0.1:18080 --requests 30 --workers 2 --warmup 5
+uv run python load-tests/run_ask_profile.py --url http://127.0.0.1:18080 --requests 30 --workers 2 --warmup 5 --asker-id demo
 ```
 
 Index từ file chỉ chuẩn bị collection. Bằng chứng Delta → Qdrant phải đến từ
 DAG thật và J1. Lệnh `lab28 evidence` ghi đè một số file bằng probe ngắn hơn;
 thu vào thư mục tạm và giữ lại payload J1/J3/J5 khi đã có bằng chứng phong phú hơn.
+
+Chọn `--asker-id` đã được DAG materialize vào Feast. Mặc định `load-profile`
+chưa có online row, nên phép đo đó kiểm tra nhánh default feature và response
+được đánh dấu degraded. Báo cáo giữ riêng kết quả cold entity và entity có feature.
+
+Nếu bộ nhớ không đủ khi batch và GPU cùng chạy, demo được chia pha: nhận sự kiện
+qua gateway lúc vLLM sẵn sàng; dừng riêng vLLM, chạy DAG; dừng Spark/Airflow sau
+khi DAG success, bật lại vLLM và hỏi bằng cùng entity/traceparent. Kafka, Delta,
+Feast, Qdrant, collector và Jaeger được giữ giữa các pha. Đây là bằng chứng luồng
+dữ liệu thật, không được ghi thành kết quả PASS của full suite chạy đồng thời.
 
 ## Kubernetes và GitOps
 
