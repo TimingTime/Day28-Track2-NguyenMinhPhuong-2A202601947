@@ -62,6 +62,11 @@ Hàm xử lý một luồng probe một lần. Lỗi tùy chọn xuất hiện t
 lỗi bắt buộc xuất hiện sau. Feast là phụ thuộc tùy chọn trong serving path;
 vLLM có bắt buộc hay không phụ thuộc `LAB28_VLLM_REQUIRE_REAL`.
 
+Gate GPU của J4 phát hiện Envoy dùng `/health` làm active health check nên vẫn
+route tới API khi Qdrant đã lỗi. Đã đổi sang `/ready`; component breakdown vẫn
+đọc được ở API trực tiếp. Probe timeout 5 giây, interval 5 giây và hai lần lỗi
+liên tiếp phù hợp hơn với P99 readiness đã đo khoảng 2.6 giây trên laptop.
+
 ## 5. Release và rollback
 
 MLflow lưu release có provenance: phiên bản dữ liệu, cấu hình retrieval/prompt,

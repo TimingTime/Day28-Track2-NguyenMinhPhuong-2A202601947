@@ -18,6 +18,10 @@ Script đặt URL client thành `127.0.0.1`: sau khi Docker Desktop khởi độ
 qua IPv4 trả 200 dưới một giây. Đây là thay đổi địa chỉ kết nối, không tăng
 timeout hoặc bỏ điều kiện của kiểm thử. Chạy các lệnh bên dưới từ thư mục repo.
 
+Envoy dùng `/ready` cho active health check: timeout 5 giây, interval 5 giây,
+hai lần lỗi để loại upstream, một lần thành công để phục hồi. `/healthz` vẫn
+là liveness của gateway; component breakdown nằm ở `http://127.0.0.1:18000/ready`.
+
 `compose.gpu.8gb.yaml` chọn vLLM 0.28.0 CUDA 12.9, Qwen3-1.7B, context 4096,
 tối đa 2 sequence, dùng 65% VRAM và eager execution. Runner V1 tránh yêu cầu
 UVA/pinned memory của V2 trên Windows/WSL. Tắt thinking ở chat template
