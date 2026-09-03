@@ -1,0 +1,46 @@
+# Reduce process concurrency when the complete lab shares an 8 GiB Docker VM.
+services:
+  kafka:
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://127.0.0.1:9092
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+  mlflow:
+    command:
+      - mlflow
+      - server
+      - --host
+      - 0.0.0.0
+      - --port
+      - "5000"
+      - --workers
+      - "1"
+      - --backend-store-uri
+      - sqlite:////mlflow/mlflow.db
+      - --artifacts-destination
+      - /mlflow/artifacts
+  airflow:
+    environment:
+      AIRFLOW__CORE__PARALLELISM: "1"
+  spark-connect:
+    command:
+      - /opt/spark/sbin/start-connect-server.sh
+      - --wait
+      - --master
+      - local[2]
+      - --packages
+      - io.delta:delta-connect-server_4.2_2.13:4.4.0
+      - --conf
+      - spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension
+      - --conf
+      - spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+      - --conf
+      - spark.sql.session.timeZone=UTC
+      - --conf
+      - spark.driver.memory=768m
+      - --conf
+      - spark.sql.shuffle.partitions=2
+
+volumes:
+  kafka-data:

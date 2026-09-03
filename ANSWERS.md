@@ -14,6 +14,12 @@ có Event ID khác nhau nhưng vẫn dùng cùng khóa chống trùng.
 gửi thêm `traceparent`; khi giá trị là `None` hoặc chuỗi rỗng, header được bỏ qua.
 Trace giúp chẩn đoán đường đi của yêu cầu; việc chống trùng sử dụng khóa nghiệp vụ.
 
+Khi chạy thật, consumer mới có thể chưa được Kafka phân chia partition trong
+ba lần poll đầu. Không thể coi giai đoạn này là topic rỗng. `poll_batch` chờ
+assignment theo thời hạn riêng, báo lỗi nếu hết hạn, và chỉ đếm các lần poll
+rỗng liên tiếp sau khi đã có assignment. Bản sửa này xử lý trường hợp DAG báo
+success với `polled=0` dù topic còn dữ liệu; J1 đã đi được tới Delta sau khi sửa.
+
 ## 2. Chống trùng và lựa chọn bản mới nhất
 
 `dedupe_latest` duyệt iterable một lần và lưu sự kiện tốt nhất cho mỗi khóa trong
@@ -67,6 +73,12 @@ GitOps lưu trạng thái triển khai mong muốn trong Git. Rollback deploymen
 trỏ về revision/image bất biến trước đó và kiểm tra lại health. Validation YAML
 chỉ chứng minh cấu trúc, không chứng minh Argo CD đã sync hoặc tự sửa drift.
 
+Trong demo kind, thay trực tiếp ConfigMap thành `manual-drift` được Argo CD
+tự sửa về `baseline` sau 5.875 giây. Commit rollout tăng API lên hai replica;
+Git revert đưa về một replica, cả hai lần đều `Synced/Healthy` và HTTP 200 qua
+gateway Kubernetes. API chạy UID 10001; NetworkPolicy chỉ mở các cổng dữ liệu
+cần thiết tới subnet Compose. Snapshot nằm trong `reports/runtime/gitops/`.
+
 ## 6. Quan sát và khôi phục sự cố
 
 Metrics giúp phát hiện xu hướng: lưu lượng, lỗi, độ trễ, bão hòa và Kafka lag.
@@ -88,13 +100,26 @@ runbook chỉ được tính là đã chạy khi có log/bằng chứng tương 
 - Cần kiểm tra cập nhật đến muộn, xung đột ghi và schema migration ngoài phát lại cùng lô.
 - Số liệu `/ready` chỉ là baseline; năng lực trả lời RAG phải đo `/api/v1/ask`
   với corpus, mô hình, GPU, concurrency, warm-up và chính sách degraded được ghi rõ.
+- Trong 100 trace readiness gần nhất đã thu, bước resolve release từ MLflow
+  chiếm phần lớn thời gian. Có thể đánh giá cache ngắn hạn hoặc probe metadata
+  nhẹ hơn, nhưng cần cân bằng với tốc độ nhận biết một lần chuyển `champion`.
 - Endpoint vLLM phải chứng minh `/version`, model ID và metrics `vllm:`.
-  Credential hoặc endpoint chưa có được ghi là chưa xác minh.
+  Demo đã xác minh vLLM 0.28.0 và Qwen3-1.7B trên RTX 4060 Laptop 8 GiB.
+- CUDA trong image phải tương thích driver. Runner V2 gặp yêu cầu UVA trên WSL;
+  cấu hình cuối dùng runner V1, CUDA 12.9, 65% VRAM, tối đa hai sequence và
+  eager execution. Giảm parallelism của Spark/Airflow và worker MLflow giúp
+  vừa Docker VM 7.4 GiB, đổi lại giảm khả năng xử lý đồng thời.
+- Collector xuất cùng trace tới Jaeger và project LangSmith `Lab28` sau khi
+  được cấp phép. Đã đọc lại run từ LangSmith; chỉ có key trong `.env` chưa đủ
+  chứng minh việc export thành công.
 
 ## 8. Đóng góp trong bài nộp
 
 Phạm vi bài cá nhân gồm bốn hàm tích hợp, kiểm thử các trường hợp biên,
+hai bản sửa xuất JSON của CLI, bản sửa chờ Kafka assignment phát hiện qua J1,
 kiểm tra và lưu output, điều chỉnh CI cho trạng thái bài đã hoàn thành,
 bảo vệ file cục bộ bằng `.gitignore`/`.dockerignore`, tài liệu kiến trúc,
-báo cáo kết quả và commit/push. Những phần runtime chưa chạy thành công được
-liệt kê riêng trong báo cáo, không suy ra từ kết quả unit test.
+báo cáo kết quả và commit/push. Phần vận hành bổ sung gồm profile GPU/laptop,
+exporter LangSmith, deployment non-root, NetworkPolicy, Argo CD rollout/rollback
+và công cụ thu bằng chứng runtime/load. Kết quả và giới hạn đo được nằm trong
+báo cáo, không suy ra từ kết quả unit test.

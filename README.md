@@ -5,6 +5,8 @@
 > [kiến trúc/phân công](docs/submission-architecture.md). Các đoạn “4 test fail”
 > bên dưới mô tả khung bài ban đầu; bản đã hoàn thiện phải đạt 4 starter tests.
 > Có thể thu lại output kiểm tra bằng `uv run python scripts/collect_local_checks.py`.
+> Cấu hình GPU 8 GB, LangSmith và GitOps đã chạy trên máy nộp bài được ghi trong
+> [hướng dẫn chạy lại](docs/local-runtime.md); bằng chứng ở [evidence](evidence/README.md).
 
 > **Bắt đầu ở đây.** Kho mã đã có sẵn phần khung. Bạn cần hoàn thiện 4 chức năng
 > quan trọng, kiểm tra kết quả sau từng bước và chuẩn bị trình bày 10 điểm kết

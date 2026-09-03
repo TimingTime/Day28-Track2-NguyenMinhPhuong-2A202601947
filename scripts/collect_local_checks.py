@@ -92,6 +92,16 @@ def main() -> int:
             ],
         ),
         (
+            "compose-laptop-gpu-langsmith",
+            [
+                "docker", "compose", "--env-file", "ports.template",
+                "-f", "compose.yaml", "-f", "compose.gpu.yaml",
+                "-f", "compose.gpu.8gb.yaml", "-f", "compose.langsmith.yaml",
+                "-f", "compose.laptop.yaml", "--profile", "full", "--profile", "gpu",
+                "config", "--quiet",
+            ],
+        ),
+        (
             "preflight",
             [python, "-c", "from lab28_platform.cli import main; main()", "preflight"],
         ),

@@ -1,0 +1,22 @@
+# Dot-source from the repository before running CLI/live checks on Windows.
+# Explicit IPv4 avoids Docker Desktop's observed localhost/IPv6 timeouts.
+$lab28Repository = Split-Path -Parent $PSScriptRoot
+$env:LAB28_KAFKA_BOOTSTRAP_SERVERS = '127.0.0.1:9092'
+$env:OTEL_EXPORTER_OTLP_ENDPOINT = 'http://127.0.0.1:4317'
+$env:LAB28_API_URL = 'http://127.0.0.1:18000'
+$env:LAB28_GATEWAY_URL = 'http://127.0.0.1:18080'
+$env:MLFLOW_TRACKING_URI = 'http://127.0.0.1:15000'
+$env:LAB28_VLLM_BASE_URL = 'http://127.0.0.1:8001/v1'
+$env:LAB28_GATEWAY_ADMIN_URL = 'http://127.0.0.1:9901'
+$env:LAB28_AIRFLOW_URL = 'http://127.0.0.1:8082'
+$env:LAB28_PROMETHEUS_URL = 'http://127.0.0.1:9090'
+$env:LAB28_GRAFANA_URL = 'http://127.0.0.1:3000'
+$env:LAB28_TRACE_BACKEND_URL = 'http://127.0.0.1:16686'
+$env:LAB28_QDRANT_URL = 'http://127.0.0.1:6333'
+$env:LAB28_FEAST_SERVER_URL = 'http://127.0.0.1:6566'
+$env:LAB28_API_PORT = '18000'
+$env:LAB28_GATEWAY_PORT = '18080'
+$env:LAB28_MLFLOW_PORT = '15000'
+$env:PYTHONPATH = Join-Path $lab28Repository 'src'
+$env:PYTHONIOENCODING = 'utf-8'
+$env:FASTEMBED_CACHE_PATH = Join-Path $lab28Repository '.lab28/fastembed'

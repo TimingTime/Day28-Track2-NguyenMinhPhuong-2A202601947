@@ -1,0 +1,12 @@
+# Opt in only after authorizing export of this lab's traces to LangSmith.
+services:
+  otel-collector:
+    command:
+      - --config=/etc/otelcol/config.yaml
+      - --config=/etc/otelcol/langsmith.yaml
+    environment:
+      LANGSMITH_API_KEY: ${LANGSMITH_API_KEY:-${LANGCHAIN_API_KEY:-}}
+      LANGSMITH_PROJECT: ${LANGSMITH_PROJECT:-${LANGCHAIN_PROJECT:-lab28-platform}}
+      LANGSMITH_ENDPOINT: ${LANGSMITH_ENDPOINT:-https://api.smith.langchain.com}
+    volumes:
+      - ./monitoring/otel-langsmith.yaml:/etc/otelcol/langsmith.yaml:ro

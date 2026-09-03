@@ -4,6 +4,9 @@ services:
   vllm:
     image: vllm/vllm-openai:v0.28.0-cu129
     shm_size: 1gb
+    environment:
+      # V1 avoids the V2 runner's UVA/pinned-memory requirement on Windows/WSL.
+      VLLM_USE_V2_MODEL_RUNNER: "0"
     command:
       - --model
       - ${LAB28_VLLM_MODEL_ID:-Qwen/Qwen3-1.7B}
@@ -16,11 +19,11 @@ services:
       - --max-model-len
       - "4096"
       - --max-num-seqs
-      - "4"
+      - "2"
       - --max-num-batched-tokens
-      - "2048"
+      - "1024"
       - --gpu-memory-utilization
-      - "0.80"
+      - "0.65"
       - --enforce-eager
       - --default-chat-template-kwargs
       - '{"enable_thinking": false}'

@@ -31,11 +31,20 @@ REQUIRED = {
     "src/lab28_platform/integration_tasks.py",
     "scripts/check_git_hygiene.py",
     "scripts/collect_local_checks.py",
+    "scripts/collect_live_checks.py",
+    "scripts/local-environment.ps1",
     "starter-tests/test_integration_tasks.py",
     "tests/test_integration_edge_cases.py",
     "tests/test_cli_json_output.py",
     "tests/test_kafka_batch_polling.py",
     "compose.gpu.8gb.yaml",
+    "compose.langsmith.yaml",
+    "compose.laptop.yaml",
+    "monitoring/otel-langsmith.yaml",
+    "gitops/project.yaml",
+    "gitops/application.yaml",
+    "scripts/capture_gitops.py",
+    "docs/local-runtime.md",
     "load-tests/run_ask_profile.py",
     "docs/submission-architecture.md",
     "evidence/README.md",
@@ -59,7 +68,7 @@ PRIVATE = {
 }
 SECRET = re.compile(
     rb"(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|"
-    rb"AKIA[0-9A-Z]{16}|sk-proj-[A-Za-z0-9_-]{40,}|"
+    rb"AKIA[0-9A-Z]{16}|sk-proj-[A-Za-z0-9_-]{40,}|lsv2_[A-Za-z0-9_-]{30,}|"
     rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)"
 )
 

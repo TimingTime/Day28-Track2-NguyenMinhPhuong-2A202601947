@@ -7,7 +7,7 @@ spec:
   project: lab28
   source:
     repoURL: https://github.com/TimingTime/Day28-Track2-NguyenMinhPhuong-2A202601947.git
-    targetRevision: 461dc2244aa4739c24fba12e20e58e6c2b7c1caa
+    targetRevision: cea46f07927ee13b509b8460bbcb827de4050ed9
     path: deploy/kubernetes/overlays/local
   destination:
     server: https://kubernetes.default.svc
