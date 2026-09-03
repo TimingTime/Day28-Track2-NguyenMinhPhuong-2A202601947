@@ -1,0 +1,1 @@
+OK    245 checks passed: contracts\integration-matrix.yaml matches the repository

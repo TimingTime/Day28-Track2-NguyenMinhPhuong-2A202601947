@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "captured_at_utc": "2026-09-03T04:08:50.243689+00:00",
+  "scope": "Local code, static configuration and environment checks only",
+  "python": "3.11.16",
+  "platform": "Windows",
+  "all_checks_passed": true,
+  "live_integration_verified": false,
+  "checks": [
+    {
+      "name": "fast-suite",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "starter-tests",
+        "tests",
+        "-q",
+        "--tb=short",
+        "--basetemp=<repository>\\.lab28\\test-runs\\355439f717c44eb88fe7e4c7950e1e06"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 29.016,
+      "output": "reports/local-checks/fast-suite.txt"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 2.609,
+      "output": "reports/local-checks/ruff.txt"
+    },
+    {
+      "name": "integration-matrix",
+      "command": [
+        "python",
+        "scripts/verify_matrix.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 2.531,
+      "output": "reports/local-checks/integration-matrix.txt"
+    },
+    {
+      "name": "portability",
+      "command": [
+        "python",
+        "scripts/check_portability.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 2.594,
+      "output": "reports/local-checks/portability.txt"
+    },
+    {
+      "name": "manifests",
+      "command": [
+        "python",
+        "scripts/validate_manifests.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 2.813,
+      "output": "reports/local-checks/manifests.txt"
+    },
+    {
+      "name": "offline-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "integration-tests",
+        "-m",
+        "offline",
+        "-q",
+        "--tb=short",
+        "--basetemp=<repository>\\.lab28\\test-runs\\542ecd1845c64642a7e4d964ad3e8308"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 10.109,
+      "output": "reports/local-checks/offline-integration.txt"
+    },
+    {
+      "name": "compose-basic",
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        "ports.template",
+        "config",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 0.547,
+      "output": "reports/local-checks/compose-basic.txt"
+    },
+    {
+      "name": "compose-full",
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        "ports.template",
+        "--profile",
+        "full",
+        "config",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 0.594,
+      "output": "reports/local-checks/compose-full.txt"
+    },
+    {
+      "name": "preflight",
+      "command": [
+        "python",
+        "-c",
+        "from lab28_platform.cli import main; main()",
+        "preflight"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "duration_seconds": 7.297,
+      "output": "reports/local-checks/preflight.txt"
+    }
+  ]
+}

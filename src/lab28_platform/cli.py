@@ -53,7 +53,9 @@ EVIDENCE_DIR = Path("evidence")
 
 def _emit(payload: Any) -> None:
     """Write one JSON document to stdout."""
-    json.dump(payload, sys.stdout, indent=2, ensure_ascii=False, default=str)
+    # Redirected Windows stdout can use a legacy encoding; JSON escapes preserve
+    # Unicode values without leaving a partial document when encoding fails.
+    json.dump(payload, sys.stdout, indent=2, ensure_ascii=True, default=str)
     sys.stdout.write("\n")
 
 

@@ -1,0 +1,12 @@
+{
+  "profile": "local-standard",
+  "local_ready": true,
+  "python": "3.11.16",
+  "docker_cli": true,
+  "docker_daemon": true,
+  "cpu_count": 16,
+  "memory_gib": null,
+  "disk_free_gib": 75.1,
+  "next": "continue locally"
+}
+profile: local-standard — continue locally

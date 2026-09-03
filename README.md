@@ -1,5 +1,11 @@
 # Day 28 Track 2 — Bài thực hành kết nối nền tảng AI
 
+> **Bài nộp cá nhân — Nguyễn Minh Phương, 2A202601947.** Bốn hàm tích hợp đã được
+> triển khai. Xem [báo cáo kết quả](REPORT.md), [reflection](ANSWERS.md) và
+> [kiến trúc/phân công](docs/submission-architecture.md). Các đoạn “4 test fail”
+> bên dưới mô tả khung bài ban đầu; bản đã hoàn thiện phải đạt 4 starter tests.
+> Có thể thu lại output kiểm tra bằng `uv run python scripts/collect_local_checks.py`.
+
 > **Bắt đầu ở đây.** Kho mã đã có sẵn phần khung. Bạn cần hoàn thiện 4 chức năng
 > quan trọng, kiểm tra kết quả sau từng bước và chuẩn bị trình bày 10 điểm kết
 > nối của hệ thống trước lớp. Có thể làm **cá nhân hoặc theo nhóm**.
@@ -396,6 +402,7 @@ File nộp và câu hỏi reflection được liệt kê trong
 | Kết quả đầu không đúng 4 lỗi | chạy nhầm `pytest` hoặc kho mã cũ | dùng đúng `uv run pytest starter-tests -q`, rồi `git pull` |
 | Kiểm thử riêng đạt nhưng toàn bộ kiểm thử lỗi | mã mới chỉ xử lý một trường hợp | đọc yêu cầu và tệp hệ thống được nêu trong phần tương ứng |
 | Docker không hoạt động | Docker Desktop/Engine chưa chạy | mở Docker, đợi `docker info` thành công, chạy lại `preflight` |
+| Compose dừng với `fatal error: concurrent map writes` khi pull | lỗi đã gặp trên Docker Compose v2.35.1 | thử `docker compose --parallel 1 --env-file ports.template --profile full up -d --build --wait`; kiểm tra kết quả tải image trước khi tiếp tục |
 | `port is already allocated` | cổng host đang được dùng | đổi giá trị port trong file override và dùng nó với `--env-file` |
 | Thành phần báo `unhealthy` | thành phần phụ thuộc chưa sẵn sàng hoặc thiếu RAM | chạy `docker compose --env-file ports.template logs <ten-thanh-phan>`; sửa lỗi xuất hiện đầu tiên |
 | API chạy nhưng `/ready` lỗi | tiến trình còn sống nhưng chưa sẵn sàng nhận yêu cầu | chạy `uv run lab28 ready`, tìm thành phần `not_ready` |

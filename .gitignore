@@ -1,8 +1,54 @@
+# Local environments and generated service state
 .venv/
 .lab28/
 __pycache__/
 *.pyc
 .pytest_cache/
 .ruff_cache/
-evidence/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Credentials and machine-specific overrides (ports.template stays tracked)
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+simple-auth-passwords.json
+
+# Runtime databases, package downloads and model weights
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.whl
+*.safetensors
+*.onnx
+*.ckpt
+*.pt
+*.pth
+*.log
+
+# Keep only reviewed submission evidence; raw captures stay local.
+evidence/*
+!evidence/README.md
+!evidence/ip01-kafka-consume.json
+!evidence/ip02-airflow-run.json
+!evidence/ip03-delta-history.json
+!evidence/ip04-feast-online.json
+!evidence/ip05-qdrant-search.json
+!evidence/ip06-mlflow-release.json
+!evidence/ip07-vllm-identity.json
+!evidence/ip08-gateway.json
+!evidence/ip09-prometheus-targets.json
+!evidence/ip09-grafana-dashboards.json
+!evidence/ip10-trace.json
+!evidence/integration-report.json
 readiness-report.json
