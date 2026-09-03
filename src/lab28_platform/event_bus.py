@@ -18,6 +18,7 @@ from __future__ import annotations
 import base64
 import json
 import logging
+import time
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from typing import Any
@@ -254,7 +255,12 @@ class BatchConsumer:
         self._consumer.subscribe([self._topic])
 
     def poll_batch(
-        self, max_messages: int, *, idle_polls: int = 3, poll_timeout: float = 1.0
+        self,
+        max_messages: int,
+        *,
+        idle_polls: int = 3,
+        poll_timeout: float = 1.0,
+        assignment_timeout: float = 30.0,
     ) -> tuple[list[ConsumedMessage], list[DeadLetterEnvelope]]:
         """Poll up to ``max_messages``.
 
@@ -262,14 +268,26 @@ class BatchConsumer:
         payload could not be validated. Undecodable input is a permanent defect:
         retrying it would loop forever, so it goes straight to the dead-letter
         list and the offset is allowed to advance.
+
+        Joining a group can take longer than the idle window. An unassigned
+        consumer has not observed an empty topic yet, so wait separately for a
+        bounded assignment window and count only consecutive idle polls.
         """
         decoded: list[ConsumedMessage] = []
         poison: list[DeadLetterEnvelope] = []
         idle = 0
+        assignment_deadline: float | None = None
 
         while len(decoded) + len(poison) < max_messages and idle < idle_polls:
             message = self._consumer.poll(poll_timeout)
             if message is None:
+                if not self._consumer.assignment():
+                    if assignment_deadline is None:
+                        assignment_deadline = time.monotonic() + assignment_timeout
+                    elif time.monotonic() >= assignment_deadline:
+                        raise BrokerUnavailable("Kafka consumer partition assignment timed out")
+                    continue
+                assignment_deadline = None
                 idle += 1
                 continue
             if message.error():
@@ -279,6 +297,8 @@ class BatchConsumer:
                     continue
                 raise BrokerUnavailable(str(error))
 
+            idle = 0
+            assignment_deadline = None
             headers = tuple(message.headers() or ())
             traceparent = traceparent_from_kafka_headers(headers)
             raw = message.value() or b""

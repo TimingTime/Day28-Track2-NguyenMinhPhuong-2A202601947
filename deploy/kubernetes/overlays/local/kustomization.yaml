@@ -1,0 +1,38 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - compose-services.yaml
+  - gateway-class.yaml
+images:
+  - name: ghcr.io/vinuni-ai20k/day28-platform-api
+    newName: lab28-platform-api
+    newTag: submission-20260903-v1
+patches:
+  - path: api-local.yaml
+  - target:
+      kind: HorizontalPodAutoscaler
+      name: lab28-api
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 1
+      - op: replace
+        path: /spec/maxReplicas
+        value: 2
+  - target:
+      kind: ConfigMap
+      name: lab28-api-config
+    patch: |-
+      - op: add
+        path: /data/LAB28_KAFKA_BOOTSTRAP_SERVERS
+        value: kafka.lab28.svc:19092
+      - op: add
+        path: /data/LAB28_VLLM_REQUIRE_REAL
+        value: "false"
+      - op: add
+        path: /data/OTEL_SERVICE_NAME
+        value: lab28-api-kubernetes
+      - op: add
+        path: /data/LAB28_DEMO_REVISION
+        value: baseline

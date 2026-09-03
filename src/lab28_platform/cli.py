@@ -23,6 +23,7 @@ import json
 import shutil
 import subprocess
 import sys
+from contextlib import redirect_stdout
 from pathlib import Path
 from typing import Annotated, Any
 
@@ -357,7 +358,10 @@ def release(
         delta_version=_delta_version(settings.feedback_table),
     )
     registry = ReleaseRegistry(settings.mlflow)
-    entry = registry.register(spec, promote=promote)
+    # MLflow prints run links while closing a run. Keep that prose out of the
+    # machine-readable stdout contract, including when output is redirected.
+    with redirect_stdout(sys.stderr):
+        entry = registry.register(spec, promote=promote)
     _note(f"registered {entry.name} v{entry.version}" + (" as champion" if promote else ""))
     _emit(entry.to_dict())
 

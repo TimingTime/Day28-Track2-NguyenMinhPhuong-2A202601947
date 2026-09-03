@@ -4,6 +4,9 @@ metadata:
   name: lab28-api-config
   namespace: lab28
 data:
+  HOME: /tmp
+  LAB28_RUNTIME_DIR: /tmp/lab28
+  FASTEMBED_CACHE_PATH: /tmp/fastembed
   LAB28_KAFKA_BOOTSTRAP_SERVERS: kafka.lab28.svc:9092
   LAB28_QDRANT_URL: http://qdrant.lab28.svc:6333
   LAB28_FEAST_SERVER_URL: http://feast.lab28.svc:6566

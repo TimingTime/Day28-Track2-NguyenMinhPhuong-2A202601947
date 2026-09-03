@@ -1,0 +1,26 @@
+# Apply after compose.yaml and compose.gpu.yaml on a single 8 GiB NVIDIA GPU.
+# CUDA 12.9 supports the driver used for the recorded Windows/WSL demo.
+services:
+  vllm:
+    image: vllm/vllm-openai:v0.28.0-cu129
+    shm_size: 1gb
+    command:
+      - --model
+      - ${LAB28_VLLM_MODEL_ID:-Qwen/Qwen3-1.7B}
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --dtype
+      - half
+      - --max-model-len
+      - "4096"
+      - --max-num-seqs
+      - "4"
+      - --max-num-batched-tokens
+      - "2048"
+      - --gpu-memory-utilization
+      - "0.80"
+      - --enforce-eager
+      - --default-chat-template-kwargs
+      - '{"enable_thinking": false}'

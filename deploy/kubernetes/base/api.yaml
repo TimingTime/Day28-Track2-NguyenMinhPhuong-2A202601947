@@ -17,6 +17,9 @@ spec:
       serviceAccountName: lab28-api
       securityContext:
         runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
         seccompProfile:
           type: RuntimeDefault
       containers:
@@ -27,6 +30,9 @@ spec:
           envFrom:
             - configMapRef:
                 name: lab28-api-config
+          volumeMounts:
+            - name: temporary
+              mountPath: /tmp
           ports:
             - name: http
               containerPort: 8000
@@ -60,6 +66,9 @@ spec:
             readOnlyRootFilesystem: true
             capabilities:
               drop: ["ALL"]
+      volumes:
+        - name: temporary
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service

@@ -1,0 +1,55 @@
+# The kind node joins lab28-platform_default. CoreDNS forwards these Docker
+# container names to Docker DNS. Data services remain in the Compose stack.
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka
+  namespace: lab28
+spec:
+  type: ExternalName
+  externalName: lab28-platform-kafka-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qdrant
+  namespace: lab28
+spec:
+  type: ExternalName
+  externalName: lab28-platform-qdrant-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feast
+  namespace: lab28
+spec:
+  type: ExternalName
+  externalName: lab28-platform-feast-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow
+  namespace: lab28
+spec:
+  type: ExternalName
+  externalName: lab28-platform-mlflow-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vllm
+  namespace: lab28
+spec:
+  type: ExternalName
+  externalName: lab28-platform-vllm-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+  namespace: lab28
+spec:
+  type: ExternalName
+  externalName: lab28-platform-otel-collector-1
